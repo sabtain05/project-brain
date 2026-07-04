@@ -4,7 +4,7 @@ dist/
 
 coverage/
 
-.projectbrain/
+.codebrain/
 
 .env
 

@@ -1,10 +1,10 @@
 {
-  "name": "project-brain",
+  "name": "codebrain",
   "version": "0.0.1",
-  "description": "Understand any codebase in under 30 seconds.",
+  "description": "A CLI tool that understands and analyzes software projects in seconds.",
   "type": "module",
   "bin": {
-    "project-brain": "./dist/index.js"
+    "codebrain": "./dist/index.js"
   },
   "scripts": {
     "dev": "tsx src/index.ts",
@@ -24,6 +24,22 @@
   ],
   "author": "Sabtain Ali",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabtain05/codebrain.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sabtain05/codebrain/issues"
+  },
+  "homepage": "https://github.com/sabtain05/codebrain#readme",
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "boxen": "^8.0.1",
     "chalk": "^5.6.2",
