@@ -8,7 +8,7 @@ It helps developers quickly inspect a project and understand its basic structure
 
 ## Features
 
-### ✅ v0.0.2
+### v0.0.2
 
 * Beautiful CLI interface
 * Modular command architecture
@@ -58,7 +58,7 @@ quicklyzer scan
 Example output:
 
 ```text
-📦 Project Information
+ Project Information
 ========================
 Name            : quicklyzer
 Version         : 0.0.2
