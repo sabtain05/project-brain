@@ -1,10 +1,10 @@
 {
-  "name": "dev-brain",
+  "name": "quicklyzer",
   "version": "0.0.1",
   "description": "A CLI tool that understands and analyzes software projects in seconds.",
   "type": "module",
   "bin": {
-    "dev-brain": "dist/index.js"
+    "quicklyzer": "dist/index.js"
   },
   "scripts": {
     "dev": "tsx src/index.ts",
@@ -27,12 +27,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sabtain05/dev-brain.git"
+    "url": "git+https://github.com/sabtain05/quicklyzer.git"
   },
   "bugs": {
-    "url": "https://github.com/sabtain05/dev-brain/issues"
+    "url": "https://github.com/sabtain05/quicklyzer/issues"
   },
-  "homepage": "https://github.com/sabtain05/dev-brain#readme",
+  "homepage": "https://github.com/sabtain05/quicklyzer#readme",
   "engines": {
     "node": ">=20"
   },

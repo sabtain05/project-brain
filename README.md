@@ -1,4 +1,4 @@
-# Dev-Brain
+# Quicklyzer
 
 A CLI tool that understands and analyzes software projects in seconds.
 
@@ -12,7 +12,7 @@ A CLI tool that understands and analyzes software projects in seconds.
 ## Installation
 
 ```bash
-npx dev-brain
+npx quicklyzer
 ```
 
 ## Roadmap
