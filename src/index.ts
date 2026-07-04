@@ -4,9 +4,9 @@ import chalk from "chalk";
 
 console.clear();
 
-console.log(chalk.cyan.bold(" CODEBRAIN "));
+console.log(chalk.cyan.bold(" Dev-Brain"));
 console.log(chalk.gray("===================================="));
-console.log(chalk.green("CodeBrain v0.0.1"));
+console.log(chalk.green("Dev-Brain v0.0.1"));
 console.log(chalk.white("A CLI tool that understands and analyzes software projects in seconds."));
 console.log();
 console.log(chalk.yellow("Current Directory:"));

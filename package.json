@@ -1,10 +1,10 @@
 {
-  "name": "codebrain",
+  "name": "dev-brain",
   "version": "0.0.1",
   "description": "A CLI tool that understands and analyzes software projects in seconds.",
   "type": "module",
   "bin": {
-    "codebrain": "dist/index.js"
+    "dev-brain": "dist/index.js"
   },
   "scripts": {
     "dev": "tsx src/index.ts",
@@ -27,12 +27,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sabtain05/codebrain.git"
+    "url": "git+https://github.com/sabtain05/dev-brain.git"
   },
   "bugs": {
-    "url": "https://github.com/sabtain05/codebrain/issues"
+    "url": "https://github.com/sabtain05/dev-brain/issues"
   },
-  "homepage": "https://github.com/sabtain05/codebrain#readme",
+  "homepage": "https://github.com/sabtain05/dev-brain#readme",
   "engines": {
     "node": ">=20"
   },

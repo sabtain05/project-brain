@@ -1,4 +1,4 @@
-# Codebrain
+# Dev-Brain
 
 A CLI tool that understands and analyzes software projects in seconds.
 
@@ -12,7 +12,7 @@ A CLI tool that understands and analyzes software projects in seconds.
 ## Installation
 
 ```bash
-npx codebrain
+npx dev-brain
 ```
 
 ## Roadmap
