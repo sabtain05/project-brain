@@ -1,6 +1,6 @@
 # Codebrain
 
-Understand any codebase in under 30 seconds.
+A CLI tool that understands and analyzes software projects in seconds.
 
 ## Features
 
@@ -12,7 +12,7 @@ Understand any codebase in under 30 seconds.
 ## Installation
 
 ```bash
-npx project-brain
+npx codebrain
 ```
 
 ## Roadmap
