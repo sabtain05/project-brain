@@ -4,11 +4,12 @@
   "description": "A CLI tool that understands and analyzes software projects in seconds.",
   "type": "module",
   "bin": {
-    "codebrain": "./dist/index.js"
+    "codebrain": "dist/index.js"
   },
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsc",
+    "prepublishOnly": "npm run build",
     "start": "node dist/index.js",
     "test": "vitest"
   },
