@@ -1,0 +1,25 @@
+import { Command } from "commander";
+import { showBanner } from "./banner.js";
+import { scanCommand } from "../commands/scan.js";
+import { aboutCommand } from "../commands/about.js";
+import { versionCommand } from "../commands/version.js";
+
+export function createProgram() {
+  const program = new Command();
+
+  program
+    .name("quicklyzer")
+    .description(
+      "A CLI tool that understands and analyzes software projects in seconds."
+    );
+
+  program.hook("preAction", () => {
+    showBanner();
+  });
+
+  program.addCommand(scanCommand());
+  program.addCommand(aboutCommand());
+  program.addCommand(versionCommand());
+
+  return program;
+}
