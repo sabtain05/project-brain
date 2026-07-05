@@ -80,42 +80,6 @@ quicklyzer version
 
 ---
 
-## Roadmap
-
-### ✅ v0.0.1
-
-* Initial CLI setup
-* TypeScript configuration
-* npm package
-* GitHub repository
-
-### ✅ v0.0.2
-
-* Project scanning
-* Read `package.json`
-* About command
-* Version command
-* Modular CLI architecture
-
-### 🚧 v0.0.3
-
-* Framework detection
-* Build tool detection
-* Testing framework detection
-
-### 🚧 v0.0.4
-
-* Project statistics
-* File count
-* Folder count
-* Source code statistics
-
-### 🚧 v0.0.5
-
-* AI-powered project summary
-* Automatic project explanation
-
----
 
 ## Requirements
 
