@@ -14,6 +14,7 @@ export function scanCommand() {
         console.log(`Version         : ${project.version}`);
         console.log(`Package Manager : ${project.packageManager}`);
         console.log(`Language        : ${project.language}`);
+        console.log(`Framework       : ${project.framework}`);
       } catch (error) {
         if (error instanceof Error) {
           console.error(`${error.message}`);
