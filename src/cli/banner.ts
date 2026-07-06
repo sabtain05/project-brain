@@ -9,7 +9,7 @@ export function showBanner(): void {
   console.log(chalk.gray("===================================="));
 
   console.log(chalk.green("v0.0.3"));
-  console.log(chalk.white("A CLI tool that understands and analyzes software projects in seconds."));
+  console.log(chalk.white("A  tool that understands and analyzes software projects in seconds."));
 
   console.log();
 }
