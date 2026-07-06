@@ -13,8 +13,29 @@ interface PackageJson {
   version?: string;
 }
 
+function detectPackageManager(projectPath: string): string {
+  if (fileExists(join(projectPath, "package-lock.json"))) {
+    return "npm";
+  }
+
+  if (fileExists(join(projectPath, "pnpm-lock.yaml"))) {
+    return "pnpm";
+  }
+
+  if (fileExists(join(projectPath, "yarn.lock"))) {
+    return "yarn";
+  }
+
+  if (fileExists(join(projectPath, "bun.lockb"))) {
+    return "bun";
+  }
+
+  return "Unknown";
+}
+
 export function analyzeProject(): ProjectInfo {
-  const packageJsonPath = join(process.cwd(), "package.json");
+  const projectPath = process.cwd();
+  const packageJsonPath = join(projectPath, "package.json");
 
   if (!fileExists(packageJsonPath)) {
     throw new Error("No package.json found in the current directory.");
@@ -25,7 +46,7 @@ export function analyzeProject(): ProjectInfo {
   return {
     name: pkg.name ?? "Unknown",
     version: pkg.version ?? "Unknown",
-    packageManager: "npm",
+    packageManager: detectPackageManager(projectPath),
     language: "TypeScript"
   };
 }
