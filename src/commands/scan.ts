@@ -34,7 +34,7 @@ export function scanCommand() {
         console.log("────────────────────────────");
         console.log();
 
-        console.log(`Git              : ${project.git ? "Yes" : "Yes"}`);
+        console.log(`Git              : ${project.git ? "Yes" : "No"}`);
         console.log(`README           : ${project.readme ? "Yes" : "No"}`);
         console.log(`LICENSE          : ${project.license ? "Yes" : "No"}`);
 
