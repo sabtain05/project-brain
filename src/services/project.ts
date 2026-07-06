@@ -9,6 +9,7 @@ export interface ProjectInfo {
   framework: string;
   buildTool: string;
   git: boolean;
+  readme: boolean;
 }
 
 interface PackageJson {
@@ -87,6 +88,17 @@ function detectGit(projectPath: string): boolean {
   return fileExists(join(projectPath, ".git"));
 }
 
+function detectReadme(projectPath: string): boolean {
+  return (
+    fileExists(join(projectPath, "README.md")) ||
+    fileExists(join(projectPath, "README.MD")) ||
+    fileExists(join(projectPath, "readme.md")) ||
+    fileExists(join(projectPath, "readme.MD")) ||
+    fileExists(join(projectPath, "Readme.md")) ||
+    fileExists(join(projectPath, "Readme.MD"))
+  );
+}
+
 export function analyzeProject(): ProjectInfo {
   const projectPath = process.cwd();
   const packageJsonPath = join(projectPath, "package.json");
@@ -104,6 +116,7 @@ export function analyzeProject(): ProjectInfo {
     language: detectLanguage(projectPath),
     framework: detectFramework(pkg),
     buildTool: detectBuildTool(pkg),
-    git: detectGit(projectPath)
+    git: detectGit(projectPath),
+    readme: detectReadme(projectPath)
   };
 }
