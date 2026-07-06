@@ -5,7 +5,7 @@ export function showBanner(): void {
 
   console.log();
 
-  console.log(chalk.cyan.bold("🧠 QUICKLYZER"));
+  console.log(chalk.cyan.bold("QUICKLYZER"));
   console.log(chalk.gray("===================================="));
 
   console.log(chalk.green("v0.0.2"));
