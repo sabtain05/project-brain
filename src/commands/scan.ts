@@ -17,6 +17,7 @@ export function scanCommand() {
         console.log(`Framework       : ${project.framework}`);
         console.log(`Build Tool      : ${project.buildTool}`);
         console.log(`Git Repository  : ${project.git ? "Yes" : "No"}`);
+        console.log(`README File     : ${project.readme ? "Yes" : "No"}`);
       } catch (error) {
         if (error instanceof Error) {
           console.error(`${error.message}`);
