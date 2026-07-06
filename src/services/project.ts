@@ -10,6 +10,7 @@ export interface ProjectInfo {
   buildTool: string;
   git: boolean;
   readme: boolean;
+  license: boolean;
 }
 
 interface PackageJson {
@@ -99,6 +100,20 @@ function detectReadme(projectPath: string): boolean {
   );
 }
 
+function detectLicense(projectPath: string): boolean {
+  return (
+    fileExists(join(projectPath, "LICENSE")) ||
+    fileExists(join(projectPath, "LICENSE.md")) ||
+    fileExists(join(projectPath, "LICENSE.txt")) ||
+    fileExists(join(projectPath, "license")) ||
+    fileExists(join(projectPath, "license.md")) ||
+    fileExists(join(projectPath, "license.txt")) ||
+    fileExists(join(projectPath, "License")) ||
+    fileExists(join(projectPath, "License.md")) ||
+    fileExists(join(projectPath, "License.txt"))
+  );
+}
+
 export function analyzeProject(): ProjectInfo {
   const projectPath = process.cwd();
   const packageJsonPath = join(projectPath, "package.json");
@@ -117,6 +132,7 @@ export function analyzeProject(): ProjectInfo {
     framework: detectFramework(pkg),
     buildTool: detectBuildTool(pkg),
     git: detectGit(projectPath),
-    readme: detectReadme(projectPath)
+    readme: detectReadme(projectPath),
+    license: detectLicense(projectPath)
   };
 }
