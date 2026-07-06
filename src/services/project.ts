@@ -7,6 +7,7 @@ export interface ProjectInfo {
   packageManager: string;
   language: string;
   framework: string;
+  buildTool: string;
 }
 
 interface PackageJson {
@@ -65,6 +66,22 @@ function detectFramework(pkg: PackageJson): string {
   return "Unknown";
 }
 
+function detectBuildTool(pkg: PackageJson): string {
+  const deps = {
+    ...(pkg.dependencies ?? {}),
+    ...(pkg.devDependencies ?? {})
+  };
+
+  if ("vite" in deps) return "Vite";
+  if ("webpack" in deps) return "Webpack";
+  if ("rollup" in deps) return "Rollup";
+  if ("parcel" in deps) return "Parcel";
+  if ("@rspack/core" in deps) return "Rspack";
+  if ("turbopack" in deps) return "Turbopack";
+
+  return "Unknown";
+}
+
 export function analyzeProject(): ProjectInfo {
   const projectPath = process.cwd();
   const packageJsonPath = join(projectPath, "package.json");
@@ -80,6 +97,7 @@ export function analyzeProject(): ProjectInfo {
     version: pkg.version ?? "Unknown",
     packageManager: detectPackageManager(projectPath),
     language: detectLanguage(projectPath),
-    framework: detectFramework(pkg)
+    framework: detectFramework(pkg),
+    buildTool: detectBuildTool(pkg)
   };
 }
