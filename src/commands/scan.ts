@@ -18,6 +18,7 @@ export function scanCommand() {
         console.log(`Build Tool      : ${project.buildTool}`);
         console.log(`Git Repository  : ${project.git ? "Yes" : "No"}`);
         console.log(`README File     : ${project.readme ? "Yes" : "No"}`);
+        console.log(`LICENSE         : ${project.license ? "Yes" : "No"}`);
       } catch (error) {
         if (error instanceof Error) {
           console.error(`${error.message}`);
