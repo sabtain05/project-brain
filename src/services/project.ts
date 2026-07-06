@@ -6,11 +6,14 @@ export interface ProjectInfo {
   version: string;
   packageManager: string;
   language: string;
+  framework: string;
 }
 
 interface PackageJson {
   name?: string;
   version?: string;
+  dependencies?: Record<string, string>;
+  devDependencies?: Record<string, string>;
 }
 
 function detectPackageManager(projectPath: string): string {
@@ -45,6 +48,23 @@ function detectLanguage(projectPath: string): string {
   return "Unknown";
 }
 
+function detectFramework(pkg: PackageJson): string {
+  const deps = {
+    ...(pkg.dependencies ?? {}),
+    ...(pkg.devDependencies ?? {})
+  };
+
+  if ("next" in deps) return "Next.js";
+  if ("react" in deps) return "React";
+  if ("vue" in deps) return "Vue";
+  if ("@angular/core" in deps) return "Angular";
+  if ("express" in deps) return "Express";
+  if ("@nestjs/core" in deps) return "NestJS";
+  if ("svelte" in deps) return "Svelte";
+
+  return "Unknown";
+}
+
 export function analyzeProject(): ProjectInfo {
   const projectPath = process.cwd();
   const packageJsonPath = join(projectPath, "package.json");
@@ -59,6 +79,7 @@ export function analyzeProject(): ProjectInfo {
     name: pkg.name ?? "Unknown",
     version: pkg.version ?? "Unknown",
     packageManager: detectPackageManager(projectPath),
-    language: detectLanguage(projectPath)
+    language: detectLanguage(projectPath),
+    framework: detectFramework(pkg)
   };
 }
