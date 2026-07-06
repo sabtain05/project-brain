@@ -101,9 +101,14 @@ quicklyzer version
 
 ## Roadmap
 
+## Released
+
+* v0.0.1 — Foundation
+* v0.0.2 — Project Scanner
+
 ### Current Release
 
-* v0.0.3 — Project Intelligence (Foundation)
+* v0.0.3 — Project Intelligence
 
 ### Upcoming
 
