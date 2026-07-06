@@ -8,6 +8,7 @@ export interface ProjectInfo {
   language: string;
   framework: string;
   buildTool: string;
+  git: boolean;
 }
 
 interface PackageJson {
@@ -82,6 +83,10 @@ function detectBuildTool(pkg: PackageJson): string {
   return "Unknown";
 }
 
+function detectGit(projectPath: string): boolean {
+  return fileExists(join(projectPath, ".git"));
+}
+
 export function analyzeProject(): ProjectInfo {
   const projectPath = process.cwd();
   const packageJsonPath = join(projectPath, "package.json");
@@ -98,6 +103,7 @@ export function analyzeProject(): ProjectInfo {
     packageManager: detectPackageManager(projectPath),
     language: detectLanguage(projectPath),
     framework: detectFramework(pkg),
-    buildTool: detectBuildTool(pkg)
+    buildTool: detectBuildTool(pkg),
+    git: detectGit(projectPath)
   };
 }
