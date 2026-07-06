@@ -33,6 +33,18 @@ function detectPackageManager(projectPath: string): string {
   return "Unknown";
 }
 
+function detectLanguage(projectPath: string): string {
+  if (fileExists(join(projectPath, "tsconfig.json"))) {
+    return "TypeScript";
+  }
+
+  if (fileExists(join(projectPath, "jsconfig.json"))) {
+    return "JavaScript";
+  }
+
+  return "Unknown";
+}
+
 export function analyzeProject(): ProjectInfo {
   const projectPath = process.cwd();
   const packageJsonPath = join(projectPath, "package.json");
@@ -47,6 +59,6 @@ export function analyzeProject(): ProjectInfo {
     name: pkg.name ?? "Unknown",
     version: pkg.version ?? "Unknown",
     packageManager: detectPackageManager(projectPath),
-    language: "TypeScript"
+    language: detectLanguage(projectPath)
   };
 }
