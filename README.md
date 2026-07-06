@@ -2,22 +2,27 @@
 
 Quicklyzer is a CLI tool that understands and analyzes software projects in seconds.
 
-It helps developers quickly inspect a project and understand its basic structure before diving into the code.
+It helps developers quickly inspect a project, understand its structure, and identify the technologies being used before diving into the codebase.
 
 ---
 
 ## Features
 
-### v0.0.2
+### v0.0.3
 
 * Beautiful CLI interface
 * Modular command architecture
-* Project scanning
+* Fast project scanning
 * Reads `package.json`
 * Displays project name
 * Displays project version
 * Detects package manager
-* Detects project language
+* Detects programming language
+* Detects framework
+* Detects build tool
+* Detects Git repository
+* Detects README file
+* Detects LICENSE file
 * About command
 * Version command
 
@@ -58,12 +63,20 @@ quicklyzer scan
 Example output:
 
 ```text
- Project Information
+QUICKLYZER
+====================================
+
+Project Information
 ========================
 Name            : quicklyzer
-Version         : 0.0.2
+Version         : 0.0.3
 Package Manager : npm
 Language        : TypeScript
+Framework       : Unknown
+Build Tool      : Unknown
+Git Repository  : Yes
+README File     : Yes
+LICENSE         : Yes
 ```
 
 ### Show information about Quicklyzer
@@ -80,10 +93,30 @@ quicklyzer version
 
 ---
 
-
 ## Requirements
 
 * Node.js 20 or later
+
+---
+
+## Roadmap
+
+### Current Release
+
+* v0.0.3 — Project Intelligence (Foundation)
+
+### Upcoming
+
+* Framework version detection
+* Build tool version detection
+* Dependency statistics
+* Available npm scripts
+* Node.js version detection
+* Docker detection
+* CI/CD detection
+* ESLint detection
+* Prettier detection
+* Monorepo detection
 
 ---
 
@@ -93,4 +126,4 @@ MIT
 
 ---
 
-**A Sabtain Ali Production**
+**A Sabtain Ali production**
