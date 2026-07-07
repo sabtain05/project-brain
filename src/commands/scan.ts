@@ -29,6 +29,7 @@ export function scanCommand() {
         console.log(`Docker           : ${project.docker ? "Yes" : "No"}`);
         console.log(`CI/CD            : ${project.ci}`);
         console.log(`ESLint           : ${project.eslint ? "Yes" : "No"}`);
+        console.log(`Prettier         : ${project.prettier ? "Yes" : "No"}`);
        
        
         console.log();

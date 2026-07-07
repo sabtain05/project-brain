@@ -18,6 +18,7 @@ export interface ProjectInfo {
   docker: boolean;
   ci: string;
   eslint: boolean;
+  prettier: boolean;
   git: boolean;
   readme: boolean;
   license: boolean;
@@ -245,6 +246,30 @@ function detectESLint(projectPath: string, pkg: PackageJson): boolean {
   return hasConfig || "eslint" in deps;
 }
 
+function detectPrettier(projectPath: string, pkg: PackageJson): boolean {
+  const prettierFiles = [
+    ".prettierrc",
+    ".prettierrc.json",
+    ".prettierrc.js",
+    ".prettierrc.cjs",
+    ".prettierrc.yml",
+    ".prettierrc.yaml",
+    "prettier.config.js",
+    "prettier.config.cjs"
+  ];
+
+  const hasConfig = prettierFiles.some(file =>
+    fileExists(join(projectPath, file))
+  );
+
+  const deps = {
+    ...(pkg.dependencies ?? {}),
+    ...(pkg.devDependencies ?? {})
+  };
+
+  return hasConfig || "prettier" in deps;
+}
+
 function detectGit(projectPath: string): boolean {
   return fileExists(join(projectPath, ".git"));
 }
@@ -289,6 +314,7 @@ export function analyzeProject(): ProjectInfo {
   const docker = detectDocker(projectPath);
   const ci = detectCI(projectPath);
   const eslint = detectESLint(projectPath, pkg);
+  const prettier = detectPrettier(projectPath, pkg);
 
   return {
     name: pkg.name ?? "Unknown",
@@ -307,6 +333,7 @@ export function analyzeProject(): ProjectInfo {
     docker: docker,
     ci: ci,
     eslint: eslint,
+    prettier: prettier,
     git: detectGit(projectPath),
     readme: detectReadme(projectPath),
     license: detectLicense(projectPath)
