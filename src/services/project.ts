@@ -9,6 +9,7 @@ export interface ProjectInfo {
   framework: string;
   frameworkVersion: string;
   buildTool: string;
+  buildToolVersion: string;
   git: boolean;
   readme: boolean;
   license: boolean;
@@ -112,6 +113,30 @@ function detectBuildTool(pkg: PackageJson): string {
   return "Unknown";
 }
 
+function detectBuildToolVersion(pkg: PackageJson): string {
+  const deps = {
+    ...(pkg.dependencies ?? {}),
+    ...(pkg.devDependencies ?? {})
+  };
+
+  const buildTools = [
+    "vite",
+    "webpack",
+    "rollup",
+    "parcel",
+    "@rspack/core",
+    "turbopack"
+  ];
+
+  for (const tool of buildTools) {
+    if (tool in deps) {
+      return deps[tool];
+    }
+  }
+
+  return "Unknown";
+}
+
 function detectGit(projectPath: string): boolean {
   return fileExists(join(projectPath, ".git"));
 }
@@ -159,6 +184,7 @@ export function analyzeProject(): ProjectInfo {
     framework: detectFramework(pkg),
     frameworkVersion: detectFrameworkVersion(pkg),
     buildTool: detectBuildTool(pkg),
+    buildToolVersion: detectBuildToolVersion(pkg),
     git: detectGit(projectPath),
     readme: detectReadme(projectPath),
     license: detectLicense(projectPath)
