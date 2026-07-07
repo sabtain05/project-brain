@@ -15,6 +15,7 @@ export interface ProjectInfo {
   totalDependencyCount: number;
   scripts: string[];
   nodeVersion: string;
+  docker: boolean;
   git: boolean;
   readme: boolean;
   license: boolean;
@@ -139,7 +140,15 @@ function detectBuildToolVersion(pkg: PackageJson): string {
     "rollup",
     "parcel",
     "@rspack/core",
-    "turbopack"
+    "turbopack",
+    "esbuild",
+    "swc",
+    "snowpack",
+    "brunch",
+    "gulp",
+    "grunt",
+    "broccoli",
+    "fuse-box"
   ];
 
   for (const tool of buildTools) {
@@ -172,6 +181,21 @@ function getScripts(pkg: PackageJson): string[] {
 
 function detectNodeVersion(pkg: PackageJson): string {
   return pkg.engines?.node ?? "Not specified";
+}
+
+function detectDocker(projectPath: string): boolean {
+  const dockerFiles = [
+    "Dockerfile",
+    "docker-compose.yml",
+    "docker-compose.yaml",
+    "compose.yml",
+    "compose.yaml",
+    ".dockerignore"
+  ];
+
+  return dockerFiles.some(file =>
+    fileExists(join(projectPath, file))
+  );
 }
 
 function detectGit(projectPath: string): boolean {
@@ -215,6 +239,7 @@ export function analyzeProject(): ProjectInfo {
   const dependencyStats = getDependencyStatistics(pkg);
   const scripts = getScripts(pkg);
   const nodeVersion = detectNodeVersion(pkg);
+  const docker = detectDocker(projectPath);
 
   return {
     name: pkg.name ?? "Unknown",
@@ -230,6 +255,7 @@ export function analyzeProject(): ProjectInfo {
     totalDependencyCount: dependencyStats.totalDependencyCount,
     scripts: scripts,
     nodeVersion: nodeVersion,
+    docker: docker,
     git: detectGit(projectPath),
     readme: detectReadme(projectPath),
     license: detectLicense(projectPath)
