@@ -7,6 +7,7 @@ export interface ProjectInfo {
   packageManager: string;
   language: string;
   framework: string;
+  frameworkVersion: string;
   buildTool: string;
   git: boolean;
   readme: boolean;
@@ -65,6 +66,32 @@ function detectFramework(pkg: PackageJson): string {
   if ("express" in deps) return "Express";
   if ("@nestjs/core" in deps) return "NestJS";
   if ("svelte" in deps) return "Svelte";
+
+  return "Unknown";
+}
+
+function detectFrameworkVersion(pkg: PackageJson): string {
+    const deps = {
+        ...(pkg.dependencies ?? {}),
+        ...(pkg.devDependencies ?? {})
+  };
+
+  const frameworks = [
+    "next",
+    "react",
+    "vue",
+    "@angular/core",
+    "express",
+    "@nestjs/core",
+    "svelte",
+
+  ];
+
+  for (const framework of frameworks) {
+    if (framework in deps) {
+      return deps[framework];
+    }
+  }
 
   return "Unknown";
 }
