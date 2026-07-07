@@ -12,8 +12,6 @@ export function scanCommand() {
 
         console.log("Project");
         console.log("────────────────────────────");
-        console.log();
-
         console.log(`Name             : ${project.name}`);
         console.log(`Version          : ${project.version}`);
 
@@ -21,8 +19,6 @@ export function scanCommand() {
 
         console.log("Environment");
         console.log("────────────────────────────");
-        console.log();
-
         console.log(`Package Manager  : ${project.packageManager}`);
         console.log(`Language         : ${project.language}`);
         console.log(`Framework        : ${project.framework}`);
@@ -30,12 +26,19 @@ export function scanCommand() {
         console.log(`Build Tool       : ${project.buildTool}`);
         console.log(`Build Tool Version: ${project.buildToolVersion}`);
 
+        
+        console.log();
+
+        console.log("Dependencies");
+        console.log("========================");
+        console.log(`Dependencies      : ${project.dependencyCount}`);
+        console.log(`Dev Dependencies  : ${project.devDependencyCount}`);
+        console.log(`Total Packages    : ${project.totalDependencyCount}`);
+
         console.log();
 
         console.log("Repository");
         console.log("────────────────────────────");
-        console.log();
-
         console.log(`Git              : ${project.git ? "Yes" : "No"}`);
         console.log(`README           : ${project.readme ? "Yes" : "No"}`);
         console.log(`LICENSE          : ${project.license ? "Yes" : "No"}`);
