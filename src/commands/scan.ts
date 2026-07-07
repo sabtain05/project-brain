@@ -58,6 +58,7 @@ export function scanCommand() {
         console.log("Project Statistics");
         console.log("────────────────────────────");
         console.log(`Total Files      : ${project.totalFiles}`);
+        console.log(`Source Files     : ${project.sourceFiles}`);
 
 
 

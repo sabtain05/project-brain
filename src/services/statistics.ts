@@ -1,7 +1,6 @@
 import { readdirSync, statSync } from "fs";
 import { join } from "path";
 
-
 const IGNORED_DIRECTORIES = [
   "node_modules",
   ".git",
@@ -13,9 +12,22 @@ const IGNORED_DIRECTORIES = [
   "out"
 ];
 
+const SOURCE_EXTENSIONS = [
+  ".ts",
+  ".tsx",
+  ".js",
+  ".jsx",
+  ".mjs",
+  ".cjs"
+];
 
-function countFiles(directory: string): number {
-  let total = 0;
+function countFiles(directory: string): {
+  totalFiles: number;
+  sourceFiles: number;
+} {
+  let totalFiles = 0;
+  let sourceFiles = 0;
+  let directories = 0;
 
   const entries = readdirSync(directory);
 
@@ -28,18 +40,34 @@ function countFiles(directory: string): number {
         continue;
       }
 
-      total += countFiles(fullPath);
+      const child = countFiles(fullPath);
+
+      totalFiles += child.totalFiles;
+      sourceFiles += child.sourceFiles;
     } else {
-      total++;
+      totalFiles++;
+
+      if (
+        SOURCE_EXTENSIONS.some((extension) =>
+          entry.endsWith(extension)
+        )
+      ) {
+        sourceFiles++;
+      }
     }
   }
 
-  return total;
+  return {
+    totalFiles,
+    sourceFiles
+  };
 }
 
-
 export function getProjectStatistics(projectPath: string) {
+  const stats = countFiles(projectPath);
+
   return {
-    totalFiles: countFiles(projectPath)
+    totalFiles: stats.totalFiles,
+    sourceFiles: stats.sourceFiles
   };
 }
