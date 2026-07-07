@@ -26,7 +26,10 @@ interface DirectoryStats {
   fileCount: number;
 }
 
-function countFiles(directory: string): {
+function countFiles(
+  directory: string,
+  projectPath: string
+): {
   totalFiles: number;
   sourceFiles: number;
   directories: number;
@@ -56,7 +59,7 @@ function countFiles(directory: string): {
 
       directories++;
 
-      const child = countFiles(fullPath);
+      const child = countFiles(fullPath, projectPath);
 
       totalFiles += child.totalFiles;
       sourceFiles += child.sourceFiles;
@@ -82,7 +85,11 @@ function countFiles(directory: string): {
     }
   }
 
-  if (filesInCurrentDirectory > largestDirectory.fileCount) {
+  // Ignore the project root when selecting the largest directory
+  if (
+    directory !== projectPath &&
+    filesInCurrentDirectory > largestDirectory.fileCount
+  ) {
     largestDirectory = {
       path: directory,
       fileCount: filesInCurrentDirectory
@@ -98,7 +105,7 @@ function countFiles(directory: string): {
 }
 
 export function getProjectStatistics(projectPath: string) {
-  const stats = countFiles(projectPath);
+  const stats = countFiles(projectPath, projectPath);
 
   return {
     totalFiles: stats.totalFiles,

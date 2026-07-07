@@ -1,5 +1,6 @@
 import { Command } from "commander";
 import { analyzeProject } from "../services/project.js";
+import { basename } from "path";
 
 export function scanCommand() {
   return new Command("scan")
@@ -60,7 +61,8 @@ export function scanCommand() {
         console.log(`Total Files       : ${project.totalFiles}`);
         console.log(`Source Files      : ${project.sourceFiles}`);
         console.log(`Directories       : ${project.directories}`);
-        console.log(`Largest Directory : ${project.largestDirectory.path} (${project.largestDirectory.fileCount} files)`);
+        console.log(`Largest Directory : ${basename(project.largestDirectory.path)} (${project.largestDirectory.fileCount} files)`);
+
 
 
 
