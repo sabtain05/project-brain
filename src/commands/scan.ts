@@ -26,6 +26,7 @@ export function scanCommand() {
         console.log(`Package Manager  : ${project.packageManager}`);
         console.log(`Language         : ${project.language}`);
         console.log(`Framework        : ${project.framework}`);
+        console.log(`Framework Version: ${project.frameworkVersion}`);
         console.log(`Build Tool       : ${project.buildTool}`);
 
         console.log();
