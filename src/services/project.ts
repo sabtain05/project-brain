@@ -1,5 +1,6 @@
 import { join } from "node:path";
 import { fileExists, readJsonFile } from "../utils/system.js";
+import { getProjectStatistics } from "./statistics.js";
 
 export interface ProjectInfo {
   name: string;
@@ -13,6 +14,7 @@ export interface ProjectInfo {
   dependencyCount: number;
   devDependencyCount: number;
   totalDependencyCount: number;
+  totalFiles: number;
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
@@ -336,6 +338,7 @@ export function analyzeProject(): ProjectInfo {
   const eslint = detectESLint(projectPath, pkg);
   const prettier = detectPrettier(projectPath, pkg);
   const monorepo = detectMonorepo(projectPath, pkg);
+  const statistics = getProjectStatistics(projectPath);
 
   return {
     name: pkg.name ?? "Unknown",
@@ -349,6 +352,7 @@ export function analyzeProject(): ProjectInfo {
     dependencyCount: dependencyStats.dependencyCount,
     devDependencyCount: dependencyStats.devDependencyCount,
     totalDependencyCount: dependencyStats.totalDependencyCount,
+    totalFiles: statistics.totalFiles,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,
