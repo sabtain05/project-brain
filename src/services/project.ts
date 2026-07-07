@@ -157,6 +157,7 @@ export function analyzeProject(): ProjectInfo {
     packageManager: detectPackageManager(projectPath),
     language: detectLanguage(projectPath),
     framework: detectFramework(pkg),
+    frameworkVersion: detectFrameworkVersion(pkg),
     buildTool: detectBuildTool(pkg),
     git: detectGit(projectPath),
     readme: detectReadme(projectPath),
