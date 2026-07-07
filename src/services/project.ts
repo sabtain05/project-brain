@@ -19,6 +19,7 @@ export interface ProjectInfo {
   ci: string;
   eslint: boolean;
   prettier: boolean;
+  monorepo: boolean;
   git: boolean;
   readme: boolean;
   license: boolean;
@@ -270,6 +271,25 @@ function detectPrettier(projectPath: string, pkg: PackageJson): boolean {
   return hasConfig || "prettier" in deps;
 }
 
+function detectMonorepo(projectPath: string, pkg: PackageJson): boolean {
+  const workspaceFiles = [
+    "pnpm-workspace.yaml",
+    "pnpm-workspace.yml",
+    "turbo.json",
+    "nx.json"
+  ];
+
+  const hasWorkspaceFile = workspaceFiles.some(file =>
+    fileExists(join(projectPath, file))
+  );
+
+  const hasWorkspaces =
+    Array.isArray(pkg.workspaces) &&
+    pkg.workspaces.length > 0;
+
+  return hasWorkspaceFile || hasWorkspaces;
+}
+
 function detectGit(projectPath: string): boolean {
   return fileExists(join(projectPath, ".git"));
 }
@@ -315,6 +335,7 @@ export function analyzeProject(): ProjectInfo {
   const ci = detectCI(projectPath);
   const eslint = detectESLint(projectPath, pkg);
   const prettier = detectPrettier(projectPath, pkg);
+  const monorepo = detectMonorepo(projectPath, pkg);
 
   return {
     name: pkg.name ?? "Unknown",
@@ -334,6 +355,7 @@ export function analyzeProject(): ProjectInfo {
     ci: ci,
     eslint: eslint,
     prettier: prettier,
+    monorepo: monorepo,
     git: detectGit(projectPath),
     readme: detectReadme(projectPath),
     license: detectLicense(projectPath)

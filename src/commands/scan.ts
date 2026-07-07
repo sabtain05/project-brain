@@ -30,6 +30,7 @@ export function scanCommand() {
         console.log(`CI/CD            : ${project.ci}`);
         console.log(`ESLint           : ${project.eslint ? "Yes" : "No"}`);
         console.log(`Prettier         : ${project.prettier ? "Yes" : "No"}`);
+        console.log(`Monorepo         : ${project.monorepo ? "Yes" : "No"}`);
        
        
         console.log();
