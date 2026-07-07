@@ -26,7 +26,8 @@ export function scanCommand() {
         console.log(`Build Tool       : ${project.buildTool}`);
         console.log(`Build Tool Version: ${project.buildToolVersion}`);
         console.log(`Node.js Required : ${project.nodeVersion}`);
-        
+        console.log(`Docker           : ${project.docker ? "Yes" : "No"}`);
+
         console.log();
 
         console.log("Dependencies");
