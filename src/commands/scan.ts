@@ -34,6 +34,18 @@ export function scanCommand() {
         console.log(`Dependencies      : ${project.dependencyCount}`);
         console.log(`Dev Dependencies  : ${project.devDependencyCount}`);
         console.log(`Total Packages    : ${project.totalDependencyCount}`);
+        
+        console.log();
+
+        console.log("Scripts");
+        console.log("────────────────────────────");
+        if (project.scripts.length === 0) {
+           console.log("No scripts found.");
+        } else {
+          for (const script of project.scripts) {
+            console.log(`${script}`);
+          }
+       }
 
         console.log();
 

@@ -13,6 +13,7 @@ export interface ProjectInfo {
   dependencyCount: number;
   devDependencyCount: number;
   totalDependencyCount: number;
+  scripts: string[];
   git: boolean;
   readme: boolean;
   license: boolean;
@@ -21,8 +22,17 @@ export interface ProjectInfo {
 interface PackageJson {
   name?: string;
   version?: string;
+
   dependencies?: Record<string, string>;
   devDependencies?: Record<string, string>;
+
+  scripts?: Record<string, string>;
+
+  engines?: {
+    node?: string;
+  };
+
+  workspaces?: string[];
 }
 
 function detectPackageManager(projectPath: string): string {
@@ -155,6 +165,10 @@ function getDependencyStatistics(pkg: PackageJson) {
   };
 }
 
+function getScripts(pkg: PackageJson): string[] {
+  return Object.keys(pkg.scripts ?? {});
+}
+
 function detectGit(projectPath: string): boolean {
   return fileExists(join(projectPath, ".git"));
 }
@@ -194,6 +208,8 @@ export function analyzeProject(): ProjectInfo {
 
   const pkg = readJsonFile<PackageJson>(packageJsonPath);
   const dependencyStats = getDependencyStatistics(pkg);
+  const scripts = getScripts(pkg);
+
 
   return {
     name: pkg.name ?? "Unknown",
@@ -207,6 +223,7 @@ export function analyzeProject(): ProjectInfo {
     dependencyCount: dependencyStats.dependencyCount,
     devDependencyCount: dependencyStats.devDependencyCount,
     totalDependencyCount: dependencyStats.totalDependencyCount,
+    scripts: scripts,
     git: detectGit(projectPath),
     readme: detectReadme(projectPath),
     license: detectLicense(projectPath)
