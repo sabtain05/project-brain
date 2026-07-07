@@ -24,6 +24,7 @@ const SOURCE_EXTENSIONS = [
 function countFiles(directory: string): {
   totalFiles: number;
   sourceFiles: number;
+  directories: number;
 } {
   let totalFiles = 0;
   let sourceFiles = 0;
@@ -39,11 +40,15 @@ function countFiles(directory: string): {
       if (IGNORED_DIRECTORIES.includes(entry)) {
         continue;
       }
+       
+      directories++;
+
 
       const child = countFiles(fullPath);
 
       totalFiles += child.totalFiles;
       sourceFiles += child.sourceFiles;
+      directories += child.directories;
     } else {
       totalFiles++;
 
@@ -59,7 +64,8 @@ function countFiles(directory: string): {
 
   return {
     totalFiles,
-    sourceFiles
+    sourceFiles,
+    directories
   };
 }
 
@@ -68,6 +74,7 @@ export function getProjectStatistics(projectPath: string) {
 
   return {
     totalFiles: stats.totalFiles,
-    sourceFiles: stats.sourceFiles
+    sourceFiles: stats.sourceFiles,
+    directories: stats.directories
   };
 }

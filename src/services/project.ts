@@ -16,6 +16,7 @@ export interface ProjectInfo {
   totalDependencyCount: number;
   totalFiles: number;
   sourceFiles: number;
+  directories: number;
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
@@ -355,6 +356,7 @@ export function analyzeProject(): ProjectInfo {
     totalDependencyCount: dependencyStats.totalDependencyCount,
     totalFiles: statistics.totalFiles,
     sourceFiles: statistics.sourceFiles,
+    directories: statistics.directories,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,
