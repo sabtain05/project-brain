@@ -30,7 +30,7 @@ export function scanCommand() {
         console.log();
 
         console.log("Dependencies");
-        console.log("========================");
+        console.log("────────────────────────────");
         console.log(`Dependencies      : ${project.dependencyCount}`);
         console.log(`Dev Dependencies  : ${project.devDependencyCount}`);
         console.log(`Total Packages    : ${project.totalDependencyCount}`);
