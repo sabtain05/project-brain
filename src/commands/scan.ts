@@ -62,6 +62,7 @@ export function scanCommand() {
         console.log(`Source Files      : ${project.sourceFiles}`);
         console.log(`Directories       : ${project.directories}`);
         console.log(`Largest Directory : ${basename(project.largestDirectory.path)} (${project.largestDirectory.fileCount} files)`);
+        console.log(`Lines of Code     : ${project.linesOfCode.toLocaleString()}`);
 
 
 

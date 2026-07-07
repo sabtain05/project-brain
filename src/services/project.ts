@@ -21,6 +21,7 @@ export interface ProjectInfo {
   path: string;
   fileCount: number;
   };
+  linesOfCode: number;
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
@@ -362,6 +363,7 @@ export function analyzeProject(): ProjectInfo {
     sourceFiles: statistics.sourceFiles,
     directories: statistics.directories,
     largestDirectory: statistics.largestDirectory,
+    linesOfCode: statistics.linesOfCode,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,

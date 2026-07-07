@@ -1,5 +1,6 @@
-import { readdirSync, statSync } from "fs";
+import { readdirSync, statSync, readFileSync } from "fs";
 import { join } from "path";
+
 
 const IGNORED_DIRECTORIES = [
   "node_modules",
@@ -34,6 +35,7 @@ function countFiles(
   sourceFiles: number;
   directories: number;
   largestDirectory: DirectoryStats;
+  linesOfCode: number;
 } {
   let totalFiles = 0;
   let sourceFiles = 0;
@@ -45,6 +47,7 @@ function countFiles(
   };
 
   let filesInCurrentDirectory = 0;
+  let linesOfCode = 0;
 
   const entries = readdirSync(directory);
 
@@ -64,6 +67,7 @@ function countFiles(
       totalFiles += child.totalFiles;
       sourceFiles += child.sourceFiles;
       directories += child.directories;
+      linesOfCode += child.linesOfCode;
 
       if (
         child.largestDirectory.fileCount >
@@ -76,16 +80,22 @@ function countFiles(
       filesInCurrentDirectory++;
 
       if (
-        SOURCE_EXTENSIONS.some((extension) =>
+        SOURCE_EXTENSIONS.some(extension =>
           entry.endsWith(extension)
         )
       ) {
         sourceFiles++;
+
+        const content = readFileSync(fullPath, "utf8");
+
+        linesOfCode += content
+          .split(/\r?\n/)
+          .filter(line => line.trim() !== "").length;
       }
     }
   }
 
-  // Ignore the project root when selecting the largest directory
+
   if (
     directory !== projectPath &&
     filesInCurrentDirectory > largestDirectory.fileCount
@@ -100,7 +110,8 @@ function countFiles(
     totalFiles,
     sourceFiles,
     directories,
-    largestDirectory
+    largestDirectory,
+    linesOfCode
   };
 }
 
@@ -111,6 +122,7 @@ export function getProjectStatistics(projectPath: string) {
     totalFiles: stats.totalFiles,
     sourceFiles: stats.sourceFiles,
     directories: stats.directories,
-    largestDirectory: stats.largestDirectory
+    largestDirectory: stats.largestDirectory,
+    linesOfCode: stats.linesOfCode,
   };
 }
