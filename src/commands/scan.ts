@@ -28,6 +28,9 @@ export function scanCommand() {
         console.log(`Node.js Required : ${project.nodeVersion}`);
         console.log(`Docker           : ${project.docker ? "Yes" : "No"}`);
         console.log(`CI/CD            : ${project.ci}`);
+        console.log(`ESLint           : ${project.eslint ? "Yes" : "No"}`);
+       
+       
         console.log();
 
         console.log("Dependencies");

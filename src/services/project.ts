@@ -17,6 +17,7 @@ export interface ProjectInfo {
   nodeVersion: string;
   docker: boolean;
   ci: string;
+  eslint: boolean;
   git: boolean;
   readme: boolean;
   license: boolean;
@@ -219,6 +220,31 @@ function detectCI(projectPath: string): string {
   return "None";
 }
 
+function detectESLint(projectPath: string, pkg: PackageJson): boolean {
+  const eslintFiles = [
+    "eslint.config.js",
+    "eslint.config.mjs",
+    "eslint.config.cjs",
+    ".eslintrc",
+    ".eslintrc.js",
+    ".eslintrc.cjs",
+    ".eslintrc.json",
+    ".eslintrc.yml",
+    ".eslintrc.yaml"
+  ];
+
+  const hasConfig = eslintFiles.some(file =>
+    fileExists(join(projectPath, file))
+  );
+
+  const deps = {
+    ...(pkg.dependencies ?? {}),
+    ...(pkg.devDependencies ?? {})
+  };
+
+  return hasConfig || "eslint" in deps;
+}
+
 function detectGit(projectPath: string): boolean {
   return fileExists(join(projectPath, ".git"));
 }
@@ -262,7 +288,7 @@ export function analyzeProject(): ProjectInfo {
   const nodeVersion = detectNodeVersion(pkg);
   const docker = detectDocker(projectPath);
   const ci = detectCI(projectPath);
-
+  const eslint = detectESLint(projectPath, pkg);
 
   return {
     name: pkg.name ?? "Unknown",
@@ -280,6 +306,7 @@ export function analyzeProject(): ProjectInfo {
     nodeVersion: nodeVersion,
     docker: docker,
     ci: ci,
+    eslint: eslint,
     git: detectGit(projectPath),
     readme: detectReadme(projectPath),
     license: detectLicense(projectPath)
