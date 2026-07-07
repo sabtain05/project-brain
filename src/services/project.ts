@@ -16,6 +16,7 @@ export interface ProjectInfo {
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
+  ci: string;
   git: boolean;
   readme: boolean;
   license: boolean;
@@ -198,6 +199,26 @@ function detectDocker(projectPath: string): boolean {
   );
 }
 
+function detectCI(projectPath: string): string {
+  if (fileExists(join(projectPath, ".github", "workflows"))) {
+    return "GitHub Actions";
+  }
+
+  if (fileExists(join(projectPath, ".gitlab-ci.yml"))) {
+    return "GitLab CI";
+  }
+
+  if (fileExists(join(projectPath, "azure-pipelines.yml"))) {
+    return "Azure Pipelines";
+  }
+
+  if (fileExists(join(projectPath, "circle.yml"))) {
+    return "CircleCI";
+  }
+
+  return "None";
+}
+
 function detectGit(projectPath: string): boolean {
   return fileExists(join(projectPath, ".git"));
 }
@@ -240,6 +261,8 @@ export function analyzeProject(): ProjectInfo {
   const scripts = getScripts(pkg);
   const nodeVersion = detectNodeVersion(pkg);
   const docker = detectDocker(projectPath);
+  const ci = detectCI(projectPath);
+
 
   return {
     name: pkg.name ?? "Unknown",
@@ -256,6 +279,7 @@ export function analyzeProject(): ProjectInfo {
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,
+    ci: ci,
     git: detectGit(projectPath),
     readme: detectReadme(projectPath),
     license: detectLicense(projectPath)
