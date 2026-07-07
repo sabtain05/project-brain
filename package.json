@@ -1,7 +1,7 @@
 {
   "name": "quicklyzer",
   "version": "0.0.4",
-  "description": "A CLI tool that understands and analyzes software projects in seconds.",
+  "description": "A CLI that understands and analyzes software projects in seconds.",
   "type": "module",
   "bin": {
     "quicklyzer": "dist/index.js"

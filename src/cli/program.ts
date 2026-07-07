@@ -10,7 +10,7 @@ export function createProgram() {
   program
     .name("quicklyzer")
     .description(
-      "A CLI tool that understands and analyzes software projects in seconds."
+      "A CLI that understands and analyzes software projects in seconds."
     );
 
   program.hook("preAction", () => {
