@@ -25,7 +25,7 @@ export function scanCommand() {
         console.log(`Framework Version: ${project.frameworkVersion}`);
         console.log(`Build Tool       : ${project.buildTool}`);
         console.log(`Build Tool Version: ${project.buildToolVersion}`);
-
+        console.log(`Node.js Required : ${project.nodeVersion}`);
         
         console.log();
 
