@@ -1,60 +1,51 @@
 # Quicklyzer
 
-Quicklyzer is a CLI tool that understands and analyzes software projects in seconds.
+> Understand any software project in seconds.
 
-It helps developers quickly inspect a project, understand its structure, and identify the technologies being used before diving into the codebase.
+Quicklyzer is a lightweight CLI that instantly analyzes a project and summarizes its development environment, tooling, and repository information.
+
+Built for developers who want to understand unfamiliar codebases without manually inspecting configuration files.
 
 ---
 
 ## Features
 
-### v0.0.3
-
-* Beautiful CLI interface
-* Modular command architecture
-* Fast project scanning
-* Reads `package.json`
-* Displays project name
-* Displays project version
-* Detects package manager
-* Detects programming language
-* Detects framework
-* Detects build tool
-* Detects Git repository
-* Detects README file
-* Detects LICENSE file
-* About command
-* Version command
+- Project information
+- Framework detection
+- Framework version detection
+- Build tool detection
+- Build tool version detection
+- Dependency statistics
+- npm scripts detection
+- Node.js version detection
+- Docker detection
+- CI/CD detection
+- ESLint detection
+- Prettier detection
+- Monorepo detection
+- Git repository detection
+- README detection
+- LICENSE detection
 
 ---
 
 ## Installation
 
-Run directly without installing:
+```bash
+npm install -g quicklyzer
+```
+
+Or run without installing:
 
 ```bash
 npx quicklyzer scan
 ```
 
-Or install globally:
-
-```bash
-npm install -g quicklyzer
-```
-
-Then use:
-
-```bash
-quicklyzer scan
-quicklyzer about
-quicklyzer version
-```
-
 ---
 
-## Commands
+## Usage
 
-### Scan the current project
+### Scan a project
 
 ```bash
 quicklyzer scan
@@ -66,26 +57,55 @@ Example output:
 QUICKLYZER
 ====================================
 
-Project Information
-========================
-Name            : quicklyzer
-Version         : 0.0.3
-Package Manager : npm
-Language        : TypeScript
-Framework       : Unknown
-Build Tool      : Unknown
-Git Repository  : Yes
-README File     : Yes
-LICENSE         : Yes
+Project
+────────────────────────────
+
+Name             : quicklyzer
+Version          : 0.0.4
+
+Environment
+────────────────────────────
+
+Package Manager  : npm
+Language         : TypeScript
+Framework        : Unknown
+Framework Version: Unknown
+Build Tool       : Unknown
+Build Tool Version: Unknown
+Node.js Required : >=20
+Docker           : No
+CI/CD            : None
+ESLint           : No
+Prettier         : No
+Monorepo         : No
+
+Dependencies
+────────────────────────────
+
+Dependencies      : 4
+Dev Dependencies  : 4
+Total Packages    : 8
+
+Scripts
+────────────────────────────
+
+dev
+build
+prepublishOnly
+start
+test
+
+Repository
+────────────────────────────
+
+Git              : Yes
+README           : Yes
+LICENSE          : Yes
 ```
 
-### Show information about Quicklyzer
+---
 
-```bash
-quicklyzer about
-```
-
-### Display the installed version
+### Show version
 
 ```bash
 quicklyzer version
@@ -93,35 +113,41 @@ quicklyzer version
 
 ---
 
-## Requirements
+### About
 
-* Node.js 20 or later
+```bash
+quicklyzer about
+```
 
 ---
 
 ## Roadmap
 
-## Released
+### v0.0.1
+- Initial CLI
+- Welcome banner
 
-* v0.0.1 — Foundation
-* v0.0.2 — Project Scanner
+### v0.0.2
+- Basic project scanning
+- Version command
+- About command
 
-### Current Release
+### v0.0.3
+- Git detection
+- README detection
+- LICENSE detection
 
-* v0.0.3 — Project Intelligence
-
-### Upcoming
-
-* Framework version detection
-* Build tool version detection
-* Dependency statistics
-* Available npm scripts
-* Node.js version detection
-* Docker detection
-* CI/CD detection
-* ESLint detection
-* Prettier detection
-* Monorepo detection
+### v0.0.4
+- Framework version detection
+- Build tool version detection
+- Dependency statistics
+- npm scripts detection
+- Node.js version detection
+- Docker detection
+- CI/CD detection
+- ESLint detection
+- Prettier detection
+- Monorepo detection
 
 ---
 
@@ -130,5 +156,11 @@ quicklyzer version
 MIT
 
 ---
+
+## Author
+
+Sabtain Ali
+
+GitHub: https://github.com/sabtain05
 
 **A Sabtain Ali production**
