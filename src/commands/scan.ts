@@ -19,18 +19,18 @@ export function scanCommand() {
 
         console.log("Environment");
         console.log("────────────────────────────");
-        console.log(`Package Manager  : ${project.packageManager}`);
-        console.log(`Language         : ${project.language}`);
-        console.log(`Framework        : ${project.framework}`);
-        console.log(`Framework Version: ${project.frameworkVersion}`);
-        console.log(`Build Tool       : ${project.buildTool}`);
-        console.log(`Build Tool Version: ${project.buildToolVersion}`);
-        console.log(`Node.js Required : ${project.nodeVersion}`);
-        console.log(`Docker           : ${project.docker ? "Yes" : "No"}`);
-        console.log(`CI/CD            : ${project.ci}`);
-        console.log(`ESLint           : ${project.eslint ? "Yes" : "No"}`);
-        console.log(`Prettier         : ${project.prettier ? "Yes" : "No"}`);
-        console.log(`Monorepo         : ${project.monorepo ? "Yes" : "No"}`);
+        console.log(`Package Manager    : ${project.packageManager}`);
+        console.log(`Language           : ${project.language}`);
+        console.log(`Framework          : ${project.framework}`);
+        console.log(`Framework Version  : ${project.frameworkVersion}`);
+        console.log(`Build Tool         : ${project.buildTool}`);
+        console.log(`Build Tool Version : ${project.buildToolVersion}`);
+        console.log(`Node.js Required   : ${project.nodeVersion}`);
+        console.log(`Docker             : ${project.docker ? "Yes" : "No"}`);
+        console.log(`CI/CD              : ${project.ci}`);
+        console.log(`ESLint             : ${project.eslint ? "Yes" : "No"}`);
+        console.log(`Prettier           : ${project.prettier ? "Yes" : "No"}`);
+        console.log(`Monorepo           : ${project.monorepo ? "Yes" : "No"}`);
        
        
         console.log();
@@ -57,9 +57,11 @@ export function scanCommand() {
         console.log();
         console.log("Project Statistics");
         console.log("────────────────────────────");
-        console.log(`Total Files      : ${project.totalFiles}`);
-        console.log(`Source Files     : ${project.sourceFiles}`);
-        console.log(`Directories      : ${project.directories}`);
+        console.log(`Total Files       : ${project.totalFiles}`);
+        console.log(`Source Files      : ${project.sourceFiles}`);
+        console.log(`Directories       : ${project.directories}`);
+        console.log(`Largest Directory : ${project.largestDirectory.path} (${project.largestDirectory.fileCount} files)`);
+
 
 
 
