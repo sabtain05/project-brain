@@ -28,6 +28,7 @@ export function scanCommand() {
         console.log(`Framework        : ${project.framework}`);
         console.log(`Framework Version: ${project.frameworkVersion}`);
         console.log(`Build Tool       : ${project.buildTool}`);
+        console.log(`Build Tool Version: ${project.buildToolVersion}`);
 
         console.log();
 
