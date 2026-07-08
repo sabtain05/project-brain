@@ -34,6 +34,38 @@ const ENTRY_POINTS = [
   "server.js"
 ];
 
+const CONFIG_FILES = [
+  "tsconfig.json",
+
+  "vite.config.ts",
+  "vite.config.js",
+
+  "webpack.config.js",
+  "webpack.config.ts",
+
+  "tailwind.config.js",
+  "tailwind.config.ts",
+
+  "eslint.config.js",
+  "eslint.config.mjs",
+  ".eslintrc",
+  ".eslintrc.json",
+
+  ".prettierrc",
+  ".prettierrc.json",
+
+  "vitest.config.ts",
+  "vitest.config.js",
+
+  "jest.config.js",
+  "jest.config.ts",
+
+  "Dockerfile",
+  "docker-compose.yml",
+
+  ".gitignore"
+];
+
 export function getProjectTree(projectPath: string): ProjectTree {
   const directories: string[] = [];
   const files: string[] = [];
@@ -72,4 +104,16 @@ export function detectEntryPoint(projectPath: string): string {
   }
 
   return "Unknown";
+}
+
+export function detectConfigFiles(projectPath: string): string[] {
+  const found: string[] = [];
+
+  for (const file of CONFIG_FILES) {
+    if (existsSync(join(projectPath, file))) {
+      found.push(file);
+    }
+  }
+
+  return found;
 }
