@@ -6,7 +6,8 @@ import {
     detectEntryPoint, 
     detectConfigFiles, 
     detectTechnologyStack, 
-    analyzePackageHealth 
+    analyzePackageHealth,
+    calculateProjectScore
 } from "./architecture.js";
 
 
@@ -49,6 +50,10 @@ export interface ProjectInfo {
     score: number;
     passed: string[];
     missing: string[];
+  };
+  projectScore: {
+    score: number;
+    rating: string;
   };
   scripts: string[];
   nodeVersion: string;
@@ -379,6 +384,14 @@ export function analyzeProject(): ProjectInfo {
   const configFiles = detectConfigFiles(projectPath);
   const technologyStack = detectTechnologyStack(pkg);
   const packageHealth = analyzePackageHealth(pkg);
+  const projectScore = calculateProjectScore({
+    packageHealth,
+    git: detectGit(projectPath),
+    readme: detectReadme(projectPath),
+    license: detectLicense(projectPath),
+    totalFiles: statistics.totalFiles,
+    linesOfCode: statistics.linesOfCode
+  });
 
 
 
@@ -408,6 +421,7 @@ export function analyzeProject(): ProjectInfo {
     configFiles: configFiles,
     technologyStack: technologyStack,
     packageHealth: packageHealth,
+    projectScore: projectScore,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,
