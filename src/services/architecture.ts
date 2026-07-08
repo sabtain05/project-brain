@@ -79,6 +79,12 @@ const CONFIG_FILES = [
   ".gitignore"
 ];
 
+export interface PackageHealth {
+  score: number;
+  passed: string[];
+  missing: string[];
+}
+
 export function getProjectTree(projectPath: string): ProjectTree {
   const directories: string[] = [];
   const files: string[] = [];
@@ -183,3 +189,37 @@ export function detectTechnologyStack(packageJson: any): string[] {
   return [...technologies];
 }
 
+
+export function analyzePackageHealth(
+  packageJson: any
+): PackageHealth {
+  const passed: string[] = [];
+  const missing: string[] = [];
+
+  const checks = [
+    ["Description", packageJson.description],
+    ["Repository", packageJson.repository],
+    ["Homepage", packageJson.homepage],
+    ["Author", packageJson.author],
+    ["License", packageJson.license],
+    ["Keywords", packageJson.keywords?.length],
+    ["Engines", packageJson.engines],
+    ["Bugs", packageJson.bugs],
+    ["Funding", packageJson.funding],
+    ["Exports", packageJson.exports]
+  ];
+
+  for (const [name, value] of checks) {
+    if (value) {
+      passed.push(name as string);
+    } else {
+      missing.push(name as string);
+    }
+  }
+
+  return {
+    score: passed.length,
+    passed,
+    missing
+  };
+}
