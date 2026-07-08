@@ -2,11 +2,13 @@ import { Command } from "commander";
 import { analyzeProject } from "../services/project.js";
 import { basename } from "path";
 import { formatBytes } from "../services/statistics.js";
+import { performance } from "node:perf_hooks";
 
 export function scanCommand() {
   return new Command("scan")
     .description("Analyze the current project")
     .action(() => {
+        const startTime = performance.now();
       try {
         const project = analyzeProject();
 
@@ -68,6 +70,8 @@ export function scanCommand() {
         console.log(`Empty Directories : ${project.emptyDirectories}`);
         console.log(`Hidden Files      : ${project.hiddenFiles}`);
         console.log(`Project Size      : ${formatBytes(project.projectSize)}`);
+        const endTime = performance.now();
+        console.log(`Scan Time         : ${(endTime - startTime).toFixed(2)} ms`);
 
 
 
