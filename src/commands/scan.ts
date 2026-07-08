@@ -79,11 +79,12 @@ export function scanCommand() {
         console.log("Project Structure");
         console.log("────────────────────────────");
         for (const directory of project.projectTree.directories) {
-            console.log(`${directory}`);
+            console.log(`📁 ${directory}`);
         }
+
         for (const file of project.projectTree.files) {
-            console.log(`${file}`);
-        }
+            console.log(`📄 ${file}`);
+       }
 
 
 
