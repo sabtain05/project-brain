@@ -42,6 +42,7 @@ function countFiles(
   largestDirectory: DirectoryStats;
   linesOfCode: number;
   largestFile: FileStats;
+  emptyDirectories: number;
 } {
   let totalFiles = 0;
   let sourceFiles = 0;
@@ -75,12 +76,23 @@ function countFiles(
 
       directories++;
 
+      const childEntries = readdirSync(fullPath);
+
+      const visibleEntries = childEntries.filter(
+        item => !IGNORED_DIRECTORIES.includes(item)
+      );
+
+      if (visibleEntries.length === 0) {
+        emptyDirectories++;
+      }
+
       const child = countFiles(fullPath, projectPath);
 
       totalFiles += child.totalFiles;
       sourceFiles += child.sourceFiles;
       directories += child.directories;
       linesOfCode += child.linesOfCode;
+      emptyDirectories += child.emptyDirectories;
 
       if (
         child.largestDirectory.fileCount >
@@ -141,7 +153,8 @@ function countFiles(
     directories,
     largestDirectory,
     linesOfCode,
-    largestFile
+    largestFile,
+    emptyDirectories
   };
 }
 
@@ -155,5 +168,6 @@ export function getProjectStatistics(projectPath: string) {
     largestDirectory: stats.largestDirectory,
     linesOfCode: stats.linesOfCode,
     largestFile: stats.largestFile,
+    emptyDirectories: stats.emptyDirectories,
   };
 }
