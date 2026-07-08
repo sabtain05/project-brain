@@ -85,6 +85,13 @@ export interface PackageHealth {
   missing: string[];
 }
 
+export interface ProjectScore {
+  score: number;
+  rating: string;
+}
+
+
+
 export function getProjectTree(projectPath: string): ProjectTree {
   const directories: string[] = [];
   const files: string[] = [];
@@ -221,5 +228,48 @@ export function analyzePackageHealth(
     score: passed.length,
     passed,
     missing
+  };
+}
+
+
+
+export function calculateProjectScore(project: {
+  packageHealth: PackageHealth;
+  git: boolean;
+  readme: boolean;
+  license: boolean;
+  totalFiles: number;
+  linesOfCode: number;
+}): ProjectScore {
+  let score = 0;
+
+  // Package health (50 points)
+  score += project.packageHealth.score * 5;
+
+  // Repository quality
+  if (project.git) score += 10;
+  if (project.readme) score += 10;
+  if (project.license) score += 10;
+
+  // Project maturity
+  if (project.totalFiles >= 20) score += 10;
+  if (project.linesOfCode >= 500) score += 10;
+
+  // Cap at 100
+  score = Math.min(score, 100);
+
+  let rating = "Needs Improvement";
+
+  if (score >= 90) {
+    rating = "Excellent";
+  } else if (score >= 75) {
+    rating = "Good";
+  } else if (score >= 60) {
+    rating = "Fair";
+  }
+
+  return {
+    score,
+    rating
   };
 }
