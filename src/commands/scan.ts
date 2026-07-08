@@ -31,6 +31,20 @@ export function scanCommand() {
             console.log(`📄 ${file}`);
        }
 
+      
+       console.log();
+       console.log("Configuration Files");
+       console.log("────────────────────────────");
+       if (project.configFiles.length === 0) {
+            console.log("None");
+       } else {
+            for (const file of project.configFiles) {
+                console.log(`${file}`);
+            }
+        }
+
+
+
         console.log();
         console.log("Environment");
         console.log("────────────────────────────");
