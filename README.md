@@ -1,4 +1,4 @@
-# 🚀 Quicklyzer
+# Quicklyzer
 
 > Understand and analyze any software project in seconds.
 
