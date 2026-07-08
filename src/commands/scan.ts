@@ -1,6 +1,7 @@
 import { Command } from "commander";
 import { analyzeProject } from "../services/project.js";
 import { basename } from "path";
+import { formatBytes } from "../services/statistics.js";
 
 export function scanCommand() {
   return new Command("scan")
@@ -66,6 +67,7 @@ export function scanCommand() {
         console.log(`Largest File      : ${basename(project.largestFile.path)} (${project.largestFile.lines.toLocaleString()} lines)`);
         console.log(`Empty Directories : ${project.emptyDirectories}`);
         console.log(`Hidden Files      : ${project.hiddenFiles}`);
+        console.log(`Project Size      : ${formatBytes(project.projectSize)}`);
 
 
 

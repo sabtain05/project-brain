@@ -120,7 +120,7 @@ function countFiles(
       if (entry.startsWith(".")) {
         hiddenFiles++;
         }
-      projectSize =+ stats.size;  
+      projectSize += stats.size;
 
       if (
         SOURCE_EXTENSIONS.some(extension =>
@@ -131,9 +131,7 @@ function countFiles(
 
         const content = readFileSync(fullPath, "utf8");
 
-        const lineCount = content
-          .split(/\r?\n/)
-          .filter(line => line.trim() !== "").length;
+       const lineCount = content.split(/\r?\n/).length;
 
         linesOfCode += lineCount;
 
@@ -184,4 +182,20 @@ export function getProjectStatistics(projectPath: string) {
     hiddenFiles: stats.hiddenFiles,
     projectSize: stats.projectSize,
   };
+}
+
+export function formatBytes(bytes: number): string {
+  if (bytes < 1024) {
+    return `${bytes} B`;
+  }
+
+  if (bytes < 1024 * 1024) {
+    return `${(bytes / 1024).toFixed(1)} KB`;
+  }
+
+  if (bytes < 1024 * 1024 * 1024) {
+    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  }
+
+  return `${(bytes / (1024 * 1024 * 1024)).toFixed(1)} GB`;
 }
