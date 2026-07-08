@@ -1,7 +1,9 @@
 import { join } from "node:path";
 import { fileExists, readJsonFile } from "../utils/system.js";
 import { getProjectStatistics } from "./statistics.js";
-import { getProjectTree } from "./architecture.js";
+import { getProjectTree, detectEntryPoint } from "./architecture.js";
+
+
 
 export interface ProjectInfo {
   name: string;
@@ -34,6 +36,7 @@ export interface ProjectInfo {
   directories: string[];
   files: string[];
   };
+  entryPoint: string;
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
@@ -359,6 +362,7 @@ export function analyzeProject(): ProjectInfo {
   const monorepo = detectMonorepo(projectPath, pkg);
   const statistics = getProjectStatistics(projectPath);
   const tree = getProjectTree(projectPath);
+  const entryPoint = detectEntryPoint(projectPath);
 
   return {
     name: pkg.name ?? "Unknown",
@@ -382,6 +386,7 @@ export function analyzeProject(): ProjectInfo {
     hiddenFiles: statistics.hiddenFiles,
     projectSize: statistics.projectSize,
     projectTree: tree,
+    entryPoint: entryPoint,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,

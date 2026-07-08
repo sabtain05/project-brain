@@ -18,9 +18,20 @@ export function scanCommand() {
         console.log("────────────────────────────");
         console.log(`Name             : ${project.name}`);
         console.log(`Version          : ${project.version}`);
+        console.log(`Entry Point      : ${project.entryPoint}`);
 
         console.log();
+        console.log("Project Structure");
+        console.log("────────────────────────────");
+        for (const directory of project.projectTree.directories) {
+            console.log(`📁 ${directory}`);
+        }
 
+        for (const file of project.projectTree.files) {
+            console.log(`📄 ${file}`);
+       }
+
+        console.log();
         console.log("Environment");
         console.log("────────────────────────────");
         console.log(`Package Manager    : ${project.packageManager}`);
@@ -37,16 +48,16 @@ export function scanCommand() {
         console.log(`Monorepo           : ${project.monorepo ? "Yes" : "No"}`);
        
        
+        
         console.log();
-
         console.log("Dependencies");
         console.log("────────────────────────────");
         console.log(`Dependencies      : ${project.dependencyCount}`);
         console.log(`Dev Dependencies  : ${project.devDependencyCount}`);
         console.log(`Total Packages    : ${project.totalDependencyCount}`);
         
+      
         console.log();
-
         console.log("Scripts");
         console.log("────────────────────────────");
         if (project.scripts.length === 0) {
@@ -72,19 +83,6 @@ export function scanCommand() {
         console.log(`Project Size      : ${formatBytes(project.projectSize)}`);
         const endTime = performance.now();
         console.log(`Scan Time         : ${(endTime - startTime).toFixed(2)} ms`);
-
-
-
-        console.log();
-        console.log("Project Structure");
-        console.log("────────────────────────────");
-        for (const directory of project.projectTree.directories) {
-            console.log(`📁 ${directory}`);
-        }
-
-        for (const file of project.projectTree.files) {
-            console.log(`📄 ${file}`);
-       }
 
 
 
