@@ -43,11 +43,13 @@ function countFiles(
   linesOfCode: number;
   largestFile: FileStats;
   emptyDirectories: number;
+  hiddenFiles: number;
 } {
   let totalFiles = 0;
   let sourceFiles = 0;
   let directories = 0;
   let emptyDirectories = 0;
+  let hiddenFiles = 0;
 
   let largestDirectory: DirectoryStats = {
     path: "",
@@ -93,6 +95,7 @@ function countFiles(
       directories += child.directories;
       linesOfCode += child.linesOfCode;
       emptyDirectories += child.emptyDirectories;
+      hiddenFiles += child.hiddenFiles;
 
       if (
         child.largestDirectory.fileCount >
@@ -111,6 +114,9 @@ function countFiles(
     } else {
       totalFiles++;
       filesInCurrentDirectory++;
+      if (entry.startsWith(".")) {
+        hiddenFiles++;
+}
 
       if (
         SOURCE_EXTENSIONS.some(extension =>
@@ -154,7 +160,8 @@ function countFiles(
     largestDirectory,
     linesOfCode,
     largestFile,
-    emptyDirectories
+    emptyDirectories,
+    hiddenFiles
   };
 }
 
@@ -169,5 +176,6 @@ export function getProjectStatistics(projectPath: string) {
     linesOfCode: stats.linesOfCode,
     largestFile: stats.largestFile,
     emptyDirectories: stats.emptyDirectories,
+    hiddenFiles: stats.hiddenFiles,
   };
 }
