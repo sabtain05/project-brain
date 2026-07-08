@@ -1,6 +1,7 @@
 import { join } from "node:path";
 import { fileExists, readJsonFile } from "../utils/system.js";
 import { getProjectStatistics } from "./statistics.js";
+import { getProjectTree } from "./architecture.js";
 
 export interface ProjectInfo {
   name: string;
@@ -29,6 +30,10 @@ export interface ProjectInfo {
   emptyDirectories: number;
   hiddenFiles: number;
   projectSize: number;
+  projectTree: {
+  directories: string[];
+  files: string[];
+  };
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
@@ -353,6 +358,7 @@ export function analyzeProject(): ProjectInfo {
   const prettier = detectPrettier(projectPath, pkg);
   const monorepo = detectMonorepo(projectPath, pkg);
   const statistics = getProjectStatistics(projectPath);
+  const tree = getProjectTree(projectPath);
 
   return {
     name: pkg.name ?? "Unknown",
@@ -375,6 +381,7 @@ export function analyzeProject(): ProjectInfo {
     emptyDirectories: statistics.emptyDirectories,
     hiddenFiles: statistics.hiddenFiles,
     projectSize: statistics.projectSize,
+    projectTree: tree,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,

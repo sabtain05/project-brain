@@ -75,11 +75,22 @@ export function scanCommand() {
 
 
 
+        console.log();
+        console.log("Project Structure");
+        console.log("────────────────────────────");
+        for (const directory of project.projectTree.directories) {
+            console.log(`${directory}`);
+        }
+        for (const file of project.projectTree.files) {
+            console.log(`${file}`);
+        }
+
+
+
 
 
 
         console.log();
-
         console.log("Repository");
         console.log("────────────────────────────");
         console.log(`Git              : ${project.git ? "Yes" : "No"}`);
