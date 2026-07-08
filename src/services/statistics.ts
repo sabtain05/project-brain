@@ -46,6 +46,7 @@ function countFiles(
   let totalFiles = 0;
   let sourceFiles = 0;
   let directories = 0;
+  let emptyDirectories = 0;
 
   let largestDirectory: DirectoryStats = {
     path: "",
