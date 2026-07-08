@@ -28,6 +28,7 @@ export interface ProjectInfo {
   };
   emptyDirectories: number;
   hiddenFiles: number;
+  projectSize: number;
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
@@ -373,6 +374,7 @@ export function analyzeProject(): ProjectInfo {
     largestFile: statistics.largestFile,
     emptyDirectories: statistics.emptyDirectories,
     hiddenFiles: statistics.hiddenFiles,
+    projectSize: statistics.projectSize,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,
