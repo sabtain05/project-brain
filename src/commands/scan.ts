@@ -32,16 +32,25 @@ export function scanCommand() {
        }
 
       
-       console.log();
-       console.log("Configuration Files");
-       console.log("────────────────────────────");
-       if (project.configFiles.length === 0) {
+        console.log();
+        console.log("Configuration Files");
+        console.log("────────────────────────────");
+        if (project.configFiles.length === 0) {
             console.log("None");
-       } else {
+        } else {
             for (const file of project.configFiles) {
                 console.log(`${file}`);
             }
+         }
+
+       
+         console.log();
+        console.log("Technology Stack");
+        console.log("────────────────────────────");
+        for (const technology of project.technologyStack) {
+            console.log(`${technology}`);
         }
+
 
 
 

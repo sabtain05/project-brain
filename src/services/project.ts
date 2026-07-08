@@ -1,7 +1,7 @@
 import { join } from "node:path";
 import { fileExists, readJsonFile } from "../utils/system.js";
 import { getProjectStatistics } from "./statistics.js";
-import { getProjectTree, detectEntryPoint, detectConfigFiles } from "./architecture.js";
+import { getProjectTree, detectEntryPoint, detectConfigFiles, detectTechnologyStack } from "./architecture.js";
 
 
 
@@ -38,6 +38,7 @@ export interface ProjectInfo {
   };
   entryPoint: string;
   configFiles: string[];
+  technologyStack: string[];
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
@@ -365,6 +366,7 @@ export function analyzeProject(): ProjectInfo {
   const tree = getProjectTree(projectPath);
   const entryPoint = detectEntryPoint(projectPath);
   const configFiles = detectConfigFiles(projectPath);
+  const technologyStack = detectTechnologyStack(pkg);
 
 
 
@@ -392,6 +394,7 @@ export function analyzeProject(): ProjectInfo {
     projectTree: tree,
     entryPoint: entryPoint,
     configFiles: configFiles,
+    technologyStack: technologyStack,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,
