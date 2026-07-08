@@ -8,8 +8,8 @@ export function showBanner(): void {
   console.log(chalk.cyan.bold("QUICKLYZER"));
   console.log(chalk.gray("===================================="));
 
-  console.log(chalk.green("v0.0.5"));
-  console.log(chalk.white("A CLI that understands and analyzes software projects in seconds."));
+  console.log(chalk.green("v0.0.6"));
+  console.log(chalk.white("A fast & Intelligent CLI that understands and analyzes software projects in seconds."));
 
   console.log();
 }

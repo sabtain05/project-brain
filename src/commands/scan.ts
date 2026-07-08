@@ -147,6 +147,17 @@ export function scanCommand() {
         console.log(`README           : ${project.readme ? "Yes" : "No"}`);
         console.log(`LICENSE          : ${project.license ? "Yes" : "No"}`);
 
+
+
+        console.log();
+        console.log("Project Score");
+        console.log("────────────────────────────");
+        console.log(`Score            : ${project.projectScore.score}/100`);
+        console.log(`Rating           : ${project.projectScore.rating}`);
+
+
+
+
         console.log();
       } catch (error) {
         if (error instanceof Error) {

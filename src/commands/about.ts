@@ -7,10 +7,10 @@ export function aboutCommand() {
       console.log(`
  Quicklyzer
 
-A CLI that understands and analyzes software projects in seconds.
+A fast & Intelligent CLI that understands and analyzes software projects in seconds.
 
 Author : Sabtain Ali
-Version: 0.0.5
+Version: 0.0.6
 
 GitHub:
 https://github.com/sabtain05/quicklyzer
