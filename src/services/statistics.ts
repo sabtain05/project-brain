@@ -27,6 +27,11 @@ interface DirectoryStats {
   fileCount: number;
 }
 
+interface FileStats {
+  path: string;
+  lines: number;
+}
+
 function countFiles(
   directory: string,
   projectPath: string
@@ -36,6 +41,7 @@ function countFiles(
   directories: number;
   largestDirectory: DirectoryStats;
   linesOfCode: number;
+  largestFile: FileStats;
 } {
   let totalFiles = 0;
   let sourceFiles = 0;
@@ -47,7 +53,13 @@ function countFiles(
   };
 
   let filesInCurrentDirectory = 0;
+
   let linesOfCode = 0;
+
+  let largestFile: FileStats = {
+    path: "",
+    lines: 0
+  };
 
   const entries = readdirSync(directory);
 
@@ -75,6 +87,14 @@ function countFiles(
       ) {
         largestDirectory = child.largestDirectory;
       }
+
+      if (
+        child.largestFile.lines >
+        largestFile.lines
+      ) {
+        largestFile = child.largestFile;
+      }
+
     } else {
       totalFiles++;
       filesInCurrentDirectory++;
@@ -88,13 +108,21 @@ function countFiles(
 
         const content = readFileSync(fullPath, "utf8");
 
-        linesOfCode += content
+        const lineCount = content
           .split(/\r?\n/)
           .filter(line => line.trim() !== "").length;
+
+        linesOfCode += lineCount;
+
+        if (lineCount > largestFile.lines) {
+          largestFile = {
+            path: fullPath,
+            lines: lineCount
+          };
+        }
       }
     }
   }
-
 
   if (
     directory !== projectPath &&
@@ -111,7 +139,8 @@ function countFiles(
     sourceFiles,
     directories,
     largestDirectory,
-    linesOfCode
+    linesOfCode,
+    largestFile
   };
 }
 
@@ -124,5 +153,6 @@ export function getProjectStatistics(projectPath: string) {
     directories: stats.directories,
     largestDirectory: stats.largestDirectory,
     linesOfCode: stats.linesOfCode,
+    largestFile: stats.largestFile,
   };
 }
