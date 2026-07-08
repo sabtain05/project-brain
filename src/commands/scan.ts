@@ -44,12 +44,29 @@ export function scanCommand() {
          }
 
        
-         console.log();
+        console.log();
         console.log("Technology Stack");
         console.log("────────────────────────────");
         for (const technology of project.technologyStack) {
             console.log(`${technology}`);
         }
+
+
+        console.log();
+        console.log("Package Health");
+        console.log("────────────────────────────");
+        console.log(`Score : ${project.packageHealth.score}/10`);
+        console.log();
+        for (const item of project.packageHealth.passed) {
+            console.log(`${item}`);
+        }
+
+        for (const item of project.packageHealth.missing) {
+            console.log(`${item}`);
+        }
+
+
+
 
 
 

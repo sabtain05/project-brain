@@ -1,7 +1,13 @@
 import { join } from "node:path";
 import { fileExists, readJsonFile } from "../utils/system.js";
 import { getProjectStatistics } from "./statistics.js";
-import { getProjectTree, detectEntryPoint, detectConfigFiles, detectTechnologyStack } from "./architecture.js";
+import { 
+    getProjectTree, 
+    detectEntryPoint, 
+    detectConfigFiles, 
+    detectTechnologyStack, 
+    analyzePackageHealth 
+} from "./architecture.js";
 
 
 
@@ -21,24 +27,29 @@ export interface ProjectInfo {
   sourceFiles: number;
   directories: number;
   largestDirectory: {
-  path: string;
-  fileCount: number;
+    path: string;
+    fileCount: number;
   };
   linesOfCode: number;
   largestFile: {
-  path: string;
-  lines: number;
+    path: string;
+    lines: number;
   };
   emptyDirectories: number;
   hiddenFiles: number;
   projectSize: number;
   projectTree: {
-  directories: string[];
-  files: string[];
+    directories: string[];
+    files: string[];
   };
   entryPoint: string;
   configFiles: string[];
   technologyStack: string[];
+  packageHealth: {
+    score: number;
+    passed: string[];
+    missing: string[];
+  };
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
@@ -367,6 +378,7 @@ export function analyzeProject(): ProjectInfo {
   const entryPoint = detectEntryPoint(projectPath);
   const configFiles = detectConfigFiles(projectPath);
   const technologyStack = detectTechnologyStack(pkg);
+  const packageHealth = analyzePackageHealth(pkg);
 
 
 
@@ -395,6 +407,7 @@ export function analyzeProject(): ProjectInfo {
     entryPoint: entryPoint,
     configFiles: configFiles,
     technologyStack: technologyStack,
+    packageHealth: packageHealth,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,
