@@ -1,4 +1,4 @@
-import { readdirSync, statSync } from "fs";
+import { readdirSync, statSync, existsSync } from "fs";
 import { join } from "path";
 
 const IGNORED_DIRECTORIES = [
@@ -16,6 +16,23 @@ export interface ProjectTree {
   directories: string[];
   files: string[];
 }
+
+const ENTRY_POINTS = [
+  "src/index.ts",
+  "src/index.js",
+  "src/main.ts",
+  "src/main.js",
+  "src/app.ts",
+  "src/app.js",
+  "index.ts",
+  "index.js",
+  "main.ts",
+  "main.js",
+  "app.ts",
+  "app.js",
+  "server.ts",
+  "server.js"
+];
 
 export function getProjectTree(projectPath: string): ProjectTree {
   const directories: string[] = [];
@@ -44,4 +61,15 @@ export function getProjectTree(projectPath: string): ProjectTree {
     directories,
     files
   };
+}
+
+
+export function detectEntryPoint(projectPath: string): string {
+  for (const file of ENTRY_POINTS) {
+    if (existsSync(join(projectPath, file))) {
+      return file;
+    }
+  }
+
+  return "Unknown";
 }
