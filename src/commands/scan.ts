@@ -65,6 +65,7 @@ export function scanCommand() {
         console.log(`Lines of Code     : ${project.linesOfCode.toLocaleString()}`);
         console.log(`Largest File      : ${basename(project.largestFile.path)} (${project.largestFile.lines.toLocaleString()} lines)`);
         console.log(`Empty Directories : ${project.emptyDirectories}`);
+        console.log(`Hidden Files      : ${project.hiddenFiles}`);
 
 
 
