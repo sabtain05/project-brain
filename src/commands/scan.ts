@@ -23,12 +23,18 @@ export function scanCommand() {
         console.log();
         console.log("Project Structure");
         console.log("────────────────────────────");
+        console.log();
+        console.log("Folders:");
+        console.log();
         for (const directory of project.projectTree.directories) {
-            console.log(`📁 ${directory}`);
+            console.log(`${directory}`);
         }
 
+        console.log();
+        console.log("Files:");
+        console.log();
         for (const file of project.projectTree.files) {
-            console.log(`📄 ${file}`);
+            console.log(`${file}`);
        }
 
       
@@ -58,11 +64,14 @@ export function scanCommand() {
         console.log(`Score : ${project.packageHealth.score}/10`);
         console.log();
         console.log("Passed Packages:");
+        console.log("───────────────");
         for (const item of project.packageHealth.passed) {
             console.log(`${item}`);
         }
-        
+
+        console.log();
         console.log("Missing Packages:");
+        console.log("────────────────");
         for (const item of project.packageHealth.missing) {
             console.log(`${item}`);
         }
