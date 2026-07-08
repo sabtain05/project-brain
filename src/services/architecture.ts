@@ -130,3 +130,56 @@ export function detectConfigFiles(projectPath: string): string[] {
 
   return found;
 }
+
+
+export function detectTechnologyStack(packageJson: any): string[] {
+  const technologies = new Set<string>();
+
+  const dependencies = {
+    ...(packageJson.dependencies ?? {}),
+    ...(packageJson.devDependencies ?? {})
+  };
+
+  technologies.add("Node.js");
+
+  if (packageJson.type === "module") {
+    technologies.add("ES Modules");
+  }
+
+  if (dependencies.typescript) technologies.add("TypeScript");
+  if (dependencies.react) technologies.add("React");
+  if (dependencies["react-dom"]) technologies.add("React DOM");
+  if (dependencies.next) technologies.add("Next.js");
+  if (dependencies.vue) technologies.add("Vue");
+  if (dependencies.nuxt) technologies.add("Nuxt");
+  if (dependencies.svelte) technologies.add("Svelte");
+  if (dependencies.express) technologies.add("Express");
+  if (dependencies.fastify) technologies.add("Fastify");
+  if (dependencies.nestjs || dependencies["@nestjs/core"])
+    technologies.add("NestJS");
+
+  if (dependencies.vite) technologies.add("Vite");
+  if (dependencies.webpack) technologies.add("Webpack");
+
+  if (dependencies.tailwindcss) technologies.add("Tailwind CSS");
+
+  if (dependencies.prisma) technologies.add("Prisma");
+  if (dependencies.drizzle) technologies.add("Drizzle ORM");
+  if (dependencies.mongoose) technologies.add("MongoDB");
+  if (dependencies.mysql2) technologies.add("MySQL");
+  if (dependencies.pg) technologies.add("PostgreSQL");
+  if (dependencies.sqlite3) technologies.add("SQLite");
+
+  if (dependencies.vitest) technologies.add("Vitest");
+  if (dependencies.jest) technologies.add("Jest");
+
+  if (dependencies.eslint) technologies.add("ESLint");
+  if (dependencies.prettier) technologies.add("Prettier");
+
+  if (dependencies.commander) technologies.add("Commander");
+  if (dependencies.chalk) technologies.add("Chalk");
+  if (dependencies.ora) technologies.add("Ora");
+
+  return [...technologies];
+}
+
