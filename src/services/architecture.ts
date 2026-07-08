@@ -19,20 +19,33 @@ export interface ProjectTree {
 
 const ENTRY_POINTS = [
   "src/index.ts",
+  "src/index.tsx",
   "src/index.js",
+  "src/index.jsx",
+
   "src/main.ts",
+  "src/main.tsx",
   "src/main.js",
+  "src/main.jsx",
+
   "src/app.ts",
+  "src/app.tsx",
   "src/app.js",
+  "src/app.jsx",
+
   "index.ts",
   "index.js",
+
   "main.ts",
   "main.js",
+
   "app.ts",
   "app.js",
+
   "server.ts",
   "server.js"
 ];
+
 
 const CONFIG_FILES = [
   "tsconfig.json",
