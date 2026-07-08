@@ -57,10 +57,12 @@ export function scanCommand() {
         console.log("────────────────────────────");
         console.log(`Score : ${project.packageHealth.score}/10`);
         console.log();
+        console.log("Passed Packages:");
         for (const item of project.packageHealth.passed) {
             console.log(`${item}`);
         }
-
+        
+        console.log("Missing Packages:");
         for (const item of project.packageHealth.missing) {
             console.log(`${item}`);
         }
