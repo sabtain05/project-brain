@@ -9,7 +9,7 @@ import {
     analyzePackageHealth,
     calculateProjectScore
 } from "./architecture.js";
-
+import { analyzeCode } from "./code.js";
 
 
 export interface ProjectInfo {
@@ -54,6 +54,14 @@ export interface ProjectInfo {
   projectScore: {
     score: number;
     rating: string;
+  };
+  code: {
+    extensions: Record<string, number>;
+    largestFiles: {
+        path: string;
+        lines: number;
+    }[];
+    emptyFiles: number;
   };
   scripts: string[];
   nodeVersion: string;
@@ -392,7 +400,7 @@ export function analyzeProject(): ProjectInfo {
     totalFiles: statistics.totalFiles,
     linesOfCode: statistics.linesOfCode
   });
-
+  const code = analyzeCode(projectPath);
 
 
   return {
@@ -422,6 +430,7 @@ export function analyzeProject(): ProjectInfo {
     technologyStack: technologyStack,
     packageHealth: packageHealth,
     projectScore: projectScore,
+    code: code,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,

@@ -136,6 +136,23 @@ export function scanCommand() {
         console.log(`Scan Time         : ${(endTime - startTime).toFixed(2)} ms`);
 
 
+        console.log();
+        console.log("Code Analysis");
+        console.log("────────────────────────────");
+        console.log(`Empty Source Files : ${project.code.emptyFiles}`);
+        console.log();
+        console.log("Largest Files");
+        for (const file of project.code.largestFiles) {
+            console.log(`${file.path} (${file.lines} lines)`);
+        }
+
+        console.log();
+        console.log("Extensions");
+        for (const [extension, count] of Object.entries(project.code.extensions).sort()) {
+            console.log(`${extension.padEnd(8)} ${count}`);
+        }
+
+
 
 
 
