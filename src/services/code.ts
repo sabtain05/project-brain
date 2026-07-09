@@ -1,5 +1,5 @@
 import { readdirSync, readFileSync, statSync } from "fs";
-import { extname, join, basename } from "path";
+import { basename, extname, join } from "path";
 
 const IGNORED = [
   "node_modules",
@@ -13,26 +13,70 @@ const IGNORED = [
 
 export interface CodeAnalysis {
   extensions: Record<string, number>;
+
   largestFiles: {
     path: string;
     lines: number;
   }[];
+
   emptyFiles: number;
+
+  todos: {
+    todo: number;
+    fixme: number;
+    hack: number;
+    note: number;
+  };
+
+  duplicateFiles: Record<string, string[]>;
+
+  recentFiles: {
+    path: string;
+    modified: number;
+  }[];
 }
 
 export function analyzeCode(projectPath: string): CodeAnalysis {
   const extensions: Record<string, number> = {};
   const largestFiles: { path: string; lines: number }[] = [];
+
   let emptyFiles = 0;
+
+  const todos = {
+    todo: 0,
+    fixme: 0,
+    hack: 0,
+    note: 0
+  };
+
+  const duplicateMap = new Map<string, string[]>();
+
+  const recentFiles: {
+    path: string;
+    modified: number;
+  }[] = [];
 
   scan(projectPath);
 
   largestFiles.sort((a, b) => b.lines - a.lines);
 
+  recentFiles.sort((a, b) => b.modified - a.modified);
+
+  const duplicateFiles: Record<string, string[]> = {};
+
+  for (const [name, files] of duplicateMap) {
+    if (files.length > 1) {
+      duplicateFiles[name] = files;
+    }
+  }
+
   return {
     extensions,
     largestFiles: largestFiles.slice(0, 5),
-    emptyFiles
+    emptyFiles,
+    todos,
+    duplicateFiles,
+    recentFiles: recentFiles.slice(0, 5)
   };
 
   function scan(dir: string) {
@@ -52,6 +96,19 @@ export function analyzeCode(projectPath: string): CodeAnalysis {
 
       extensions[extension] = (extensions[extension] || 0) + 1;
 
+      const fileName = basename(fullPath);
+
+      if (!duplicateMap.has(fileName)) {
+        duplicateMap.set(fileName, []);
+      }
+
+      duplicateMap.get(fileName)!.push(fullPath);
+
+      recentFiles.push({
+        path: fullPath,
+        modified: stats.mtimeMs
+      });
+
       if (
         [
           ".ts",
@@ -67,6 +124,13 @@ export function analyzeCode(projectPath: string): CodeAnalysis {
       ) {
         const content = readFileSync(fullPath, "utf8");
 
+        const lower = content.toLowerCase();
+
+        todos.todo += (lower.match(/todo/g) || []).length;
+        todos.fixme += (lower.match(/fixme/g) || []).length;
+        todos.hack += (lower.match(/hack/g) || []).length;
+        todos.note += (lower.match(/note/g) || []).length;
+
         if (content.trim() === "") {
           emptyFiles++;
         }
@@ -74,7 +138,7 @@ export function analyzeCode(projectPath: string): CodeAnalysis {
         const lines = content.split(/\r?\n/).length;
 
         largestFiles.push({
-          path: basename(fullPath),
+          path: fileName,
           lines
         });
       }

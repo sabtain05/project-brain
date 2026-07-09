@@ -153,6 +153,40 @@ export function scanCommand() {
         }
 
 
+        console.log();
+        console.log("Code Quality");
+        console.log("────────────────────────────");
+
+        console.log(`TODO   : ${project.code.todos.todo}`);
+        console.log(`FIXME  : ${project.code.todos.fixme}`);
+        console.log(`HACK   : ${project.code.todos.hack}`);
+        console.log(`NOTE   : ${project.code.todos.note}`);
+
+
+        console.log();
+        console.log("Duplicate File Names");
+        console.log("────────────────────────────");
+        const duplicates = Object.entries(project.code.duplicateFiles);
+        if (duplicates.length === 0) {
+            console.log("None");
+        } else {
+            for (const [name, files] of duplicates) {
+                console.log(name);
+
+                for (const file of files) {
+                    console.log(`${file}`);
+                }
+            }
+          }
+
+        console.log();
+        console.log("Recent Activity");
+        console.log("────────────────────────────");
+        for (const file of project.code.recentFiles) {
+            console.log(file.path);
+        }
+
+
 
 
 
@@ -163,6 +197,7 @@ export function scanCommand() {
         console.log(`Git              : ${project.git ? "Yes" : "No"}`);
         console.log(`README           : ${project.readme ? "Yes" : "No"}`);
         console.log(`LICENSE          : ${project.license ? "Yes" : "No"}`);
+        console.log(`Branch           : ${project.gitBranch}`);
 
 
 

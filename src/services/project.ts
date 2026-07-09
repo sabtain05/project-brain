@@ -7,7 +7,8 @@ import {
     detectConfigFiles, 
     detectTechnologyStack, 
     analyzePackageHealth,
-    calculateProjectScore
+    calculateProjectScore,
+    detectGitBranch
 } from "./architecture.js";
 import { analyzeCode } from "./code.js";
 
@@ -62,7 +63,20 @@ export interface ProjectInfo {
         lines: number;
     }[];
     emptyFiles: number;
+    todos: {
+    todo:number;
+    fixme:number;
+    hack:number;
+    note:number;
+    };
+   duplicateFiles: Record<string,string[]>;
+
+    recentFiles:{
+    path:string;
+    modified:number;
+    }[];
   };
+  gitBranch: string;
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
@@ -401,6 +415,7 @@ export function analyzeProject(): ProjectInfo {
     linesOfCode: statistics.linesOfCode
   });
   const code = analyzeCode(projectPath);
+  const gitBranch = detectGitBranch(projectPath);
 
 
   return {
@@ -431,6 +446,7 @@ export function analyzeProject(): ProjectInfo {
     packageHealth: packageHealth,
     projectScore: projectScore,
     code: code,
+    gitBranch: gitBranch,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,

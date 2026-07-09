@@ -1,4 +1,4 @@
-import { readdirSync, statSync, existsSync } from "fs";
+import { readdirSync, statSync, existsSync, readFileSync } from "fs";
 import { join } from "path";
 
 const IGNORED_DIRECTORIES = [
@@ -272,4 +272,20 @@ export function calculateProjectScore(project: {
     score,
     rating
   };
+}
+
+export function detectGitBranch(projectPath: string): string {
+  const head = join(projectPath, ".git", "HEAD");
+
+  if (!existsSync(head)) {
+    return "None";
+  }
+
+  const content = readFileSync(head, "utf8").trim();
+
+  if (content.startsWith("ref:")) {
+    return content.split("/").pop() ?? "Unknown";
+  }
+
+  return "Detached HEAD";
 }
