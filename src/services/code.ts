@@ -105,10 +105,9 @@ export function analyzeCode(projectPath: string): CodeAnalysis {
       duplicateMap.get(fileName)!.push(fullPath);
 
       recentFiles.push({
-        path: fullPath,
+        path: basename(fullPath),
         modified: stats.mtimeMs
       });
-
       if (
         [
           ".ts",
