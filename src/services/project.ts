@@ -29,10 +29,10 @@ export interface ProjectInfo {
   totalFiles: number;
   sourceFiles: number;
   directories: number;
-  largestDirectory: {
+  largestDirectories: {
     path: string;
     fileCount: number;
-  };
+  }[];
   linesOfCode: number;
   largestFile: {
     path: string;
@@ -436,7 +436,7 @@ export function analyzeProject(): ProjectInfo {
     totalFiles: statistics.totalFiles,
     sourceFiles: statistics.sourceFiles,
     directories: statistics.directories,
-    largestDirectory: statistics.largestDirectory,
+    largestDirectories: statistics.largestDirectories,
     linesOfCode: statistics.linesOfCode,
     largestFile: statistics.largestFile,
     emptyDirectories: statistics.emptyDirectories,
