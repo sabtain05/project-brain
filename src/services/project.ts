@@ -8,7 +8,8 @@ import {
     detectTechnologyStack, 
     analyzePackageHealth,
     calculateProjectScore,
-    detectGitBranch
+    detectGitBranch,
+    detectProjectType
 } from "./architecture.js";
 import { analyzeCode } from "./code.js";
 
@@ -77,6 +78,7 @@ export interface ProjectInfo {
     }[];
   };
   gitBranch: string;
+  projectType: string;
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
@@ -416,6 +418,7 @@ export function analyzeProject(): ProjectInfo {
   });
   const code = analyzeCode(projectPath);
   const gitBranch = detectGitBranch(projectPath);
+  const projectType = detectProjectType(pkg);
 
 
   return {
@@ -447,6 +450,7 @@ export function analyzeProject(): ProjectInfo {
     projectScore: projectScore,
     code: code,
     gitBranch: gitBranch,
+    projectType: projectType,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,

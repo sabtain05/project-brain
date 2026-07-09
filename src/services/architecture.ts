@@ -289,3 +289,20 @@ export function detectGitBranch(projectPath: string): string {
 
   return "Detached HEAD";
 }
+
+
+export function detectProjectType(packageJson: any): string {
+  const deps = {
+    ...(packageJson.dependencies ?? {}),
+    ...(packageJson.devDependencies ?? {})
+  };
+
+  if (deps.next) return "Next.js Application";
+  if (deps.react) return "React Application";
+  if (deps.vue) return "Vue Application";
+  if (deps.express) return "Express API";
+  if (deps.commander) return "CLI Application";
+  if (deps.nestjs || deps["@nestjs/core"]) return "NestJS Application";
+
+  return "Node.js Project";
+}

@@ -1,7 +1,6 @@
 import { readdirSync, statSync, readFileSync } from "fs";
 import { join } from "path";
 
-
 const IGNORED_DIRECTORIES = [
   "node_modules",
   ".git",
@@ -32,106 +31,85 @@ interface FileStats {
   lines: number;
 }
 
-function countFiles(
-  directory: string,
-  projectPath: string
-): {
+interface Statistics {
   totalFiles: number;
   sourceFiles: number;
   directories: number;
-  largestDirectory: DirectoryStats;
+  largestDirectories: DirectoryStats[];
   linesOfCode: number;
   largestFile: FileStats;
   emptyDirectories: number;
   hiddenFiles: number;
   projectSize: number;
-} {
+}
+
+export function getProjectStatistics(projectPath: string): Statistics {
   let totalFiles = 0;
   let sourceFiles = 0;
   let directories = 0;
   let emptyDirectories = 0;
   let hiddenFiles = 0;
   let projectSize = 0;
-
-  let largestDirectory: DirectoryStats = {
-    path: "",
-    fileCount: 0
-  };
-
-  let filesInCurrentDirectory = 0;
-
   let linesOfCode = 0;
+
+  const directoryStats: DirectoryStats[] = [];
 
   let largestFile: FileStats = {
     path: "",
     lines: 0
   };
 
-  const entries = readdirSync(directory);
+  scan(projectPath);
 
-  for (const entry of entries) {
-    const fullPath = join(directory, entry);
-    const stats = statSync(fullPath);
+  directoryStats.sort((a, b) => b.fileCount - a.fileCount);
 
-    if (stats.isDirectory()) {
-      if (IGNORED_DIRECTORIES.includes(entry)) {
+  return {
+    totalFiles,
+    sourceFiles,
+    directories,
+    largestDirectories: directoryStats.slice(0, 5),
+    linesOfCode,
+    largestFile,
+    emptyDirectories,
+    hiddenFiles,
+    projectSize
+  };
+
+  function scan(directory: string) {
+    const entries = readdirSync(directory);
+
+    let filesInCurrentDirectory = 0;
+    let visibleEntries = 0;
+
+    for (const entry of entries) {
+      if (IGNORED_DIRECTORIES.includes(entry)) continue;
+
+      visibleEntries++;
+
+      const fullPath = join(directory, entry);
+      const stats = statSync(fullPath);
+
+      if (stats.isDirectory()) {
+        directories++;
+        scan(fullPath);
         continue;
       }
 
-      directories++;
-
-      const childEntries = readdirSync(fullPath);
-
-      const visibleEntries = childEntries.filter(
-        item => !IGNORED_DIRECTORIES.includes(item)
-      );
-
-      if (visibleEntries.length === 0) {
-        emptyDirectories++;
-      }
-
-      const child = countFiles(fullPath, projectPath);
-
-      totalFiles += child.totalFiles;
-      sourceFiles += child.sourceFiles;
-      directories += child.directories;
-      linesOfCode += child.linesOfCode;
-      emptyDirectories += child.emptyDirectories;
-      hiddenFiles += child.hiddenFiles;
-      projectSize += child.projectSize;
-
-      if (
-        child.largestDirectory.fileCount >
-        largestDirectory.fileCount
-      ) {
-        largestDirectory = child.largestDirectory;
-      }
-
-      if (
-        child.largestFile.lines >
-        largestFile.lines
-      ) {
-        largestFile = child.largestFile;
-      }
-
-    } else {
       totalFiles++;
       filesInCurrentDirectory++;
-      if (entry.startsWith(".")) {
-        hiddenFiles++;
-        }
       projectSize += stats.size;
 
+      if (entry.startsWith(".")) {
+        hiddenFiles++;
+      }
+
       if (
-        SOURCE_EXTENSIONS.some(extension =>
-          entry.endsWith(extension)
-        )
+        SOURCE_EXTENSIONS.some(ext => entry.endsWith(ext))
       ) {
         sourceFiles++;
 
         const content = readFileSync(fullPath, "utf8");
-
-       const lineCount = content.split(/\r?\n/).length;
+        const lineCount = content.split(/\r?\n/).length;
 
         linesOfCode += lineCount;
 
@@ -143,45 +121,18 @@ function countFiles(
         }
       }
     }
+
+    if (visibleEntries === 0 && directory !== projectPath) {
+      emptyDirectories++;
+    }
+
+    if (directory !== projectPath) {
+      directoryStats.push({
+        path: directory,
+        fileCount: filesInCurrentDirectory
+      });
+    }
   }
-
-  if (
-    directory !== projectPath &&
-    filesInCurrentDirectory > largestDirectory.fileCount
-  ) {
-    largestDirectory = {
-      path: directory,
-      fileCount: filesInCurrentDirectory
-    };
-  }
-
-  return {
-    totalFiles,
-    sourceFiles,
-    directories,
-    largestDirectory,
-    linesOfCode,
-    largestFile,
-    emptyDirectories,
-    hiddenFiles,
-    projectSize
-  };
-}
-
-export function getProjectStatistics(projectPath: string) {
-  const stats = countFiles(projectPath, projectPath);
-
-  return {
-    totalFiles: stats.totalFiles,
-    sourceFiles: stats.sourceFiles,
-    directories: stats.directories,
-    largestDirectory: stats.largestDirectory,
-    linesOfCode: stats.linesOfCode,
-    largestFile: stats.largestFile,
-    emptyDirectories: stats.emptyDirectories,
-    hiddenFiles: stats.hiddenFiles,
-    projectSize: stats.projectSize,
-  };
 }
 
 export function formatBytes(bytes: number): string {
