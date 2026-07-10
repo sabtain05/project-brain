@@ -236,7 +236,7 @@ If you find Quicklyzer useful, please consider:
 * Starring the repository
 * Reporting bugs
 * Suggesting new features
-* 🤝 Contributing to the project
+* Contributing to the project
 
 Every contribution helps make Quicklyzer better.
 
