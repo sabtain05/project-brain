@@ -233,7 +233,7 @@ GitHub: https://github.com/sabtain05
 
 If you find Quicklyzer useful, please consider:
 
-* ⭐ Starring the repository
+* Starring the repository
 * 🐛 Reporting bugs
 * 💡 Suggesting new features
 * 🤝 Contributing to the project
