@@ -1,10 +1,10 @@
 # Quicklyzer
 
-> Understand and analyze any software project in seconds.
+> Understand any software project in seconds.
 
-Quicklyzer is a fast, lightweight, and intelligent CLI tool that scans software projects and provides a comprehensive overview of their architecture, environment, technology stack, repository health, and project statistics.
+Quicklyzer is an open-source CLI that analyzes software projects and provides instant insights into their architecture, technology stack, codebase, and overall project health.
 
-Whether you're exploring an open-source repository, auditing your own project, or onboarding to a new codebase, Quicklyzer helps you understand a project instantly.
+Instead of manually exploring a repository, Quicklyzer gives you a comprehensive overview with a single command.
 
 ---
 
@@ -12,128 +12,92 @@ Whether you're exploring an open-source repository, auditing your own project, o
 
 ### Project Information
 
-- Project name
-- Version
-- Entry point detection
+* Project name
+* Project version
+* Entry point detection
+* Project type detection
 
 ### Project Structure
 
-- Top-level project tree
-- Directory overview
+* Top-level project structure
+* Configuration file detection
+* Technology stack detection
 
-### Configuration Detection
+### Environment Intelligence
 
-Automatically detects common configuration files including:
+* Package manager detection
+* Programming language detection
+* Framework detection
+* Framework version detection
+* Build tool detection
+* Build tool version detection
+* Required Node.js version
+* Docker detection
+* CI/CD detection
+* ESLint detection
+* Prettier detection
+* Monorepo detection
 
-- TypeScript
-- Vite
-- Webpack
-- Tailwind CSS
-- ESLint
-- Prettier
-- Vitest
-- Jest
-- Docker
-- Docker Compose
-- Git Ignore
+### Dependencies
 
-### Technology Stack Detection
+* Dependency count
+* Dev dependency count
+* Total installed packages
 
-Detects technologies such as:
+### Scripts
 
-- Node.js
-- TypeScript
-- React
-- Next.js
-- Vue
-- Nuxt
-- Svelte
-- Express
-- Fastify
-- NestJS
-- Vite
-- Webpack
-- Tailwind CSS
-- Prisma
-- Drizzle ORM
-- MySQL
-- PostgreSQL
-- MongoDB
-- SQLite
-- Commander
-- Chalk
-- Ora
-- Vitest
-- Jest
-- ESLint
-- Prettier
-
-### Environment Analysis
-
-- Framework detection
-- Framework version
-- Build tool detection
-- Build tool version
-- Required Node.js version
-- Docker detection
-- CI/CD detection
-- ESLint detection
-- Prettier detection
-- Monorepo detection
-
-### Dependency Analysis
-
-- Dependencies
-- Dev Dependencies
-- Total Packages
-
-### Script Detection
-
-Lists all available npm scripts.
+* Lists all available npm scripts
 
 ### Project Statistics
 
-- Total files
-- Source files
-- Directory count
-- Largest directory
-- Largest file
-- Lines of code
-- Hidden files
-- Empty directories
-- Project size
-- Scan duration
+* Total files
+* Source files
+* Total directories
+* Largest directories
+* Largest files
+* Lines of code
+* Hidden files
+* Empty directories
+* Empty source files
+* Project size
 
-### Repository Analysis
+### Code Intelligence
 
-- Git repository
-- README
-- LICENSE
+* File extension breakdown
+* Largest source files
+* TODO detection
+* FIXME detection
+* HACK detection
+* NOTE detection
+* Duplicate file name detection
+* Recently modified files
 
-### Package Health
+### Repository
 
-Analyzes important package metadata including:
+* Git repository detection
+* Current Git branch
+* README detection
+* LICENSE detection
 
-- Description
-- Repository
-- Homepage
-- Author
-- License
-- Keywords
-- Engines
-- Bugs
-- Funding
-- Exports
+### Quality Analysis
 
-### Project Score
-
-Provides an overall project quality score and rating.
+* Package Health Score
+* Project Score
+* Intelligent project summary
+* Technology summary
+* Project recommendations
 
 ---
 
-# Installation
+## Installation
 
-## Run without installing
+### Using npm
+
+```bash
+npm install -g quicklyzer
+```
+
+Or run without installing:
 
 ```bash
 npx quicklyzer scan
@@ -141,25 +105,9 @@ npx quicklyzer scan
 
 ---
 
-## Install globally
+## Usage
 
-```bash
-npm install -g quicklyzer
-```
-
-Then use:
-
-```bash
-quicklyzer scan
-```
-
----
-
-# Commands
-
-## Scan a project
-
-Run inside any project directory.
+### Scan the current project
 
 ```bash
 quicklyzer scan
@@ -171,17 +119,13 @@ or
 npx quicklyzer scan
 ```
 
----
-
-## Version
+### Show version
 
 ```bash
 quicklyzer version
 ```
 
----
-
-## About
+### About Quicklyzer
 
 ```bash
 quicklyzer about
@@ -189,160 +133,117 @@ quicklyzer about
 
 ---
 
-# Example Output
+## Example Output
 
 ```text
 QUICKLYZER
 ====================================
-v0.0.6
-A CLI tool that understands and analyzes software projects in seconds.
 
 Project
 ────────────────────────────
 Name             : quicklyzer
-Version          : 0.0.6
+Version          : 0.0.7
 Entry Point      : src/index.ts
-
-Project Structure
-────────────────────────────
-📁 src
-📄 package.json
-📄 README.md
-📄 tsconfig.json
-
-Configuration Files
-────────────────────────────
- tsconfig.json
- .gitignore
 
 Technology Stack
 ────────────────────────────
- Node.js
- ES Modules
- TypeScript
- Commander
- Chalk
- Ora
- Vitest
-
-Environment
-────────────────────────────
-Package Manager   : npm
-Language          : TypeScript
-Framework         : Unknown
-Build Tool        : Unknown
-Node.js Required  : >=20
-
-Dependencies
-────────────────────────────
-Dependencies      : 4
-Dev Dependencies  : 4
-Total Packages    : 8
-
-Project Statistics
-────────────────────────────
-Total Files       : 34
-Source Files      : 16
-Directories       : 7
-Lines of Code     : 1,542
-Project Size      : 92.4 KB
-Scan Time         : 11.24 ms
-
-Repository
-────────────────────────────
-Git               : Yes
-README            : Yes
-LICENSE           : Yes
+✓ Node.js
+✓ TypeScript
+✓ Commander
+✓ Chalk
+✓ Ora
 
 Package Health
 ────────────────────────────
-Score             : 8/10
+Score            : 8/10
 
 Project Score
 ────────────────────────────
-Score             : 90/100
-Rating            : Excellent
+Score            : 95/100
+Rating           : Excellent
 ```
 
 ---
 
-# Requirements
+## Requirements
 
-- Node.js **20** or later
-
----
-
-# Roadmap
-
-### v0.0.1
-
-- CLI foundation
-- Version command
-- About command
-- Project scanning
-
-### v0.0.2
-
-- Improved CLI
-- Better project information
-
-### v0.0.3
-
-- Framework detection
-- Build tool detection
-- Repository analysis
-
-### v0.0.4
-
-- Environment intelligence
-- Dependency analysis
-- Script detection
-- Docker detection
-- CI/CD detection
-- ESLint detection
-- Prettier detection
-- Monorepo detection
-
-### v0.0.5
-
-- Advanced project statistics
-- Hidden files
-- Empty directories
-- Largest directory
-- Largest file
-- Project size
-- Scan duration
-
-### v0.0.6
-
-- Project structure
-- Entry point detection
-- Configuration file detection
-- Technology stack detection
-- Package health analysis
-- Project quality score
+* Node.js 20 or later
 
 ---
 
-# Contributing
+## Installation Size
+
+Quicklyzer is lightweight and optimized for fast project scanning.
+
+---
+
+## Roadmap
+
+### Current Version
+
+* Project Intelligence
+* Code Intelligence
+* Repository Intelligence
+* Project Health Analysis
+
+### Upcoming
+
+* JSON export
+* Markdown report export
+* HTML report generation
+* Project dependency graph
+* Circular dependency detection
+* Dead code detection
+* Complexity analysis
+* AI-ready project reports
+* Plugin system
+
+---
+
+## Contributing
 
 Contributions are welcome.
 
-If you have ideas for new features, bug fixes, or improvements, feel free to open an issue or submit a pull request.
+If you'd like to improve Quicklyzer:
+
+1. Fork the repository.
+2. Create a new feature branch.
+3. Commit your changes.
+4. Open a Pull Request.
+
+Bug reports and feature requests are always appreciated.
 
 ---
 
-# License
+## License
 
 MIT License
 
 ---
 
-# Author
+## Author
 
 **Sabtain Ali**
 
 GitHub: https://github.com/sabtain05
 
+---
 
-**A Sabtain Ali production**
+## Support
+
+If you find Quicklyzer useful, please consider:
+
+* ⭐ Starring the repository
+* 🐛 Reporting bugs
+* 💡 Suggesting new features
+* 🤝 Contributing to the project
+
+Every contribution helps make Quicklyzer better.
+
+---
+
+## Philosophy
+
+> Understand first. Build second.
+
+Quicklyzer helps developers understand unfamiliar codebases before making changes, reducing onboarding time and improving productivity.
