@@ -234,7 +234,7 @@ GitHub: https://github.com/sabtain05
 If you find Quicklyzer useful, please consider:
 
 * Starring the repository
-* 🐛 Reporting bugs
+* Reporting bugs
 * 💡 Suggesting new features
 * 🤝 Contributing to the project
 
