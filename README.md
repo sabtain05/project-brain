@@ -147,11 +147,11 @@ Entry Point      : src/index.ts
 
 Technology Stack
 ────────────────────────────
-✓ Node.js
-✓ TypeScript
-✓ Commander
-✓ Chalk
-✓ Ora
+ Node.js
+ TypeScript
+ Commander
+ Chalk
+ Ora
 
 Package Health
 ────────────────────────────
