@@ -51,7 +51,7 @@ export function scanCommand() {
     if (project.configFiles.length === 0) {
       console.log("None");
     } else {
-      project.configFiles.forEach(file => console.log(`✓ ${file}`));
+      project.configFiles.forEach(file => console.log(`${file}`));
     }
 
     // ============================================================
@@ -62,7 +62,7 @@ export function scanCommand() {
     console.log("Technology Stack");
     console.log("────────────────────────────");
 
-    project.technologyStack.forEach(tech => console.log(`✓ ${tech}`));
+    project.technologyStack.forEach(tech => console.log(`${tech}`));
 
     // ============================================================
     // Package Health
@@ -74,10 +74,10 @@ export function scanCommand() {
     console.log(`Score : ${project.packageHealth.score}/10`);
 
     console.log("\nPassed:");
-    project.packageHealth.passed.forEach(item => console.log(`✓ ${item}`));
+    project.packageHealth.passed.forEach(item => console.log(`${item}`));
 
     console.log("\nMissing:");
-    project.packageHealth.missing.forEach(item => console.log(`✗ ${item}`));
+    project.packageHealth.missing.forEach(item => console.log(`${item}`));
 
     // ============================================================
     // Environment
