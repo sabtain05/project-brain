@@ -121,7 +121,7 @@ export function scanCommand() {
     if (project.scripts.length === 0) {
       console.log("No scripts found.");
     } else {
-      project.scripts.forEach(script => console.log(`• ${script}`));
+      project.scripts.forEach(script => console.log(`${script}`));
     }
 
     // ============================================================
