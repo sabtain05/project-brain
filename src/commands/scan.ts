@@ -205,7 +205,7 @@ export function scanCommand() {
     } else {
       for (const [name, files] of duplicates) {
         console.log(`\n${name}`);
-        files.forEach(file => console.log(`  • ${file}`));
+        files.forEach(file => console.log(`${file}`));
       }
     }
 
