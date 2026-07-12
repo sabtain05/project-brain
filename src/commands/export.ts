@@ -3,7 +3,8 @@ import { analyzeProject } from "../services/project.js";
 import {
   exportJson,
   exportMarkdown,
-  exportHtml
+  exportHtml,
+  exportManifest
 } from "../services/export.js";
 
 export function exportCommand() {
@@ -15,44 +16,80 @@ export function exportCommand() {
     .option("-f, --format <format>", "json|md|html", "json")
 
     .option("-o, --output <dir>", "Output directory", "reports")
+    .option(
+    "--all",
+    "Export every supported format"
+)
 
+.option(
+    "--name <filename>",
+    "Custom filename"
+)
     .action((options) => {
 
-      const project = analyzeProject();
+    const project = analyzeProject();
 
-      let file = "";
+    const exportOptions = {
+        output: options.output,
+        filename: options.name
+    };
 
-      switch (options.format) {
+    const files: string[] = [];
 
-        case "md":
-          file = exportMarkdown(project, {
-            output: options.output
-          });
-          break;
+    if (options.all) {
 
-        case "html":
-          file = exportHtml(project, {
-            output: options.output
-          });
-          break;
+        files.push(
+            exportJson(project, exportOptions)
+        );
 
-        default:
-          file = exportJson(project, {
-            output: options.output
-          });
+        files.push(
+            exportMarkdown(project, exportOptions)
+        );
 
-      }
+        files.push(
+            exportHtml(project, exportOptions)
+        );
 
-      console.log();
+    } else {
 
-      console.log("Export Complete");
-      console.log("────────────────────────────");
+        switch (options.format) {
 
-      console.log(`Format : ${options.format}`);
-      console.log(`Output : ${file}`);
+            case "md":
+                files.push(
+                    exportMarkdown(project, exportOptions)
+                );
+                break;
 
-      console.log();
+            case "html":
+                files.push(
+                    exportHtml(project, exportOptions)
+                );
+                break;
 
-    });
+            default:
+                files.push(
+                    exportJson(project, exportOptions)
+                );
+
+        }
+
+    }
+
+    exportManifest(files, exportOptions);
+
+    console.log();
+
+    console.log("Export Complete");
+    console.log("────────────────────────────");
+
+    console.log(`Reports Generated : ${files.length}`);
+
+    for (const file of files) {
+        console.log(file);
+    }
+
+    console.log();
+
+});
 
 }
