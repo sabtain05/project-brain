@@ -1,9 +1,10 @@
 import { mkdirSync, writeFileSync, existsSync } from "fs";
-import { join } from "path";
+import { join, basename } from "path";
 
 
 export interface ExportOptions {
     output: string;
+    filename?: string;
 }
 
 
@@ -18,7 +19,14 @@ function timestamp() {
   return new Date().toISOString().replace(/[:.]/g, "-");
 }
 
-
+function resolveFileName(
+    options: ExportOptions,
+    extension: string
+) {
+    return options.filename
+        ? `${options.filename}.${extension}`
+        : `quicklyzer-${timestamp()}.${extension}`;
+}
 
 export function exportJson(
   data: unknown,
@@ -29,7 +37,7 @@ export function exportJson(
 
   const file = join(
     options.output,
-    `quicklyzer-${timestamp()}.json`
+    resolveFileName(options, "json")
   );
 
   writeFileSync(
@@ -52,7 +60,7 @@ export function exportMarkdown(
 
   const file = join(
     options.output,
-    `quicklyzer-${timestamp()}.md`
+    resolveFileName(options, "md")
   );
 
   const markdown = `# Quicklyzer Report
@@ -87,7 +95,7 @@ export function exportHtml(
 
   const file = join(
     options.output,
-    `quicklyzer-${timestamp()}.html`
+    resolveFileName(options, "html")
   );
 
   const html = `
@@ -157,4 +165,30 @@ ${project.technologyStack
   writeFileSync(file, html);
 
   return file;
+}
+
+
+
+export function exportManifest(
+    files: string[],
+    options: ExportOptions
+) {
+
+    const manifest = {
+        generatedAt: new Date().toISOString(),
+        reports: files.map(file => basename(file))
+    };
+
+    const file = join(
+        options.output,
+        "manifest.json"
+    );
+
+    writeFileSync(
+        file,
+        JSON.stringify(manifest, null, 2)
+    );
+
+    return file;
+
 }
