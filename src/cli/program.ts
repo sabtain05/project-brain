@@ -3,6 +3,7 @@ import { showBanner } from "./banner.js";
 import { scanCommand } from "../commands/scan.js";
 import { aboutCommand } from "../commands/about.js";
 import { versionCommand } from "../commands/version.js";
+import { exportCommand } from "../commands/export.js";
 
 export function createProgram() {
   const program = new Command();
@@ -20,6 +21,6 @@ export function createProgram() {
   program.addCommand(scanCommand());
   program.addCommand(aboutCommand());
   program.addCommand(versionCommand());
-
+  program.addCommand(exportCommand());
   return program;
 }
