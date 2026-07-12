@@ -14,22 +14,29 @@ function ensureDirectory(path: string) {
     }
 }
 
+function timestamp() {
+  return new Date().toISOString().replace(/[:.]/g, "-");
+}
+
 
 
 export function exportJson(
-    data: unknown,
-    options: ExportOptions
+  data: unknown,
+  options: ExportOptions
 ): string {
 
-    ensureDirectory(options.output);
+  ensureDirectory(options.output);
 
-    const file = join(options.output, "quicklyzer-report.json");
+  const file = join(
+    options.output,
+    `quicklyzer-${timestamp()}.json`
+  );
 
-    writeFileSync(
-        file,
-        JSON.stringify(data, null, 2),
-        "utf8"
-    );
+  writeFileSync(
+    file,
+    JSON.stringify(data, null, 2),
+    "utf8"
+  );
 
-    return file;
+  return file;
 }
