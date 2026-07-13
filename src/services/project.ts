@@ -96,7 +96,6 @@ dependencyAnalysis: {
     packageInsights:{
         private:boolean;
         workspaces:boolean;
-        packageManager:string;
     };
 };
   scripts: string[];
