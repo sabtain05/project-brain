@@ -439,10 +439,7 @@ export function analyzeProject(): ProjectInfo {
   const code = analyzeCode(projectPath);
   const gitBranch = detectGitBranch(projectPath);
   const projectType = detectProjectType(pkg);
-  const dependencyAnalysis = analyzeDependencies(
-    projectPath,
-    packageJson
-);
+  const dependencyAnalysis = analyzeDependencies(projectPath,packageJson);
 
 
   return {
