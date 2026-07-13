@@ -120,10 +120,7 @@ export function scanCommand() {
     console.log(`Total Packages      : ${project.dependencyAnalysis.total}`);
     console.log(`Package Manager     : ${project.dependencyAnalysis.packageInsights.packageManager}`);
     console.log(`Private Package     : ${project.dependencyAnalysis.packageInsights.private ? "Yes":"No"}`);
-console.log(
-`Workspaces          : ${project.dependencyAnalysis.packageInsights.workspaces ? "Yes":"No"}`
-);
-
+    console.log(`Workspaces          : ${project.dependencyAnalysis.packageInsights.workspaces ? "Yes":"No"}`);
 
 
     // ============================================================
