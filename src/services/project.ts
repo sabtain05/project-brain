@@ -80,6 +80,25 @@ export interface ProjectInfo {
   };
   gitBranch: string;
   projectType: string;
+dependencyAnalysis: {
+    production:number;
+    development:number;
+    total:number;
+
+    installed:number;
+
+    unused:string[];
+
+    missing:string[];
+
+    duplicateVersions:string[];
+
+    packageInsights:{
+        private:boolean;
+        workspaces:boolean;
+        packageManager:string;
+    };
+};
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
