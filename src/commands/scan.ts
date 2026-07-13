@@ -110,6 +110,26 @@ export function scanCommand() {
     console.log(`Dev Dependencies : ${project.devDependencyCount}`);
     console.log(`Total Packages   : ${project.totalDependencyCount}`);
 
+
+
+    console.log();
+    console.log("Dependency Intelligence");
+    console.log("────────────────────────────");
+    console.log(`Production Packages : ${project.dependencyAnalysis.production}`);
+    console.log(`Development Packages: ${project.dependencyAnalysis.development}`);
+    console.log(`Total Packages      : ${project.dependencyAnalysis.total}`);
+    console.log(`Package Manager     : ${project.dependencyAnalysis.packageInsights.packageManager}`);
+
+console.log(
+`Private Package     : ${project.dependencyAnalysis.packageInsights.private ? "Yes":"No"}`
+);
+
+console.log(
+`Workspaces          : ${project.dependencyAnalysis.packageInsights.workspaces ? "Yes":"No"}`
+);
+
+
+
     // ============================================================
     // Scripts
     // ============================================================
