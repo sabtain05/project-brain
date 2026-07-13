@@ -475,6 +475,7 @@ export function analyzeProject(): ProjectInfo {
     code: code,
     gitBranch: gitBranch,
     projectType: projectType,
+    dependencyAnalysis: dependencyAnalysis,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,
