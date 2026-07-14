@@ -165,6 +165,17 @@ export function scanCommand() {
     console.log(`Rating : ${project.dependencyAnalysis.riskScore.rating}`);
 
 
+
+    console.log();
+    console.log("Dependency Summary");
+    console.log("────────────────────────────");
+    console.log(`Declared Packages : ${project.dependencyAnalysis.total}`);
+    console.log(`Installed Packages: ${project.dependencyAnalysis.installed}`);
+    console.log(`Unused            : ${project.dependencyAnalysis.unused.length}`);
+    console.log(`Missing           : ${project.dependencyAnalysis.missing.length}`);
+    console.log(`Duplicate Versions: ${project.dependencyAnalysis.duplicateVersions.length}`);
+
+
     // ============================================================
     // Scripts
     // ============================================================
