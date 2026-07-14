@@ -249,6 +249,8 @@ for(const [version,packages] of versionMap){
 
 }
 
+const riskScore=calculateRiskScore(unused.length,missing.length,duplicateVersions.length);
+
   return {
     production: Object.keys(dependencies).length,
     development: Object.keys(devDependencies).length,
