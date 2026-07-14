@@ -71,6 +71,41 @@ export function analyzeDependencies(
   const dependencies = packageJson.dependencies ?? {};
   const devDependencies = packageJson.devDependencies ?? {};
 
+  const nodeModules=join(projectPath,"node_modules");
+
+let installed=0;
+
+let installedBytes=0;
+
+const largestPackages:{
+    name:string;
+    size:number;
+}[]=[];
+
+if(existsSync(nodeModules)){
+
+    for(const entry of readdirSync(nodeModules)){
+
+        if(entry.startsWith(".")) continue;
+
+        const full=join(nodeModules,entry);
+
+        if(!statSync(full).isDirectory()) continue;
+
+        installed++;
+
+        const size=directorySize(full);
+
+        installedBytes+=size;
+
+        largestPackages.push({
+            name:entry,
+            size
+        });
+
+    }
+
+}
   return {
     production: Object.keys(dependencies).length,
     development: Object.keys(devDependencies).length,
@@ -79,7 +114,9 @@ export function analyzeDependencies(
       Object.keys(devDependencies).length,
 
     installed: 0,
+    installedSize: formatBytes(directorySize(nodeModules)),
 
+    largestPackages: largestPackages,
     unused: [],
 
     missing: [],
