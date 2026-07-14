@@ -124,8 +124,7 @@ export function scanCommand() {
     console.log(`Installed Size     : ${project.dependencyAnalysis.installedSize}`);
     console.log();
     console.log("Largest Packages:");
-
-for(const pkg of project.dependencyAnalysis.largestPackages){console.log(`${pkg.name} (${(pkg.size/1024/1024).toFixed(1)} MB)`);}
+    for(const pkg of project.dependencyAnalysis.largestPackages){console.log(`${pkg.name} (${(pkg.size/1024/1024).toFixed(1)} MB)`);}
 
 
     // ============================================================
