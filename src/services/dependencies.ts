@@ -235,6 +235,20 @@ for(const [name,version] of Object.entries(devDependencies)){
 
 }
 
+  const duplicateVersions:string[]=[];
+
+for(const [version,packages] of versionMap){
+
+    if(packages.length>1){
+
+        duplicateVersions.push(
+            `${version} → ${packages.join(", ")}`
+        );
+
+    }
+
+}
+
   return {
     production: Object.keys(dependencies).length,
     development: Object.keys(devDependencies).length,
