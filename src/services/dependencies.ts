@@ -266,7 +266,8 @@ for(const [version,packages] of versionMap){
     unused,
     missing,
 
-    duplicateVersions: [],
+    duplicateVersions,
+    riskScore,
 
     packageInsights: {
       private: packageJson.private === true,
