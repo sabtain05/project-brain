@@ -126,6 +126,22 @@ export function scanCommand() {
         }else{
           console.log("None");
         }
+    
+    
+    console.log();
+    console.log("Duplicate Versions");
+    console.log("────────────────────────────");
+    if(project.dependencyAnalysis.duplicateVersions.length){
+      for(const version of project.dependencyAnalysis.duplicateVersions)
+        {console.log(`• ${version}`);
+        }
+      }else{
+        console.log("None");
+      }    
+
+
+
+
 
     console.log();
     console.log("Dependency Intelligence");
