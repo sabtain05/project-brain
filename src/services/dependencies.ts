@@ -213,6 +213,27 @@ export function analyzeDependencies(
   const unused = declared.filter(pkg => !imports.has(pkg));
 
   const missing = [...imports].filter(pkg => !declared.includes(pkg));
+    
+  const versionMap=new Map<string,string[]>();
+  for(const [name,version] of Object.entries(dependencies)){
+
+    if(!versionMap.has(String(version))){
+        versionMap.set(String(version),[]);
+    }
+
+    versionMap.get(String(version))!.push(name);
+
+}
+
+for(const [name,version] of Object.entries(devDependencies)){
+
+    if(!versionMap.has(String(version))){
+        versionMap.set(String(version),[]);
+    }
+
+    versionMap.get(String(version))!.push(name);
+
+}
 
   return {
     production: Object.keys(dependencies).length,
