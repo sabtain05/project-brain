@@ -110,7 +110,22 @@ export function scanCommand() {
     console.log(`Dev Dependencies : ${project.devDependencyCount}`);
     console.log(`Total Packages   : ${project.totalDependencyCount}`);
 
-
+    console.log();
+    console.log("Unused Dependencies");
+      if(project.dependencyAnalysis.unused.length){
+        for(const pkg of project.dependencyAnalysis.unused)
+          console.log(`• ${pkg}`);
+        }else{
+          console.log("None");
+        }
+    console.log();
+    console.log("Missing Dependencies");
+      if(project.dependencyAnalysis.missing.length){
+        for(const pkg of project.dependencyAnalysis.missing)
+          console.log(`• ${pkg}`);
+        }else{
+          console.log("None");
+        }
 
     console.log();
     console.log("Dependency Intelligence");
