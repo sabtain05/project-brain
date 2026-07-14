@@ -1,6 +1,6 @@
 # Quicklyzer
 
-> A fast and intelligent CLI tool that understands and analyzes software projects in seconds.
+> A fast and intelligent CLI that understands and analyzes software projects in seconds.
 
 Quicklyzer helps developers quickly understand any codebase by analyzing project structure, technologies, dependencies, architecture, and code quality from the terminal.
 
