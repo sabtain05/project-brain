@@ -2,22 +2,65 @@ import { readFileSync, existsSync, readdirSync, statSync } from "fs";
 import { join } from "path";
 
 export interface DependencyAnalysis {
-  production: number;
-  development: number;
-  total: number;
 
-  installed: number;
+  production:number;
+  development:number;
+  total:number;
 
-  unused: string[];
-  missing: string[];
+  installed:number;
 
-  duplicateVersions: string[];
+  installedSize:string;
 
-  packageInsights: {
-    private: boolean;
-    workspaces: boolean;
-    packageManager: string;
+  largestPackages:{
+      name:string;
+      size:number;
+  }[];
+
+  unused:string[];
+
+  missing:string[];
+
+  duplicateVersions:string[];
+
+  packageInsights:{
+      private:boolean;
+      workspaces:boolean;
+      packageManager:string;
   };
+}
+
+function formatBytes(bytes:number){
+
+    if(bytes<1024)
+        return `${bytes} B`;
+
+    if(bytes<1024*1024)
+        return `${(bytes/1024).toFixed(1)} KB`;
+
+    return `${(bytes/1024/1024).toFixed(1)} MB`;
+
+}
+
+function directorySize(path:string):number{
+
+    let total=0;
+
+    for(const entry of readdirSync(path)){
+
+        const full=join(path,entry);
+
+        const stats=statSync(full);
+
+        if(stats.isDirectory())
+            total+=directorySize(full);
+
+        else
+            total+=stats.size;
+
+    }
+
+    return total;
+
 }
 
 export function analyzeDependencies(
