@@ -129,6 +129,40 @@ function normalizePackage(value: string): string | null {
   return value.split("/")[0];
 }
 
+function calculateRiskScore(
+    unused:number,
+    missing:number,
+    duplicates:number
+){
+
+    let score=100;
+
+    score-=unused*2;
+    score-=missing*5;
+    score-=duplicates*3;
+
+    if(score<0)
+        score=0;
+
+    let rating="Excellent";
+
+    if(score<90)
+        rating="Good";
+
+    if(score<75)
+        rating="Fair";
+
+    if(score<60)
+        rating="Poor";
+
+    return{
+        score,
+        rating
+    };
+
+}
+
+
 export function analyzeDependencies(
   projectPath: string,
   packageJson: any
