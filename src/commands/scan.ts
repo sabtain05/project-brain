@@ -158,6 +158,14 @@ export function scanCommand() {
     for(const pkg of project.dependencyAnalysis.largestPackages){console.log(`${pkg.name} (${(pkg.size/1024/1024).toFixed(1)} MB)`);}
 
 
+    console.log();
+
+console.log("Dependency Risk");
+console.log("────────────────────────────");
+console.log(`Score  : ${project.dependencyAnalysis.riskScore.score}/100`);
+console.log(`Rating : ${project.dependencyAnalysis.riskScore.rating}`);
+
+
     // ============================================================
     // Scripts
     // ============================================================
