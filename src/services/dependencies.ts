@@ -106,6 +106,7 @@ if(existsSync(nodeModules)){
     }
 
 }
+
   return {
     production: Object.keys(dependencies).length,
     development: Object.keys(devDependencies).length,
@@ -113,10 +114,11 @@ if(existsSync(nodeModules)){
       Object.keys(dependencies).length +
       Object.keys(devDependencies).length,
 
-    installed: 0,
-    installedSize: formatBytes(directorySize(nodeModules)),
+    installed,
 
-    largestPackages: largestPackages,
+    installedSize:formatBytes(installedBytes),
+
+    largestPackages:largestPackages.slice(0,5),
     unused: [],
 
     missing: [],
