@@ -81,21 +81,27 @@ export interface ProjectInfo {
   gitBranch: string;
   projectType: string;
 dependencyAnalysis: {
-    production:number;
-    development:number;
-    total:number;
+    production: number;
+    development: number;
+    total: number;
 
-    installed:number;
+    installed: number;
+    installedSize: string;
 
-    unused:string[];
+    largestPackages: {
+        name: string;
+        size: number;
+    }[];
 
-    missing:string[];
+    unused: string[];
+    missing: string[];
 
-    duplicateVersions:string[];
+    duplicateVersions: string[];
 
-    packageInsights:{
-        private:boolean;
-        workspaces:boolean;
+    packageInsights: {
+        private: boolean;
+        workspaces: boolean;
+        packageManager: string;
     };
 };
   scripts: string[];
