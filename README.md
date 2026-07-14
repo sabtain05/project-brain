@@ -169,14 +169,16 @@ quicklyzer export --all --output reports --name project-report
 
 ---
 
+## License
+
+MIT License
+
+---
+
+
 ## Author
 
 **Sabtain Ali**
 
 GitHub: https://github.com/sabtain05
 
----
-
-## License
-
-MIT License
