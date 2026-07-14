@@ -88,6 +88,11 @@ dependencyAnalysis: {
     installed: number;
     installedSize: string;
 
+    riskScore: {
+        score: number;
+        rating: string;
+    };
+
     largestPackages: {
         name: string;
         size: number;
