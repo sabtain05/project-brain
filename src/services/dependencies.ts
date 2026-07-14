@@ -2,28 +2,34 @@ import { readFileSync, existsSync, readdirSync, statSync } from "fs";
 import { join } from "path";
 
 export interface DependencyAnalysis {
-  production: number;
-  development: number;
-  total: number;
 
-  installed: number;
-  installedSize: string;
+  production:number;
+  development:number;
+  total:number;
 
-  largestPackages: {
-    name: string;
-    size: number;
+  installed:number;
+  installedSize:string;
+
+  largestPackages:{
+      name:string;
+      size:number;
   }[];
 
-  unused: string[];
-  missing: string[];
+  unused:string[];
+  missing:string[];
+  duplicateVersions:string[];
 
-  duplicateVersions: string[];
-
-  packageInsights: {
-    private: boolean;
-    workspaces: boolean;
-    packageManager: string;
+  riskScore:{
+      score:number;
+      rating:string;
   };
+
+  packageInsights:{
+      private:boolean;
+      workspaces:boolean;
+      packageManager:string;
+  };
+
 }
 
 function formatBytes(bytes: number) {
