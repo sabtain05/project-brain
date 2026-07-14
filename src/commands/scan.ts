@@ -119,7 +119,7 @@ export function scanCommand() {
           console.log("None");
         }
     console.log();
-    console.log("Missing Dependencies");
+    console.log("Missing Dependencies:");
       if(project.dependencyAnalysis.missing.length){
         for(const pkg of project.dependencyAnalysis.missing)
           console.log(`• ${pkg}`);
