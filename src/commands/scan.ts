@@ -120,6 +120,12 @@ export function scanCommand() {
     console.log(`Total Packages      : ${project.dependencyAnalysis.total}`);
     console.log(`Private Package     : ${project.dependencyAnalysis.packageInsights.private ? "Yes":"No"}`);
     console.log(`Workspaces          : ${project.dependencyAnalysis.packageInsights.workspaces ? "Yes":"No"}`);
+    console.log(`Installed Packages : ${project.dependencyAnalysis.installed}`);
+    console.log(`Installed Size     : ${project.dependencyAnalysis.installedSize}`);
+    console.log();
+    console.log("Largest Packages:");
+
+for(const pkg of project.dependencyAnalysis.largestPackages){console.log(`${pkg.name} (${(pkg.size/1024/1024).toFixed(1)} MB)`);}
 
 
     // ============================================================
