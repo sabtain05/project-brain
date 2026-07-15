@@ -13,14 +13,11 @@ export function compareCommand(){
 
     .action((path)=>{
 
-        const result=
+        const targetPath = resolve(process.cwd(), path);
 
-        compareProjects(
-
+        const result = compareProjects(
             process.cwd(),
-
-            path
-
+            targetPath
         );
 
         console.log();
