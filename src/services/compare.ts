@@ -7,3 +7,27 @@ export interface Comparison {
     right:any;
 
 }
+
+
+
+export function compareProjects(
+
+    current:string,
+
+    target:string
+
+):Comparison{
+
+    const left=analyzeProject(current);
+
+    const right=analyzeProject(target);
+
+    return{
+
+        left,
+
+        right
+
+    };
+
+}
