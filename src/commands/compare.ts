@@ -1,3 +1,4 @@
+import { resolve } from "path";
 import { Command } from "commander";
 
 import { compareProjects } from "../services/compare.js";
