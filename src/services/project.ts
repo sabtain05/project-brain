@@ -419,6 +419,9 @@ export function analyzeProject(
   projectPath = process.cwd()
 ): ProjectInfo {
   const packageJsonPath = join(projectPath, "package.json");
+  const packageJson = JSON.parse(
+    readFileSync(packageJsonPath, "utf8")
+);
 
   if (!fileExists(packageJsonPath)) {
     throw new Error("No package.json found in the current directory.");
