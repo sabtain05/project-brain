@@ -415,8 +415,9 @@ function detectLicense(projectPath: string): boolean {
   );
 }
 
-export function analyzeProject(): ProjectInfo {
-  const projectPath = process.cwd();
+export function analyzeProject(
+  projectPath = process.cwd()
+): ProjectInfo {
   const packageJsonPath = join(projectPath, "package.json");
 
   if (!fileExists(packageJsonPath)) {
