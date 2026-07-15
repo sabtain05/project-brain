@@ -4,6 +4,7 @@ import { scanCommand } from "../commands/scan.js";
 import { aboutCommand } from "../commands/about.js";
 import { versionCommand } from "../commands/version.js";
 import { exportCommand } from "../commands/export.js";
+import { compareCommand } from "../commands/compare.js";
 
 export function createProgram() {
   const program = new Command();
@@ -22,5 +23,6 @@ export function createProgram() {
   program.addCommand(aboutCommand());
   program.addCommand(versionCommand());
   program.addCommand(exportCommand());
+  program.addCommand(compareCommand());
   return program;
 }
