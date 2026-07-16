@@ -415,22 +415,14 @@ function detectLicense(projectPath: string): boolean {
   );
 }
 
-export function analyzeProject(
-  projectPath = process.cwd()
-): ProjectInfo {
-
+export function analyzeProject(): ProjectInfo {
+  const projectPath = process.cwd();
   const packageJsonPath = join(projectPath, "package.json");
 
   if (!fileExists(packageJsonPath)) {
-    throw new Error(
-      `No package.json found in: ${projectPath}`
-    );
+    throw new Error("No package.json found in the current directory.");
   }
 
-  const packageJson = JSON.parse(
-    readFileSync(packageJsonPath, "utf8")
-  );
-  
   const pkg = readJsonFile<PackageJson>(packageJsonPath);
   const dependencyStats = getDependencyStatistics(pkg);
   const scripts = getScripts(pkg);
@@ -503,7 +495,3 @@ export function analyzeProject(
     license: detectLicense(projectPath)
   };
 }
-function readFileSync(packageJsonPath: string, arg1: string): string {
-  throw new Error("Function not implemented.");
-}
-
