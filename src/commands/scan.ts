@@ -177,7 +177,6 @@ export function scanCommand() {
 
     console.log();
     title("Scripts");
-    console.log("────────────────────────────");
 
     if (project.scripts.length === 0) {
       console.log("No scripts found.");
