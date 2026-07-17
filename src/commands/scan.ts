@@ -209,7 +209,6 @@ export function scanCommand() {
 
     console.log();
     title("Largest Directories");
-    console.log("────────────────────────────");
 
     for (const dir of project.largestDirectories) {
       console.log(`${basename(dir.path)} (${dir.fileCount} files)`);
