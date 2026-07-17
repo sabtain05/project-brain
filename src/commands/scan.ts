@@ -297,7 +297,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Repository");
+    title("Repository");
     console.log("────────────────────────────");
     console.log(`Git              : ${project.git ? "Yes" : "No"}`);
     console.log(`Branch           : ${project.gitBranch}`);
