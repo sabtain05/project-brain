@@ -266,7 +266,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Duplicate File Names");
+    title("Duplicate File Names");
     console.log("────────────────────────────");
 
     const duplicates = Object.entries(project.code.duplicateFiles);
