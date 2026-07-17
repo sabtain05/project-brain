@@ -11,9 +11,10 @@ export function scanCommand() {
     .description("Analyze the current project")
     .action(() => {
   const startTime = performance.now();
+  const spinner = ora("Analyzing project...");
 
   try {
-    const spinner = ora("Analyzing project...").start();
+    spinner.start();
 
     const project = analyzeProject();
     spinner.succeed("Analyzing completed");
