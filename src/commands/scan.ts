@@ -3,6 +3,7 @@ import { analyzeProject } from "../services/project.js";
 import { basename } from "path";
 import { formatBytes } from "../services/statistics.js";
 import { performance } from "node:perf_hooks";
+import ora from "ora";
 
 export function scanCommand() {
   return new Command("scan")
