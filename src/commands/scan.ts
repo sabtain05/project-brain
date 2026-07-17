@@ -37,7 +37,6 @@ export function scanCommand() {
 
     console.log();
     title("Project Structure");
-    console.log("────────────────────────────");
 
     console.log("\nFolders:");
     project.projectTree.directories.forEach(dir => console.log(`📁 ${dir}`));
