@@ -64,7 +64,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Technology Stack");
+    title("Technology Stack");
     console.log("────────────────────────────");
 
     project.technologyStack.forEach(tech => console.log(`${tech}`));
