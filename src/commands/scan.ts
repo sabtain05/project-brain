@@ -231,7 +231,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Code Analysis");
+    title("Code Analysis");
     console.log("────────────────────────────");
     console.log(`Empty Source Files : ${project.code.emptyFiles}`);
 
