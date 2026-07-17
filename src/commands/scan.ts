@@ -243,7 +243,7 @@ export function scanCommand() {
 
     console.log();
     title("Code Quality");
-    
+
     console.log(`TODO   : ${project.code.todos.todo}`);
     console.log(`FIXME  : ${project.code.todos.fixme}`);
     console.log(`HACK   : ${project.code.todos.hack}`);
@@ -255,7 +255,6 @@ export function scanCommand() {
 
     console.log();
     title("Duplicate File Names");
-    console.log("────────────────────────────");
 
     const duplicates = Object.entries(project.code.duplicateFiles);
 
