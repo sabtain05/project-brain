@@ -11,6 +11,8 @@ import {title, error} from "../utils/ui.js";
 export function scanCommand() {
   return new Command("scan")
     .description("Analyze the current project")
+    .option("-v, --verbose", "Show detailed output")
+    .option("-q, --quiet", "Show only summary")
     .action((options)=> {
   const startTime = performance.now();
   const spinner = ora("Analyzing project...");
