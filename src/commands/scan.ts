@@ -337,12 +337,22 @@ export function scanCommand() {
 
     console.log();
 
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    } else {
-      console.error("An unknown error occurred.");
+  } catch (err) {
+
+    spinner.fail("Analysis failed");
+
+    if(err instanceof Error){
+
+        error(err.message);
+
+    }else{
+
+        error("Unknown error.");
+
     }
-  }
+
+    process.exit(1);
+
+}
 });
 }
