@@ -149,7 +149,7 @@ export function scanCommand() {
 
 
     console.log();
-    console.log("Dependency Intelligence");
+    title("Dependency Intelligence");
     console.log("────────────────────────────");
     console.log(`Production Packages : ${project.dependencyAnalysis.production}`);
     console.log(`Development Packages: ${project.dependencyAnalysis.development}`);
