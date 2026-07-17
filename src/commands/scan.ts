@@ -86,7 +86,6 @@ export function scanCommand() {
 
     console.log();
     title("Environment");
-    console.log("────────────────────────────");
     console.log(`Package Manager  : ${project.packageManager}`);
     console.log(`Language         : ${project.language}`);
     console.log(`Framework        : ${project.framework}`);
