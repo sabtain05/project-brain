@@ -4,4 +4,9 @@ import { createProgram } from "./cli/program.js";
 
 const program = createProgram();
 
-program.parse(process.argv);
+program.parseAsync(process.argv)
+.catch(() => {
+
+    process.exit(2);
+
+});
