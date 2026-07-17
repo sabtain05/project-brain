@@ -200,7 +200,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Project Statistics");
+    title("Project Statistics");
     console.log("────────────────────────────");
     console.log(`Total Files      : ${project.totalFiles}`);
     console.log(`Source Files     : ${project.sourceFiles}`);
