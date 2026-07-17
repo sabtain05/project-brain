@@ -220,7 +220,7 @@ export function scanCommand() {
 
     console.log();
     title("Code Analysis");
-    
+
     console.log(`Empty Source Files : ${project.code.emptyFiles}`);
 
     console.log("\nLargest Files:");
@@ -243,7 +243,7 @@ export function scanCommand() {
 
     console.log();
     title("Code Quality");
-    console.log("────────────────────────────");
+    
     console.log(`TODO   : ${project.code.todos.todo}`);
     console.log(`FIXME  : ${project.code.todos.fixme}`);
     console.log(`HACK   : ${project.code.todos.hack}`);
