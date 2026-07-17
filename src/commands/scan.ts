@@ -50,7 +50,6 @@ export function scanCommand() {
 
     console.log();
     title("Configuration Files");
-    console.log("────────────────────────────");
 
     if (project.configFiles.length === 0) {
       console.log("None");
