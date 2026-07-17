@@ -109,7 +109,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Dependencies");
+    title("Dependencies");
     console.log("────────────────────────────");
     console.log(`Dependencies     : ${project.dependencyCount}`);
     console.log(`Dev Dependencies : ${project.devDependencyCount}`);
