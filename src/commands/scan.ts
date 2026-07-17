@@ -72,7 +72,6 @@ export function scanCommand() {
 
     console.log();
     title("Package Health");
-    console.log("────────────────────────────");
     console.log(`Score : ${project.packageHealth.score}/10`);
 
     console.log("\nPassed:");
