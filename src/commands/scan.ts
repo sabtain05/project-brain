@@ -24,7 +24,7 @@ export function scanCommand() {
     // Project
     // ============================================================
 
-    console.log("Project");
+    title("Project");
     console.log("────────────────────────────");
     console.log(`Name             : ${project.name}`);
     console.log(`Version          : ${project.version}`);
@@ -36,7 +36,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Project Structure");
+    title("Project Structure");
     console.log("────────────────────────────");
 
     console.log("\nFolders:");
