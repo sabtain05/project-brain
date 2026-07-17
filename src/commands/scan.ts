@@ -4,6 +4,7 @@ import { basename } from "path";
 import { formatBytes } from "../services/statistics.js";
 import { performance } from "node:perf_hooks";
 import ora from "ora";
+import {title, error} from "../utils/ui.js";
 
 export function scanCommand() {
   return new Command("scan")
