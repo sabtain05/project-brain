@@ -89,7 +89,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Environment");
+    title("Environment");
     console.log("────────────────────────────");
     console.log(`Package Manager  : ${project.packageManager}`);
     console.log(`Language         : ${project.language}`);
