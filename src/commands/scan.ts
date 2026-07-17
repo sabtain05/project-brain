@@ -273,7 +273,6 @@ export function scanCommand() {
 
     console.log();
     title("Recent Activity");
-    console.log("────────────────────────────");
 
     project.code.recentFiles.forEach(file =>
       console.log(file.path)
