@@ -219,7 +219,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Largest Directories");
+    title("Largest Directories");
     console.log("────────────────────────────");
 
     for (const dir of project.largestDirectories) {
