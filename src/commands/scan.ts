@@ -284,7 +284,7 @@ export function scanCommand() {
 
     console.log();
     title("Repository");
-    console.log("────────────────────────────");
+
     console.log(`Git              : ${project.git ? "Yes" : "No"}`);
     console.log(`Branch           : ${project.gitBranch}`);
     console.log(`README           : ${project.readme ? "Yes" : "No"}`);
