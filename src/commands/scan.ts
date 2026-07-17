@@ -26,7 +26,6 @@ export function scanCommand() {
     // ============================================================
 
     title("Project");
-    console.log("────────────────────────────");
     console.log(`Name             : ${project.name}`);
     console.log(`Version          : ${project.version}`);
     console.log(`Type             : ${project.projectType}`);
