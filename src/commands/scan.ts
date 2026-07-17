@@ -157,7 +157,6 @@ export function scanCommand() {
 
     console.log();
     title("Dependency Risk");
-    console.log("────────────────────────────");
     console.log(`Score  : ${project.dependencyAnalysis.riskScore.score}/100`);
     console.log(`Rating : ${project.dependencyAnalysis.riskScore.rating}`);
 
