@@ -254,7 +254,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Code Quality");
+    title("Code Quality");
     console.log("────────────────────────────");
     console.log(`TODO   : ${project.code.todos.todo}`);
     console.log(`FIXME  : ${project.code.todos.fixme}`);
