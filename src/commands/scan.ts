@@ -105,7 +105,6 @@ export function scanCommand() {
 
     console.log();
     title("Dependencies");
-    console.log("────────────────────────────");
     console.log(`Dependencies     : ${project.dependencyCount}`);
     console.log(`Dev Dependencies : ${project.devDependencyCount}`);
     console.log(`Total Packages   : ${project.totalDependencyCount}`);
@@ -130,7 +129,6 @@ export function scanCommand() {
     
     console.log();
     title("Duplicate Versions");
-    console.log("────────────────────────────");
     if(project.dependencyAnalysis.duplicateVersions.length){
       for(const version of project.dependencyAnalysis.duplicateVersions)
         {console.log(`• ${version}`);
