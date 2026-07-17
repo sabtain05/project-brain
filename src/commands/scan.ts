@@ -186,7 +186,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Scripts");
+    title("Scripts");
     console.log("────────────────────────────");
 
     if (project.scripts.length === 0) {
