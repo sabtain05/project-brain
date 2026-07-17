@@ -6,10 +6,12 @@ import { performance } from "node:perf_hooks";
 import ora from "ora";
 import {title, error} from "../utils/ui.js";
 
+
+
 export function scanCommand() {
   return new Command("scan")
     .description("Analyze the current project")
-    .action(() => {
+    .action((options)=> {
   const startTime = performance.now();
   const spinner = ora("Analyzing project...");
 
@@ -306,7 +308,7 @@ export function scanCommand() {
 
     console.log();
     title("Summary");
-    
+
     console.log(`Project Type     : ${project.projectType}`);
     console.log(`Technologies     : ${project.technologyStack.join(", ")}`);
     console.log(`Health           : ${project.projectScore.score}/100 (${project.projectScore.rating})`);
