@@ -74,7 +74,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Package Health");
+    title("Package Health");
     console.log("────────────────────────────");
     console.log(`Score : ${project.packageHealth.score}/10`);
 
