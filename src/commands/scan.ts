@@ -306,7 +306,7 @@ export function scanCommand() {
 
     console.log();
     title("Summary");
-    console.log("────────────────────────────");
+    
     console.log(`Project Type     : ${project.projectType}`);
     console.log(`Technologies     : ${project.technologyStack.join(", ")}`);
     console.log(`Health           : ${project.projectScore.score}/100 (${project.projectScore.rating})`);
