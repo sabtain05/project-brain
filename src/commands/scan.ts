@@ -164,7 +164,6 @@ export function scanCommand() {
 
     console.log();
     title("Dependency Summary");
-    console.log("────────────────────────────");
     console.log(`Declared Packages : ${project.dependencyAnalysis.total}`);
     console.log(`Installed Packages: ${project.dependencyAnalysis.installed}`);
     console.log(`Unused            : ${project.dependencyAnalysis.unused.length}`);
