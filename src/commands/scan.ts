@@ -319,7 +319,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Summary");
+    title("Summary");
     console.log("────────────────────────────");
     console.log(`Project Type     : ${project.projectType}`);
     console.log(`Technologies     : ${project.technologyStack.join(", ")}`);
