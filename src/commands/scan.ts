@@ -220,7 +220,7 @@ export function scanCommand() {
 
     console.log();
     title("Code Analysis");
-    console.log("────────────────────────────");
+    
     console.log(`Empty Source Files : ${project.code.emptyFiles}`);
 
     console.log("\nLargest Files:");
