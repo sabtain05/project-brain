@@ -17,7 +17,7 @@ export function scanCommand() {
     spinner.start();
 
     const project = analyzeProject();
-    spinner.succeed("Analyzing completed");
+    spinner.succeed("Analyzation completed");
 
     console.log();
 
