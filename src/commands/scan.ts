@@ -309,7 +309,7 @@ export function scanCommand() {
     // ============================================================
 
     console.log();
-    console.log("Project Score");
+    title("Project Score");
     console.log("────────────────────────────");
     console.log(`Score            : ${project.projectScore.score}/100`);
     console.log(`Rating           : ${project.projectScore.rating}`);
