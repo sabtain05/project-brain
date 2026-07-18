@@ -428,6 +428,22 @@ export function scanCommand() {
 
     console.log();
 
+console.log("────────────────────────────");
+
+console.log("Thank you for using Quicklyzer.");
+
+console.log("Made by Sabtain Ali");
+
+console.log("https://github.com/sabtain05/quicklyzer");
+
+console.log();
+
+
+
+
+
+    console.log();
+
   } catch (err) {
 
     spinner.fail("Analysis failed");
