@@ -367,7 +367,7 @@ export function scanCommand() {
       title("Performance");
 
       console.log(
-`Started     : ${formatTime(started)}`
+        `Started     : ${formatTime(started)}`
       );
 
       console.log(
