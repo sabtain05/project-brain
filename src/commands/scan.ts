@@ -427,8 +427,7 @@ export function scanCommand() {
 
 
     console.log();
-
-console.log("────────────────────────────");
+    console.log("────────────────────────────");
 
 console.log("Thank you for using Quicklyzer.");
 
