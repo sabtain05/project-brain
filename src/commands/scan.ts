@@ -410,6 +410,32 @@ export function scanCommand() {
       console.log("Recommendation   : Significant improvements recommended.");
     }
 
+
+    const update = checkForUpdates();
+
+title("Quicklyzer");
+
+console.log(`Version : ${update.current}`);
+
+if (update.updateAvailable) {
+
+    console.log(
+        `Update  : ${update.latest} available`
+    );
+
+} else {
+
+    console.log(
+        "Update  : You're using the latest version."
+    );
+
+}
+
+
+
+
+
+
     console.log();
 
   } catch (err) {
