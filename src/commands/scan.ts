@@ -419,12 +419,11 @@ export function scanCommand() {
         `Update  : ${update.latest} available`
       );
     } else {
-
-    console.log(
+      
+      console.log(
         "Update  : You're using the latest version."
-    );
-
-}
+      );
+    }
 
 
 
