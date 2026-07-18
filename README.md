@@ -18,7 +18,7 @@ Quicklyzer scans your project and provides detailed insights about its structure
 - Package health analysis
 - Project score
 
-### 🌍 Environment Detection
+### Environment Detection
 
 - Package manager
 - Framework
