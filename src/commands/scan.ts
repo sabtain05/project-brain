@@ -412,8 +412,7 @@ export function scanCommand() {
 
 
     const update = checkForUpdates();
-
-title("Quicklyzer");
+    title("Quicklyzer");
 
 console.log(`Version : ${update.current}`);
 
