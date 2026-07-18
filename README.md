@@ -56,7 +56,7 @@ Quicklyzer scans your project and provides detailed insights about its structure
 - Duplicate filenames
 - Recently modified files
 
-### 📦 Dependency Intelligence
+### Dependency Intelligence
 
 - Production dependencies
 - Development dependencies
