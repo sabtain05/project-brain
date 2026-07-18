@@ -1,4 +1,4 @@
-# 🚀 Quicklyzer
+# Quicklyzer
 
 > A powerful CLI that understands and analyzes software projects in seconds.
 
