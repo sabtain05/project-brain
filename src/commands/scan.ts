@@ -248,7 +248,7 @@ export function scanCommand() {
         );
 
         console.log(
-`Architecture      : ${process.arch}`
+          `Architecture      : ${process.arch}`
         );
       }
     }
