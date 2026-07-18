@@ -429,7 +429,7 @@ export function scanCommand() {
     console.log();
     console.log("────────────────────────────");
     console.log("Thank you for using Quicklyzer.");
-    console.log("a Sabtain Ali production");
+    console.log("A Sabtain Ali production");
     console.log("https://github.com/sabtain05/quicklyzer");
     console.log();
 
