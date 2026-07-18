@@ -244,7 +244,7 @@ export function scanCommand() {
         );
 
         console.log(
-`Platform          : ${process.platform}`
+          `Platform          : ${process.platform}`
         );
 
         console.log(
