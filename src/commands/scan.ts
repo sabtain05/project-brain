@@ -240,7 +240,7 @@ export function scanCommand() {
         );
 
         console.log(
-`Node Version      : ${process.version}`
+          `Node Version      : ${process.version}`
         );
 
         console.log(
