@@ -21,6 +21,15 @@ export function scanCommand() {
     .description("Analyze the current project")
     .option("-v, --verbose", "Show detailed output")
     .option("-q, --quiet", "Show only summary")
+    .option(
+      "--ignore <directory>",
+      "Ignore a directory",
+      (value, previous: string[] = []) => {
+        previous.push(value);
+        return previous;
+      },
+      []
+    )
     .action((options)=> {
   const startTime = performance.now();
   const spinner = ora("Analyzing project...");
