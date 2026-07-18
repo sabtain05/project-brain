@@ -68,7 +68,7 @@ Quicklyzer scans your project and provides detailed insights about its structure
 - Duplicate dependency versions
 - Dependency risk score
 
-### 📄 Export Reports
+### Export Reports
 
 - JSON
 - Markdown
