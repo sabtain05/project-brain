@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, statSync } from "fs";
 import { basename, extname, join } from "path";
 
-const IGNORED = [
+const DEFAULT_IGNORED_DIRECTORIES = [
   "node_modules",
   ".git",
   "dist",
@@ -36,9 +36,13 @@ export interface CodeAnalysis {
   }[];
 }
 
-export function analyzeCode(projectPath: string): CodeAnalysis {
+export function analyzeCode(projectPath: string, options: { ignore?: string[] } = {}): CodeAnalysis {
   const extensions: Record<string, number> = {};
   const largestFiles: { path: string; lines: number }[] = [];
+  const ignored = new Set([
+    ...DEFAULT_IGNORED_DIRECTORIES,
+    ...(options.ignore ?? [])
+  ]);
 
   let emptyFiles = 0;
 
@@ -81,7 +85,7 @@ export function analyzeCode(projectPath: string): CodeAnalysis {
 
   function scan(dir: string) {
     for (const entry of readdirSync(dir)) {
-      if (IGNORED.includes(entry)) continue;
+      if (ignored.has(entry)) continue;
 
       const fullPath = join(dir, entry);
 

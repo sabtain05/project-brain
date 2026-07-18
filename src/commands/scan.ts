@@ -38,7 +38,7 @@ export function scanCommand() {
   try {
     spinner.start();
 
-    const project = analyzeProject();
+    const project = analyzeProject(process.cwd(), { ignore: options.ignore ?? [] });
     spinner.succeed("Analysis completed");
 
     const endTime = performance.now();

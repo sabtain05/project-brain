@@ -1,6 +1,16 @@
 import { readFileSync, existsSync, readdirSync, statSync } from "fs";
 import { join } from "path";
 
+const DEFAULT_IGNORED_DIRECTORIES = [
+  "node_modules",
+  ".git",
+  "dist",
+  "coverage",
+  ".next",
+  "build",
+  "out"
+];
+
 export interface DependencyAnalysis {
 
   production:number;
@@ -55,8 +65,12 @@ function directorySize(path: string): number {
   return total;
 }
 
-function collectImports(projectPath: string): Set<string> {
+function collectImports(projectPath: string, options: { ignore?: string[] } = {}): Set<string> {
   const imports = new Set<string>();
+  const ignored = new Set([
+    ...DEFAULT_IGNORED_DIRECTORIES,
+    ...(options.ignore ?? [])
+  ]);
 
   scan(projectPath);
 
@@ -64,17 +78,7 @@ function collectImports(projectPath: string): Set<string> {
 
   function scan(dir: string) {
     for (const entry of readdirSync(dir)) {
-      if (
-        [
-          "node_modules",
-          ".git",
-          "dist",
-          "coverage",
-          ".next",
-          "build",
-          "out"
-        ].includes(entry)
-      ) {
+      if (ignored.has(entry)) {
         continue;
       }
 
@@ -165,7 +169,8 @@ function calculateRiskScore(
 
 export function analyzeDependencies(
   projectPath: string,
-  packageJson: any
+  packageJson: any,
+  options: { ignore?: string[] } = {}
 ): DependencyAnalysis {
   const dependencies = packageJson.dependencies ?? {};
   const devDependencies = packageJson.devDependencies ?? {};
@@ -203,7 +208,7 @@ export function analyzeDependencies(
 
   largestPackages.sort((a, b) => b.size - a.size);
 
-  const imports = collectImports(projectPath);
+  const imports = collectImports(projectPath, options);
 
   const declared = [
     ...Object.keys(dependencies),

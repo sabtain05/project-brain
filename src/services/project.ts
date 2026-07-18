@@ -137,6 +137,10 @@ interface PackageJson {
   workspaces?: string[];
 }
 
+export interface AnalyzeProjectOptions {
+  ignore?: string[];
+}
+
 function detectPackageManager(projectPath: string): string {
   if (fileExists(join(projectPath, "package-lock.json"))) {
     return "npm";
@@ -415,8 +419,10 @@ function detectLicense(projectPath: string): boolean {
   );
 }
 
-export function analyzeProject(): ProjectInfo {
-  const projectPath = process.cwd();
+export function analyzeProject(
+  projectPath = process.cwd(),
+  options: AnalyzeProjectOptions = {}
+): ProjectInfo {
   const packageJsonPath = join(projectPath, "package.json");
 
   if (!fileExists(packageJsonPath)) {
@@ -425,6 +431,7 @@ export function analyzeProject(): ProjectInfo {
 
   const pkg = readJsonFile<PackageJson>(packageJsonPath);
   const dependencyStats = getDependencyStatistics(pkg);
+  const ignored = options.ignore ?? [];
   const scripts = getScripts(pkg);
   const nodeVersion = detectNodeVersion(pkg);
   const docker = detectDocker(projectPath);
@@ -432,8 +439,8 @@ export function analyzeProject(): ProjectInfo {
   const eslint = detectESLint(projectPath, pkg);
   const prettier = detectPrettier(projectPath, pkg);
   const monorepo = detectMonorepo(projectPath, pkg);
-  const statistics = getProjectStatistics(projectPath);
-  const tree = getProjectTree(projectPath);
+  const statistics = getProjectStatistics(projectPath, { ignore: ignored });
+  const tree = getProjectTree(projectPath, { ignore: ignored });
   const entryPoint = detectEntryPoint(projectPath);
   const configFiles = detectConfigFiles(projectPath);
   const technologyStack = detectTechnologyStack(pkg);
@@ -446,10 +453,10 @@ export function analyzeProject(): ProjectInfo {
     totalFiles: statistics.totalFiles,
     linesOfCode: statistics.linesOfCode
   });
-  const code = analyzeCode(projectPath);
+  const code = analyzeCode(projectPath, { ignore: ignored });
   const gitBranch = detectGitBranch(projectPath);
   const projectType = detectProjectType(pkg);
-  const dependencyAnalysis = analyzeDependencies(projectPath, pkg);
+  const dependencyAnalysis = analyzeDependencies(projectPath, pkg, { ignore: ignored });
 
 
   return {

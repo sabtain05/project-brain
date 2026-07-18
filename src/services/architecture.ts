@@ -1,7 +1,7 @@
 import { readdirSync, statSync, existsSync, readFileSync } from "fs";
 import { join } from "path";
 
-const IGNORED_DIRECTORIES = [
+const DEFAULT_IGNORED_DIRECTORIES = [
   "node_modules",
   ".git",
   "dist",
@@ -92,14 +92,18 @@ export interface ProjectScore {
 
 
 
-export function getProjectTree(projectPath: string): ProjectTree {
+export function getProjectTree(projectPath: string, options: { ignore?: string[] } = {}): ProjectTree {
   const directories: string[] = [];
   const files: string[] = [];
+  const ignored = new Set([
+    ...DEFAULT_IGNORED_DIRECTORIES,
+    ...(options.ignore ?? [])
+  ]);
 
   const entries = readdirSync(projectPath);
 
   for (const entry of entries) {
-    if (IGNORED_DIRECTORIES.includes(entry)) {
+    if (ignored.has(entry)) {
       continue;
     }
 

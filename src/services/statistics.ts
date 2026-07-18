@@ -1,7 +1,7 @@
 import { readdirSync, statSync, readFileSync } from "fs";
 import { join } from "path";
 
-const IGNORED_DIRECTORIES = [
+const DEFAULT_IGNORED_DIRECTORIES = [
   "node_modules",
   ".git",
   "dist",
@@ -43,7 +43,7 @@ interface Statistics {
   projectSize: number;
 }
 
-export function getProjectStatistics(projectPath: string): Statistics {
+export function getProjectStatistics(projectPath: string, options: { ignore?: string[] } = {}): Statistics {
   let totalFiles = 0;
   let sourceFiles = 0;
   let directories = 0;
@@ -51,6 +51,10 @@ export function getProjectStatistics(projectPath: string): Statistics {
   let hiddenFiles = 0;
   let projectSize = 0;
   let linesOfCode = 0;
+  const ignored = new Set([
+    ...DEFAULT_IGNORED_DIRECTORIES,
+    ...(options.ignore ?? [])
+  ]);
 
   const directoryStats: DirectoryStats[] = [];
 
@@ -82,7 +86,7 @@ export function getProjectStatistics(projectPath: string): Statistics {
     let visibleEntries = 0;
 
     for (const entry of entries) {
-      if (IGNORED_DIRECTORIES.includes(entry)) continue;
+      if (ignored.has(entry)) continue;
 
       visibleEntries++;
 
