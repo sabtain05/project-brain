@@ -45,7 +45,7 @@ Quicklyzer scans your project and provides detailed insights about its structure
 - Empty directories
 - Project size
 
-### 🧠 Code Analysis
+### Code Analysis
 
 - File extension breakdown
 - Largest source files
