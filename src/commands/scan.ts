@@ -415,12 +415,10 @@ export function scanCommand() {
     title("Quicklyzer");
     console.log(`Version : ${update.current}`);
     if (update.updateAvailable) {
-
-    console.log(
+       console.log(
         `Update  : ${update.latest} available`
-    );
-
-} else {
+      );
+    } else {
 
     console.log(
         "Update  : You're using the latest version."
