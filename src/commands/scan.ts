@@ -371,7 +371,7 @@ export function scanCommand() {
       );
 
       console.log(
-`Finished    : ${formatTime(finished)}`
+        `Finished    : ${formatTime(finished)}`
       );
 
       console.log(
