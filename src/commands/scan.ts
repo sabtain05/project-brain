@@ -414,8 +414,7 @@ export function scanCommand() {
     const update = checkForUpdates();
     title("Quicklyzer");
     console.log(`Version : ${update.current}`);
-
-if (update.updateAvailable) {
+    if (update.updateAvailable) {
 
     console.log(
         `Update  : ${update.latest} available`
