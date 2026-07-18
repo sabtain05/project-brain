@@ -236,7 +236,7 @@ export function scanCommand() {
         title("Verbose Information");
 
         console.log(
-`Current Directory : ${process.cwd()}`
+          `Current Directory : ${process.cwd()}`
         );
 
         console.log(
