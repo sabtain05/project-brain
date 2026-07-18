@@ -375,7 +375,7 @@ export function scanCommand() {
       );
 
       console.log(
-`Duration    : ${(endTime-startTime).toFixed(2)} ms`
+        `Duration    : ${(endTime-startTime).toFixed(2)} ms`
       );
     }
 
