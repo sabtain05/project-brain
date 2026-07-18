@@ -32,7 +32,7 @@ Quicklyzer scans your project and provides detailed insights about its structure
 - Prettier detection
 - Monorepo detection
 
-### 📊 Project Statistics
+### Project Statistics
 
 - Total files
 - Source files
