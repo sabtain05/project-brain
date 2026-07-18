@@ -6,6 +6,14 @@ import { performance } from "node:perf_hooks";
 import ora from "ora";
 import {title, error} from "../utils/ui.js";
 
+function shouldShow(options: any) {
+  return !options.quiet;
+}
+
+function formatTime(date: Date) {
+  return date.toLocaleTimeString();
+}
+
 
 
 export function scanCommand() {
@@ -16,12 +24,16 @@ export function scanCommand() {
     .action((options)=> {
   const startTime = performance.now();
   const spinner = ora("Analyzing project...");
+  const started = new Date();
 
   try {
     spinner.start();
 
     const project = analyzeProject();
-    spinner.succeed("Analyzation completed");
+    spinner.succeed("Analysis completed");
+
+    const endTime = performance.now();
+    const finished = new Date();
 
     console.log();
 
@@ -35,80 +47,91 @@ export function scanCommand() {
     console.log(`Type             : ${project.projectType}`);
     console.log(`Entry Point      : ${project.entryPoint}`);
 
-    // ============================================================
-    // Project Structure
-    // ============================================================
+    if (shouldShow(options)) {
+      // ============================================================
+      // Project Structure
+      // ============================================================
 
-    console.log();
-    title("Project Structure");
+      console.log();
+      title("Project Structure");
 
-    console.log("\nFolders:");
-    project.projectTree.directories.forEach(dir => console.log(`📁 ${dir}`));
+      console.log("\nFolders:");
+      project.projectTree.directories.forEach(dir => console.log(`📁 ${dir}`));
 
-    console.log("\nFiles:");
-    project.projectTree.files.forEach(file => console.log(`📄 ${file}`));
+      console.log("\nFiles:");
+      project.projectTree.files.forEach(file => console.log(`📄 ${file}`));
+    }
 
     // ============================================================
     // Configuration Files
     // ============================================================
 
-    console.log();
-    title("Configuration Files");
+    if (shouldShow(options)) {
+      console.log();
+      title("Configuration Files");
 
-    if (project.configFiles.length === 0) {
-      console.log("None");
-    } else {
-      project.configFiles.forEach(file => console.log(`${file}`));
+      if (project.configFiles.length === 0) {
+        console.log("None");
+      } else {
+        project.configFiles.forEach(file => console.log(`${file}`));
+      }
     }
 
     // ============================================================
     // Technology Stack
     // ============================================================
 
-    console.log();
-    title("Technology Stack");
+    if (shouldShow(options)) {
+      console.log();
+      title("Technology Stack");
 
-    project.technologyStack.forEach(tech => console.log(`${tech}`));
+      project.technologyStack.forEach(tech => console.log(`${tech}`));
+    }
 
     // ============================================================
     // Package Health
     // ============================================================
 
-    console.log();
-    title("Package Health");
-    console.log(`Score : ${project.packageHealth.score}/10`);
+    if (shouldShow(options)) {
+      console.log();
+      title("Package Health");
+      console.log(`Score : ${project.packageHealth.score}/10`);
 
-    console.log("\nPassed:");
-    project.packageHealth.passed.forEach(item => console.log(`${item}`));
+      console.log("\nPassed:");
+      project.packageHealth.passed.forEach(item => console.log(`${item}`));
 
-    console.log("\nMissing:");
-    project.packageHealth.missing.forEach(item => console.log(`${item}`));
+      console.log("\nMissing:");
+      project.packageHealth.missing.forEach(item => console.log(`${item}`));
+    }
 
     // ============================================================
     // Environment
     // ============================================================
 
-    console.log();
-    title("Environment");
-    console.log(`Package Manager  : ${project.packageManager}`);
-    console.log(`Language         : ${project.language}`);
-    console.log(`Framework        : ${project.framework}`);
-    console.log(`Framework Ver.   : ${project.frameworkVersion}`);
-    console.log(`Build Tool       : ${project.buildTool}`);
-    console.log(`Build Tool Ver.  : ${project.buildToolVersion}`);
-    console.log(`Node.js Required : ${project.nodeVersion}`);
-    console.log(`Docker           : ${project.docker ? "Yes" : "No"}`);
-    console.log(`CI/CD            : ${project.ci}`);
-    console.log(`ESLint           : ${project.eslint ? "Yes" : "No"}`);
-    console.log(`Prettier         : ${project.prettier ? "Yes" : "No"}`);
-    console.log(`Monorepo         : ${project.monorepo ? "Yes" : "No"}`);
+    if (shouldShow(options)) {
+      console.log();
+      title("Environment");
+      console.log(`Package Manager  : ${project.packageManager}`);
+      console.log(`Language         : ${project.language}`);
+      console.log(`Framework        : ${project.framework}`);
+      console.log(`Framework Ver.   : ${project.frameworkVersion}`);
+      console.log(`Build Tool       : ${project.buildTool}`);
+      console.log(`Build Tool Ver.  : ${project.buildToolVersion}`);
+      console.log(`Node.js Required : ${project.nodeVersion}`);
+      console.log(`Docker           : ${project.docker ? "Yes" : "No"}`);
+      console.log(`CI/CD            : ${project.ci}`);
+      console.log(`ESLint           : ${project.eslint ? "Yes" : "No"}`);
+      console.log(`Prettier         : ${project.prettier ? "Yes" : "No"}`);
+      console.log(`Monorepo         : ${project.monorepo ? "Yes" : "No"}`);
+    }
 
     // ============================================================
     // Dependencies
     // ============================================================
 
-    console.log();
-    title("Dependencies");
+    if (shouldShow(options)) {
+      console.log();
+      title("Dependencies");
     console.log(`Dependencies     : ${project.dependencyCount}`);
     console.log(`Dev Dependencies : ${project.devDependencyCount}`);
     console.log(`Total Packages   : ${project.totalDependencyCount}`);
@@ -173,101 +196,132 @@ export function scanCommand() {
     console.log(`Unused            : ${project.dependencyAnalysis.unused.length}`);
     console.log(`Missing           : ${project.dependencyAnalysis.missing.length}`);
     console.log(`Duplicate Versions: ${project.dependencyAnalysis.duplicateVersions.length}`);
-
+    }
 
     // ============================================================
     // Scripts
     // ============================================================
 
-    console.log();
-    title("Scripts");
+    if (shouldShow(options)) {
+      console.log();
+      title("Scripts");
 
-    if (project.scripts.length === 0) {
-      console.log("No scripts found.");
-    } else {
-      project.scripts.forEach(script => console.log(`${script}`));
+      if (project.scripts.length === 0) {
+        console.log("No scripts found.");
+      } else {
+        project.scripts.forEach(script => console.log(`${script}`));
+      }
     }
 
     // ============================================================
     // Statistics
     // ============================================================
 
-    console.log();
-    title("Project Statistics");
+    if (shouldShow(options)) {
+      console.log();
+      title("Project Statistics");
 
-    console.log(`Total Files      : ${project.totalFiles}`);
-    console.log(`Source Files     : ${project.sourceFiles}`);
-    console.log(`Directories      : ${project.directories}`);
-    console.log(`Lines of Code    : ${project.linesOfCode.toLocaleString()}`);
-    console.log(`Largest File     : ${basename(project.largestFile.path)} (${project.largestFile.lines.toLocaleString()} lines)`);
-    console.log(`Empty Directories: ${project.emptyDirectories}`);
-    console.log(`Hidden Files     : ${project.hiddenFiles}`);
-    console.log(`Project Size     : ${formatBytes(project.projectSize)}`);
+      console.log(`Total Files      : ${project.totalFiles}`);
+      console.log(`Source Files     : ${project.sourceFiles}`);
+      console.log(`Directories      : ${project.directories}`);
+      console.log(`Lines of Code    : ${project.linesOfCode.toLocaleString()}`);
+      console.log(`Largest File     : ${basename(project.largestFile.path)} (${project.largestFile.lines.toLocaleString()} lines)`);
+      console.log(`Empty Directories: ${project.emptyDirectories}`);
+      console.log(`Hidden Files     : ${project.hiddenFiles}`);
+      console.log(`Project Size     : ${formatBytes(project.projectSize)}`);
 
-    const endTime = performance.now();
-    console.log(`Scan Time        : ${(endTime - startTime).toFixed(2)} ms`);
+      console.log(`Scan Time        : ${(endTime - startTime).toFixed(2)} ms`);
+
+      if (options.verbose) {
+        title("Verbose Information");
+
+        console.log(
+`Current Directory : ${process.cwd()}`
+        );
+
+        console.log(
+`Node Version      : ${process.version}`
+        );
+
+        console.log(
+`Platform          : ${process.platform}`
+        );
+
+        console.log(
+`Architecture      : ${process.arch}`
+        );
+      }
+    }
 
     // ============================================================
     // Largest Directories
     // ============================================================
 
-    console.log();
-    title("Largest Directories");
+    if (shouldShow(options)) {
+      console.log();
+      title("Largest Directories");
 
-    for (const dir of project.largestDirectories) {
-      console.log(`${basename(dir.path)} (${dir.fileCount} files)`);
+      for (const dir of project.largestDirectories) {
+        console.log(`${basename(dir.path)} (${dir.fileCount} files)`);
+      }
     }
 
     // ============================================================
     // Code Analysis
     // ============================================================
 
-    console.log();
-    title("Code Analysis");
+    if (shouldShow(options)) {
+      console.log();
+      title("Code Analysis");
 
-    console.log(`Empty Source Files : ${project.code.emptyFiles}`);
+      console.log(`Empty Source Files : ${project.code.emptyFiles}`);
 
-    console.log("\nLargest Files:");
+      console.log("\nLargest Files:");
 
-    project.code.largestFiles.forEach(file =>
-      console.log(`${file.path} (${file.lines} lines)`)
-    );
-
-    console.log("\nExtensions:");
-
-    Object.entries(project.code.extensions)
-      .sort()
-      .forEach(([ext, count]) =>
-        console.log(`${ext.padEnd(8)} ${count}`)
+      project.code.largestFiles.forEach(file =>
+        console.log(`${file.path} (${file.lines} lines)`)
       );
+
+      console.log("\nExtensions:");
+
+      Object.entries(project.code.extensions)
+        .sort()
+        .forEach(([ext, count]) =>
+          console.log(`${ext.padEnd(8)} ${count}`)
+        );
+    }
 
     // ============================================================
     // Code Quality
     // ============================================================
 
-    console.log();
-    title("Code Quality");
+    if (shouldShow(options)) {
+      console.log();
+      title("Code Quality");
 
-    console.log(`TODO   : ${project.code.todos.todo}`);
-    console.log(`FIXME  : ${project.code.todos.fixme}`);
-    console.log(`HACK   : ${project.code.todos.hack}`);
-    console.log(`NOTE   : ${project.code.todos.note}`);
+      console.log(`TODO   : ${project.code.todos.todo}`);
+      console.log(`FIXME  : ${project.code.todos.fixme}`);
+      console.log(`HACK   : ${project.code.todos.hack}`);
+      console.log(`NOTE   : ${project.code.todos.note}`);
+    }
 
     // ============================================================
     // Duplicate Files
     // ============================================================
 
-    console.log();
-    title("Duplicate File Names");
+    if (shouldShow(options)) {
+      console.log();
+      title("Duplicate File Names");
 
-    const duplicates = Object.entries(project.code.duplicateFiles);
+      const duplicates = Object.entries(project.code.duplicateFiles);
 
-    if (duplicates.length === 0) {
-      console.log("None");
-    } else {
-      for (const [name, files] of duplicates) {
-        console.log(`\n${name}`);
-        files.forEach(file => console.log(`${file}`));
+      if (duplicates.length === 0) {
+        console.log("None");
+      } else {
+        for (const [name, files] of duplicates) {
+          console.log(`\n${name}`);
+          files.forEach(file => console.log(`${file}`));
+        }
       }
     }
 
@@ -275,24 +329,28 @@ export function scanCommand() {
     // Recent Activity
     // ============================================================
 
-    console.log();
-    title("Recent Activity");
+    if (shouldShow(options)) {
+      console.log();
+      title("Recent Activity");
 
-    project.code.recentFiles.forEach(file =>
-      console.log(file.path)
-    );
+      project.code.recentFiles.forEach(file =>
+        console.log(file.path)
+      );
+    }
 
     // ============================================================
     // Repository
     // ============================================================
 
-    console.log();
-    title("Repository");
+    if (shouldShow(options)) {
+      console.log();
+      title("Repository");
 
-    console.log(`Git              : ${project.git ? "Yes" : "No"}`);
-    console.log(`Branch           : ${project.gitBranch}`);
-    console.log(`README           : ${project.readme ? "Yes" : "No"}`);
-    console.log(`LICENSE          : ${project.license ? "Yes" : "No"}`);
+      console.log(`Git              : ${project.git ? "Yes" : "No"}`);
+      console.log(`Branch           : ${project.gitBranch}`);
+      console.log(`README           : ${project.readme ? "Yes" : "No"}`);
+      console.log(`LICENSE          : ${project.license ? "Yes" : "No"}`);
+    }
 
     // ============================================================
     // Project Score
@@ -303,6 +361,23 @@ export function scanCommand() {
 
     console.log(`Score            : ${project.projectScore.score}/100`);
     console.log(`Rating           : ${project.projectScore.rating}`);
+
+    if (shouldShow(options)) {
+      console.log();
+      title("Performance");
+
+      console.log(
+`Started     : ${formatTime(started)}`
+      );
+
+      console.log(
+`Finished    : ${formatTime(finished)}`
+      );
+
+      console.log(
+`Duration    : ${(endTime-startTime).toFixed(2)} ms`
+      );
+    }
 
     // ============================================================
     // Summary
