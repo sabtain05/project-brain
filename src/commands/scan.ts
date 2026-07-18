@@ -426,10 +426,6 @@ export function scanCommand() {
     }
 
 
-
-
-
-
     console.log();
 
   } catch (err) {
