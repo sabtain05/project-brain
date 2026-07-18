@@ -8,7 +8,7 @@ Quicklyzer scans your project and provides detailed insights about its structure
 
 ## ✨ Features
 
-### 📦 Project Analysis
+### Project Analysis
 
 - Project information
 - Project type detection
