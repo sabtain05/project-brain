@@ -74,7 +74,7 @@ Quicklyzer scans your project and provides detailed insights about its structure
 - Markdown
 - HTML
 
-### 💻 CLI Experience
+### CLI Experience
 
 - Colored output
 - Progress spinner
