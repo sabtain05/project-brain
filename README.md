@@ -1,103 +1,98 @@
-# Quicklyzer
+# 🚀 Quicklyzer
 
-> A fast and intelligent CLI that understands and analyzes software projects in seconds.
+> A powerful CLI that understands and analyzes software projects in seconds.
 
-Quicklyzer helps developers quickly understand any codebase by analyzing project structure, technologies, dependencies, architecture, and code quality from the terminal.
-
----
-
-## Features
-
-### Project Intelligence
-
-* Project information
-* Entry point detection
-* Project structure overview
-* Configuration file detection
-* Technology stack detection
-* Project type detection
-
-### Environment Intelligence
-
-* Framework detection
-* Framework version detection
-* Build tool detection
-* Build tool version detection
-* Node.js version detection
-* Docker detection
-* CI/CD detection
-* ESLint detection
-* Prettier detection
-* Monorepo detection
-
-### Repository Intelligence
-
-* Git repository detection
-* Current Git branch
-* README detection
-* LICENSE detection
-
-### Dependency Intelligence
-
-* Production & development dependency analysis
-* Installed package count
-* Installed package size
-* Largest installed packages
-* Unused dependency detection
-* Missing dependency detection
-* Duplicate dependency version detection
-* Dependency risk score
-* Package insights
-
-### Code Intelligence
-
-* Source file analysis
-* Extension statistics
-* Largest source files
-* Empty source files
-* Duplicate file name detection
-* TODO / FIXME / HACK / NOTE detection
-* Recently modified files
-
-### Project Statistics
-
-* Total files
-* Source files
-* Directory count
-* Largest directories
-* Lines of code
-* Largest file
-* Hidden files
-* Empty directories
-* Project size
-* Scan duration
-
-### Project Evaluation
-
-* Package Health Score
-* Project Score
-* Smart project summary
-
-### Export Engine
-
-* JSON reports
-* Markdown reports
-* HTML reports
-* Timestamped reports
-* Custom filenames
-* Custom output directory
-* Export all formats at once
-* Export manifest
+Quicklyzer scans your project and provides detailed insights about its structure, dependencies, code quality, repository health, package configuration, and much more.
 
 ---
 
-## Installation
+## ✨ Features
+
+### 📦 Project Analysis
+
+- Project information
+- Project type detection
+- Technology stack detection
+- Entry point detection
+- Configuration file detection
+- Package health analysis
+- Project score
+
+### 🌍 Environment Detection
+
+- Package manager
+- Framework
+- Framework version
+- Build tool
+- Build tool version
+- Node.js version requirement
+- Docker detection
+- CI/CD detection
+- ESLint detection
+- Prettier detection
+- Monorepo detection
+
+### 📊 Project Statistics
+
+- Total files
+- Source files
+- Directories
+- Largest directories
+- Largest files
+- Lines of code
+- Hidden files
+- Empty files
+- Empty directories
+- Project size
+
+### 🧠 Code Analysis
+
+- File extension breakdown
+- Largest source files
+- TODO detection
+- FIXME detection
+- HACK detection
+- NOTE detection
+- Duplicate filenames
+- Recently modified files
+
+### 📦 Dependency Intelligence
+
+- Production dependencies
+- Development dependencies
+- Installed packages
+- Installed package size
+- Largest installed packages
+- Unused dependencies
+- Missing dependencies
+- Duplicate dependency versions
+- Dependency risk score
+
+### 📄 Export Reports
+
+- JSON
+- Markdown
+- HTML
+
+### 💻 CLI Experience
+
+- Colored output
+- Progress spinner
+- Quiet mode
+- Verbose mode
+- Custom ignore directories
+- Performance timings
+- Professional summaries
+
+---
+
+# Installation
 
 ```bash
 npm install -g quicklyzer
 ```
 
-Or use it without installing:
+or
 
 ```bash
 npx quicklyzer scan
@@ -105,82 +100,118 @@ npx quicklyzer scan
 
 ---
 
-## Commands
+# Commands
 
-### Scan a project
+## Scan Project
 
 ```bash
 quicklyzer scan
 ```
 
-### About
+Verbose mode
 
 ```bash
-quicklyzer about
+quicklyzer scan --verbose
 ```
 
-### Version
+Quiet mode
 
 ```bash
-quicklyzer version
+quicklyzer scan --quiet
 ```
 
-### Export JSON
+Ignore directories
+
+```bash
+quicklyzer scan --ignore dist
+```
+
+Multiple directories
+
+```bash
+quicklyzer scan --ignore dist --ignore coverage
+```
+
+---
+
+## Export Reports
+
+JSON
 
 ```bash
 quicklyzer export
 ```
 
-### Export Markdown
+Markdown
 
 ```bash
 quicklyzer export --format md
 ```
 
-### Export HTML
+HTML
 
 ```bash
 quicklyzer export --format html
 ```
 
-### Export all formats
+Export every format
 
 ```bash
 quicklyzer export --all
 ```
 
-### Custom output directory
+Custom output folder
 
 ```bash
 quicklyzer export --all --output reports
 ```
 
-### Custom filename
+Custom filename
 
 ```bash
-quicklyzer export --all --output reports --name project-report
+quicklyzer export --all --name project-report
 ```
 
 ---
 
-## Requirements
+# Example
 
-* Node.js 20 or later
+```bash
+quicklyzer scan
+```
+
+```
+Project
+────────────────────────────
+Name             : quicklyzer
+Version          : 0.1.0
+
+Environment
+────────────────────────────
+Framework         : Unknown
+Package Manager   : npm
+Language          : TypeScript
+
+...
+
+Project Score
+────────────────────────────
+Score             : 96/100
+Rating            : Excellent
+```
 
 ---
 
-## License
+# Requirements
 
-MIT License
+- Node.js 20+
 
 ---
 
+# License
 
-## Author
+MIT
 
-**Sabtain Ali**
-
-GitHub: https://github.com/sabtain05
-
+---
 
 **A Sabtain Ali production**
