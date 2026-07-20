@@ -13,6 +13,7 @@ import {
 } from "./architecture.js";
 import { analyzeCode } from "./code.js";
 import { analyzeDependencies } from "./dependencies.js";
+import { analyzeDocumentation } from "./documentation.js";
 
 
 export interface ProjectInfo {
