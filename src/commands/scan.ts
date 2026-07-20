@@ -407,6 +407,13 @@ export function scanCommand() {
     }
 
 
+    title("License");
+
+console.log(
+`Type : ${project.documentation.licenseType}`
+);
+
+
 
 
     // ============================================================
