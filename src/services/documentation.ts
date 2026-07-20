@@ -162,6 +162,31 @@ function analyzeReadme(content:string){
 }
 
 
+
+function detectLicenseType(content:string){
+
+    const text=content.toLowerCase();
+
+    if(text.includes("mit license"))
+        return "MIT";
+
+    if(text.includes("apache license"))
+        return "Apache-2.0";
+
+    if(text.includes("gnu general public license"))
+        return "GPL";
+
+    if(text.includes("bsd"))
+        return "BSD";
+
+    if(text.includes("mozilla public license"))
+        return "MPL";
+
+    return "Unknown";
+
+}
+
+
 export function analyzeDocumentation(
     projectPath:string
 ):DocumentationAnalysis{
