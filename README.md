@@ -4,7 +4,7 @@ Quicklyzer **v0.2.0** introduces comprehensive documentation analysis, helping d
 
 ---
 
-## ✨ What's New
+## What's New
 
 ### Documentation Detection
 
