@@ -370,6 +370,19 @@ export function scanCommand() {
     console.log(`CODE_OF_CONDUCT    : ${project.documentation.codeOfConduct ? "Yes":"No"}`);
     console.log(`SECURITY           : ${project.documentation.security ? "Yes":"No"}`);
     console.log(`LICENSE            : ${project.documentation.license ? "Yes":"No"}`);
+    
+
+
+    title("Documentation Score");
+
+console.log(
+`Score  : ${project.documentation.score.score}/100`
+);
+
+console.log(
+`Rating : ${project.documentation.score.rating}`
+);
+
 
 
 
