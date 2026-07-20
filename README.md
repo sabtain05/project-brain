@@ -73,7 +73,7 @@ Rating : Good
 
 ---
 
-### 💡 Documentation Recommendations
+### Documentation Recommendations
 
 Quicklyzer suggests missing documentation files, for example:
 
