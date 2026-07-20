@@ -40,7 +40,7 @@ Analyze your README with detailed metrics:
 
 ---
 
-### 📄 License Detection
+### License Detection
 
 Automatically detects common license types:
 
