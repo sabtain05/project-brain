@@ -10,12 +10,12 @@ Quicklyzer **v0.2.0** introduces comprehensive documentation analysis, helping d
 
 Quicklyzer now detects the presence of essential project documentation:
 
-* ✅ README.md
-* ✅ CHANGELOG.md
-* ✅ CONTRIBUTING.md
-* ✅ CODE_OF_CONDUCT.md
-* ✅ SECURITY.md
-* ✅ LICENSE
+*  README.md
+*  CHANGELOG.md
+*  CONTRIBUTING.md
+*  CODE_OF_CONDUCT.md
+*  SECURITY.md
+*  LICENSE
 
 ---
 
