@@ -210,6 +210,42 @@ export function analyzeDocumentation(
             readFileSync(readmePath,"utf8")
         )
         : [];
+     
+     const readmeStats=
+
+readme
+
+? analyzeReadme(
+
+    readFileSync(readmePath,"utf8")
+
+)
+
+:{
+
+    words:0,
+
+    headings:0,
+
+    codeBlocks:0,
+
+    links:0,
+
+    badges:0
+
+};
+
+const licenseType=
+
+existsSync(licensePath)
+
+? detectLicenseType(
+
+    readFileSync(licensePath,"utf8")
+
+)
+
+:"None";    
 
     const analysis={
 
@@ -241,7 +277,10 @@ export function analyzeDocumentation(
     recommendations:
         buildRecommendations(
             analysis
-        )
+        ),
+
+       readmeStats,
+       licenseType 
     };
 
 }
