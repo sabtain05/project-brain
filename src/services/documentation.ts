@@ -143,6 +143,25 @@ function buildRecommendations(
 }
 
 
+function analyzeReadme(content:string){
+
+    return{
+
+        words:content.trim().split(/\s+/).filter(Boolean).length,
+
+        headings:(content.match(/^#+\s/gm)||[]).length,
+
+        codeBlocks:(content.match(/```/g)||[]).length/2,
+
+        links:(content.match(/\[[^\]]+\]\([^)]+\)/g)||[]).length,
+
+        badges:(content.match(/!\[[^\]]*\]\([^)]+\)/g)||[]).length
+
+    };
+
+}
+
+
 export function analyzeDocumentation(
     projectPath:string
 ):DocumentationAnalysis{
