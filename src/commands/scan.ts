@@ -374,10 +374,7 @@ export function scanCommand() {
 
 
     title("Documentation Score");
-
-console.log(
-`Score  : ${project.documentation.score.score}/100`
-);
+    console.log(`Score  : ${project.documentation.score.score}/100`);
 
 console.log(
 `Rating : ${project.documentation.score.rating}`
