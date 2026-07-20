@@ -56,6 +56,46 @@ function detectReadmeSections(content:string){
 }
 
 
+function calculateDocumentationScore(
+    analysis:{
+        readme:boolean;
+        changelog:boolean;
+        contributing:boolean;
+        codeOfConduct:boolean;
+        security:boolean;
+        license:boolean;
+        readmeSections:string[];
+    }
+){
+
+    let score=0;
+
+    if(analysis.readme) score+=30;
+    if(analysis.license) score+=20;
+    if(analysis.changelog) score+=15;
+    if(analysis.contributing) score+=10;
+    if(analysis.codeOfConduct) score+=10;
+    if(analysis.security) score+=10;
+
+    score+=Math.min(
+        analysis.readmeSections.length*2,
+        5
+    );
+
+    let rating="Poor";
+
+    if(score>=90) rating="Excellent";
+    else if(score>=75) rating="Good";
+    else if(score>=60) rating="Fair";
+
+    return{
+        score,
+        rating
+    };
+
+}
+
+
 export function analyzeDocumentation(
     projectPath:string
 ):DocumentationAnalysis{
