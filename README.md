@@ -1,92 +1,135 @@
-# Quicklyzer
+# 🚀 Quicklyzer v0.2.0 — Documentation Intelligence
 
-> A fast & intelligent CLI that understands and analyzes software projects in seconds.
-
-Quicklyzer scans your project and provides detailed insights about its structure, dependencies, code quality, repository health, package configuration, and much more.
+Quicklyzer **v0.2.0** introduces comprehensive documentation analysis, helping developers evaluate the quality, completeness, and health of a project's documentation.
 
 ---
 
-## Features
+## ✨ What's New
 
-### Project Analysis
+### 📚 Documentation Detection
 
-- Project information
-- Project type detection
-- Technology stack detection
-- Entry point detection
-- Configuration file detection
-- Package health analysis
-- Project score
+Quicklyzer now detects the presence of essential project documentation:
 
-### Environment Detection
-
-- Package manager
-- Framework
-- Framework version
-- Build tool
-- Build tool version
-- Node.js version requirement
-- Docker detection
-- CI/CD detection
-- ESLint detection
-- Prettier detection
-- Monorepo detection
-
-### Project Statistics
-
-- Total files
-- Source files
-- Directories
-- Largest directories
-- Largest files
-- Lines of code
-- Hidden files
-- Empty files
-- Empty directories
-- Project size
-
-### Code Analysis
-
-- File extension breakdown
-- Largest source files
-- TODO detection
-- FIXME detection
-- HACK detection
-- NOTE detection
-- Duplicate filenames
-- Recently modified files
-
-### Dependency Intelligence
-
-- Production dependencies
-- Development dependencies
-- Installed packages
-- Installed package size
-- Largest installed packages
-- Unused dependencies
-- Missing dependencies
-- Duplicate dependency versions
-- Dependency risk score
-
-### Export Reports
-
-- JSON
-- Markdown
-- HTML
-
-### CLI Experience
-
-- Colored output
-- Progress spinner
-- Quiet mode
-- Verbose mode
-- Custom ignore directories
-- Performance timings
-- Professional summaries
+* ✅ README.md
+* ✅ CHANGELOG.md
+* ✅ CONTRIBUTING.md
+* ✅ CODE_OF_CONDUCT.md
+* ✅ SECURITY.md
+* ✅ LICENSE
 
 ---
 
-# Installation
+### 📖 README Intelligence
+
+Analyze your README with detailed metrics:
+
+* Detect common sections
+
+  * Installation
+  * Usage
+  * Features
+  * Configuration
+  * API
+  * License
+  * Contributing
+* Word count
+* Heading count
+* Code block count
+* Markdown link count
+* Badge count
+
+---
+
+### 📄 License Detection
+
+Automatically detects common license types:
+
+* MIT
+* Apache-2.0
+* GPL
+* BSD
+* MPL
+* Unknown
+
+---
+
+### 📊 Documentation Score
+
+Every project now receives a documentation quality score based on:
+
+* Documentation files
+* README completeness
+* README sections
+* License presence
+
+Example:
+
+```text
+Documentation Score
+────────────────────────────
+Score  : 86/100
+Rating : Good
+```
+
+---
+
+### 💡 Documentation Recommendations
+
+Quicklyzer suggests missing documentation files, for example:
+
+```text
+• Create CHANGELOG.md
+• Add CONTRIBUTING.md
+• Add SECURITY.md
+```
+
+---
+
+### ❤️ Documentation Health
+
+A final documentation summary includes:
+
+* Documentation files present
+* README sections detected
+* Documentation score
+* Overall documentation rating
+
+Example:
+
+```text
+Documentation Health
+────────────────────────────
+Documents Present : 4/6
+README Sections   : 6
+Health Score      : 88/100
+Rating            : Good
+```
+
+---
+
+## Example
+
+```bash
+quicklyzer scan
+```
+
+Quicklyzer will now generate:
+
+* Project Information
+* Environment Analysis
+* Dependency Intelligence
+* Code Analysis
+* Repository Information
+* Package Health
+* Documentation Analysis
+* Documentation Score
+* README Intelligence
+* Documentation Health
+* Project Summary
+
+---
+
+## Installation
 
 ```bash
 npm install -g quicklyzer
@@ -100,126 +143,18 @@ npx quicklyzer scan
 
 ---
 
-# Commands
+## GitHub
 
-## Scan Project
+⭐ If you find Quicklyzer useful, consider starring the repository.
 
-```bash
-quicklyzer scan
-```
-
-Verbose mode
-
-```bash
-quicklyzer scan --verbose
-```
-
-Quiet mode
-
-```bash
-quicklyzer scan --quiet
-```
-
-Ignore directories
-
-```bash
-quicklyzer scan --ignore dist
-```
-
-Multiple directories
-
-```bash
-quicklyzer scan --ignore dist --ignore coverage
-```
+https://github.com/sabtain05/quicklyzer
 
 ---
 
-## Export Reports
+## npm
 
-JSON
-
-```bash
-quicklyzer export
-```
-
-Markdown
-
-```bash
-quicklyzer export --format md
-```
-
-HTML
-
-```bash
-quicklyzer export --format html
-```
-
-Export every format
-
-```bash
-quicklyzer export --all
-```
-
-Custom output folder
-
-```bash
-quicklyzer export --all --output reports
-```
-
-Custom filename
-
-```bash
-quicklyzer export --all --name project-report
-```
+https://www.npmjs.com/package/quicklyzer
 
 ---
-
-# Example
-
-```bash
-quicklyzer scan
-```
-
-```
-Project
-────────────────────────────
-Name             : quicklyzer
-Version          : 0.1.0
-
-Environment
-────────────────────────────
-Framework         : Unknown
-Package Manager   : npm
-Language          : TypeScript
-
-...
-
-Project Score
-────────────────────────────
-Score             : 96/100
-Rating            : Excellent
-```
-
----
-
-# Requirements
-
-- Node.js 20+
-
----
-
-# License
-
-MIT
-
----
-
-# Author
-
-Sabtain Ali 
-
-
----
-
 
 **A Sabtain Ali production**
