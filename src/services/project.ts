@@ -124,6 +124,13 @@ dependencyAnalysis: {
     license:boolean;
 
     readmeSections:string[];
+
+    score:{
+      score:number;
+      rating:string;
+    };
+
+    recommendations:string[];
   };
   scripts: string[];
   nodeVersion: string;
