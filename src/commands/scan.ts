@@ -408,10 +408,7 @@ export function scanCommand() {
 
 
     title("License");
-
-console.log(
-`Type : ${project.documentation.licenseType}`
-);
+    console.log(`Type : ${project.documentation.licenseType}`);
 
 
 
