@@ -390,6 +390,24 @@ export function scanCommand() {
     console.log("No sections detected.");
   }
 
+    
+
+    title("Documentation Recommendations");
+
+if(project.documentation.recommendations.length){
+
+    for(const recommendation of project.documentation.recommendations){
+
+        console.log(`• ${recommendation}`);
+
+    }
+
+}else{
+
+    console.log("No recommendations.");
+
+}
+
 
 
 
