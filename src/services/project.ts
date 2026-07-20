@@ -110,6 +110,21 @@ dependencyAnalysis: {
         packageManager: string;
     };
 };
+  documentation:{
+    readme:boolean;
+
+    changelog:boolean;
+
+    contributing:boolean;
+
+    codeOfConduct:boolean;
+
+    security:boolean;
+
+    license:boolean;
+
+    readmeSections:string[];
+  };
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
