@@ -25,6 +25,17 @@ export interface DocumentationAnalysis {
     recommendations:string[];
 
 
+    readmeStats:{
+        words:number;
+        headings:number;
+        codeBlocks:number;
+        links:number;
+        badges:number;
+    };
+
+    licenseType:string;
+
+
 }
 
 
