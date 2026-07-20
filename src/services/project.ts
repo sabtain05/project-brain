@@ -458,7 +458,7 @@ export function analyzeProject(
   const gitBranch = detectGitBranch(projectPath);
   const projectType = detectProjectType(pkg);
   const dependencyAnalysis = analyzeDependencies(projectPath, pkg, { ignore: ignored });
-
+  const documentation = analyzeDocumentation(projectPath);
 
   return {
     name: pkg.name ?? "Unknown",
