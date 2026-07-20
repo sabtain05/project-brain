@@ -6,7 +6,7 @@ Quicklyzer **v0.2.0** introduces comprehensive documentation analysis, helping d
 
 ## ✨ What's New
 
-### 📚 Documentation Detection
+### Documentation Detection
 
 Quicklyzer now detects the presence of essential project documentation:
 
