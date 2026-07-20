@@ -96,6 +96,42 @@ function calculateDocumentationScore(
 }
 
 
+function buildRecommendations(
+    analysis:{
+        readme:boolean;
+        changelog:boolean;
+        contributing:boolean;
+        codeOfConduct:boolean;
+        security:boolean;
+        license:boolean;
+    }
+){
+
+    const recommendations:string[]=[];
+
+    if(!analysis.readme)
+        recommendations.push("Add a README.md");
+
+    if(!analysis.changelog)
+        recommendations.push("Create CHANGELOG.md");
+
+    if(!analysis.contributing)
+        recommendations.push("Add CONTRIBUTING.md");
+
+    if(!analysis.codeOfConduct)
+        recommendations.push("Add CODE_OF_CONDUCT.md");
+
+    if(!analysis.security)
+        recommendations.push("Add SECURITY.md");
+
+    if(!analysis.license)
+        recommendations.push("Add a LICENSE file");
+
+    return recommendations;
+
+}
+
+
 export function analyzeDocumentation(
     projectPath:string
 ):DocumentationAnalysis{
