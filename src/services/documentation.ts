@@ -46,3 +46,48 @@ function detectReadmeSections(content:string){
     return sections;
 
 }
+
+
+export function analyzeDocumentation(
+    projectPath:string
+):DocumentationAnalysis{
+
+    const readmePath=join(projectPath,"README.md");
+
+    const changelogPath=join(projectPath,"CHANGELOG.md");
+
+    const contributingPath=join(projectPath,"CONTRIBUTING.md");
+
+    const conductPath=join(projectPath,"CODE_OF_CONDUCT.md");
+
+    const securityPath=join(projectPath,"SECURITY.md");
+
+    const licensePath=join(projectPath,"LICENSE");
+
+    const readme=existsSync(readmePath);
+
+    const readmeSections=readme
+        ? detectReadmeSections(
+            readFileSync(readmePath,"utf8")
+        )
+        : [];
+
+    return{
+
+        readme,
+
+        changelog:existsSync(changelogPath),
+
+        contributing:existsSync(contributingPath),
+
+        codeOfConduct:existsSync(conductPath),
+
+        security:existsSync(securityPath),
+
+        license:existsSync(licensePath),
+
+        readmeSections
+
+    };
+
+}
