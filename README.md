@@ -19,7 +19,7 @@ Quicklyzer now detects the presence of essential project documentation:
 
 ---
 
-### 📖 README Intelligence
+### README Intelligence
 
 Analyze your README with detailed metrics:
 
