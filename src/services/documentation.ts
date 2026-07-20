@@ -156,22 +156,37 @@ export function analyzeDocumentation(
         )
         : [];
 
-    return{
+    const analysis={
 
-        readme,
+    readme,
 
-        changelog:existsSync(changelogPath),
+    changelog:existsSync(changelogPath),
 
-        contributing:existsSync(contributingPath),
+    contributing:existsSync(contributingPath),
 
-        codeOfConduct:existsSync(conductPath),
+    codeOfConduct:existsSync(conductPath),
 
-        security:existsSync(securityPath),
+    security:existsSync(securityPath),
 
-        license:existsSync(licensePath),
+    license:existsSync(licensePath),
 
-        readmeSections
+    readmeSections
 
+};
+
+
+  return{
+
+    ...analysis,
+
+    score:calculateDocumentationScore(
+        analysis
+    ),
+
+    recommendations:
+        buildRecommendations(
+            analysis
+        )
     };
 
 }
