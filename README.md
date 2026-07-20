@@ -1,4 +1,4 @@
-# 🚀 Quicklyzer v0.2.0 — Documentation Intelligence
+# Quicklyzer v0.2.0 — Documentation Intelligence
 
 Quicklyzer **v0.2.0** introduces comprehensive documentation analysis, helping developers evaluate the quality, completeness, and health of a project's documentation.
 
