@@ -366,11 +366,8 @@ export function scanCommand() {
     title("Documentation");
     console.log(`README             : ${project.documentation.readme ? "Yes":"No"}`);
     console.log(`CHANGELOG          : ${project.documentation.changelog ? "Yes":"No"}`);
-console.log(`CONTRIBUTING       : ${project.documentation.contributing ? "Yes":"No"}`);
-
-console.log(
-`CODE_OF_CONDUCT    : ${project.documentation.codeOfConduct ? "Yes":"No"}`
-);
+    console.log(`CONTRIBUTING       : ${project.documentation.contributing ? "Yes":"No"}`);
+    console.log(`CODE_OF_CONDUCT    : ${project.documentation.codeOfConduct ? "Yes":"No"}`);
 
 console.log(
 `SECURITY           : ${project.documentation.security ? "Yes":"No"}`
