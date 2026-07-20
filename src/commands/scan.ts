@@ -378,6 +378,21 @@ export function scanCommand() {
     console.log(`Rating : ${project.documentation.score.rating}`);
 
 
+    title("README Analysis");
+    if(project.documentation.readmeSections.length){
+      for(const section of project.documentation.readmeSections){
+
+        console.log(`• ${section}`);
+
+    }
+
+}else{
+
+    console.log("No sections detected.");
+
+}
+
+
 
 
     // ============================================================
