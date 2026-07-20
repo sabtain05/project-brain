@@ -385,12 +385,10 @@ export function scanCommand() {
         console.log(`• ${section}`);
 
     }
-
-}else{
+  }else{
 
     console.log("No sections detected.");
-
-}
+  }
 
 
 
