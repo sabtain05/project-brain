@@ -53,7 +53,7 @@ Automatically detects common license types:
 
 ---
 
-### 📊 Documentation Score
+### Documentation Score
 
 Every project now receives a documentation quality score based on:
 
