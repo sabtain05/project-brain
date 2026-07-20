@@ -369,10 +369,7 @@ export function scanCommand() {
     console.log(`CONTRIBUTING       : ${project.documentation.contributing ? "Yes":"No"}`);
     console.log(`CODE_OF_CONDUCT    : ${project.documentation.codeOfConduct ? "Yes":"No"}`);
     console.log(`SECURITY           : ${project.documentation.security ? "Yes":"No"}`);
-
-console.log(
-`LICENSE            : ${project.documentation.license ? "Yes":"No"}`
-);
+    console.log(`LICENSE            : ${project.documentation.license ? "Yes":"No"}`);
 
 
 
