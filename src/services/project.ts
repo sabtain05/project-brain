@@ -506,6 +506,7 @@ export function analyzeProject(
     gitBranch: gitBranch,
     projectType: projectType,
     dependencyAnalysis: dependencyAnalysis,
+    documentation: documentation,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,
