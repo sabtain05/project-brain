@@ -364,8 +364,7 @@ export function scanCommand() {
 
 
     title("Documentation");
-
-console.log(
+    console.log(
 `README             : ${project.documentation.readme ? "Yes":"No"}`
 );
 
