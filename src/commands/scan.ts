@@ -393,20 +393,13 @@ export function scanCommand() {
     
 
     title("Documentation Recommendations");
-
-if(project.documentation.recommendations.length){
-
-    for(const recommendation of project.documentation.recommendations){
-
+    if(project.documentation.recommendations.length){
+      for(const recommendation of project.documentation.recommendations){
         console.log(`• ${recommendation}`);
-
+      }
+    }else{
+      console.log("No recommendations.");
     }
-
-}else{
-
-    console.log("No recommendations.");
-
-}
 
 
 
