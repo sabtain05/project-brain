@@ -416,10 +416,7 @@ export function scanCommand() {
     const docs=project.documentation;
     console.log(`Documents Present : ${[docs.readme,docs.changelog,docs.contributing,docs.codeOfConduct,docs.security,docs.license].filter(Boolean).length}/6`);
     console.log(`README Sections   : ${docs.readmeSections.length}`);
-
-console.log(
-`Health Score      : ${docs.score.score}/100`
-);
+    console.log(`Health Score      : ${docs.score.score}/100`);
 
 console.log(
 `Rating            : ${docs.score.rating}`
