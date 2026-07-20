@@ -392,22 +392,10 @@ export function scanCommand() {
 
     title("README Statistics");
     console.log(`Words        : ${project.documentation.readmeStats.words}`);
-
-console.log(
-`Headings     : ${project.documentation.readmeStats.headings}`
-);
-
-console.log(
-`Code Blocks  : ${project.documentation.readmeStats.codeBlocks}`
-);
-
-console.log(
-`Links        : ${project.documentation.readmeStats.links}`
-);
-
-console.log(
-`Badges       : ${project.documentation.readmeStats.badges}`
-);
+    console.log(`Headings     : ${project.documentation.readmeStats.headings}`);
+    console.log(`Code Blocks  : ${project.documentation.readmeStats.codeBlocks}`);
+    console.log(`Links        : ${project.documentation.readmeStats.links}`);
+    console.log(`Badges       : ${project.documentation.readmeStats.badges}`);
 
     title("Documentation Recommendations");
     if(project.documentation.recommendations.length){
