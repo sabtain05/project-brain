@@ -85,7 +85,7 @@ Quicklyzer suggests missing documentation files, for example:
 
 ---
 
-### ❤️ Documentation Health
+### Documentation Health
 
 A final documentation summary includes:
 
