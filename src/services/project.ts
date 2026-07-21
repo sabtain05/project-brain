@@ -492,6 +492,7 @@ export function analyzeProject(
   const projectType = detectProjectType(pkg);
   const dependencyAnalysis = analyzeDependencies(projectPath, pkg, { ignore: ignored });
   const documentation = analyzeDocumentation(projectPath);
+  const gitAnalysis= analyzeGit(projectPath);
 
   return {
     name: pkg.name ?? "Unknown",
