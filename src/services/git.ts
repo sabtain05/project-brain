@@ -10,3 +10,16 @@ export interface GitAnalysis {
     localBranches: number;
     tags: number;
 }
+
+
+function run(command: string, path: string){
+    try{
+
+        return execSync(command,{
+            cwd: path,
+            encoding: "utf-8"
+        }).trim();
+    }catch{
+        return " ";
+    }
+}
