@@ -365,7 +365,7 @@ export function scanCommand() {
 
     title("Git Intelligence");
     console.log(`Repository         : ${project.gitAnalysis.available ? "Yes":"No"}`);
-    console.log(`Current Branch     :${project.gitAnalysis.branch || "None"}`);
+    console.log(`Current Branch     : ${project.gitAnalysis.branch || "None"}`);
     console.log(`Local Branches     :${project.gitAnalysis.localBranches}`);
     console.log(`Tags               :${project.gitAnalysis.tags}`);
     console.log(`Remote             :${project.gitAnalysis.remote || "None"}`);
