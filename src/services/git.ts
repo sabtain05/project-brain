@@ -130,6 +130,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         remote,
         lastCommit,
         localBranches: branches? branches.split("\n").length:0,
-        tags: tags? tags.split("\n").length:0
+        tags: tags? tags.split("\n").length:0,
+        modifiedFiles: countLines(modified),
     };
 }
