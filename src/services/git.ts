@@ -41,7 +41,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         projectPath
     );
 
-    const lastCommit= run(
+    const lastCommit = run(
         "git log -1 --pretty=%s",
         projectPath
     );
