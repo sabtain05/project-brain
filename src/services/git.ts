@@ -66,9 +66,14 @@ function buildRecommendations(
     remote: boolean,
 ){
     const recommendations: string[]=[];
-    
+
     if(modified>0)
         recommendations.push("Commit modified files.");
+
+    if(staged>0)
+        recommendations.push("Create a commit for staged changes.");
+
+    
 
 
 }
