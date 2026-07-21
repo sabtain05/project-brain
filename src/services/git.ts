@@ -26,7 +26,7 @@ export interface GitAnalysis {
         name: string;
         commits: number;
     }[];
-    
+    recentTags: string[];
 }
 
 
