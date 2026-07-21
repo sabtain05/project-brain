@@ -240,7 +240,8 @@ export function analyzeGit(projectPath: string): GitAnalysis{
 
         recommendations: buildRecommendations(
             countLines(modified),
-            
+            countLines(staged),
+            countLines(untracked),
         )
 
     };
