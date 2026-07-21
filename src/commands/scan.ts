@@ -415,6 +415,9 @@ export function scanCommand() {
     }
 
 
+    title(".gitignore");
+
+
 
     title("Documentation");
     console.log(`README             : ${project.documentation.readme ? "Yes":"No"}`);
