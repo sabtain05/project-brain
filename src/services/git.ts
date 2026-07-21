@@ -18,7 +18,7 @@ export interface GitAnalysis {
         score: number;
         rating: string;
     };
-    
+
     recentCommits:{
         hash: string;
         message: string;
@@ -28,6 +28,7 @@ export interface GitAnalysis {
         name: string;
         commits: number;
     }[];
+    
     recentTags: string[];
     gitignore:{
         exists: boolean;
