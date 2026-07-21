@@ -396,6 +396,11 @@ export function scanCommand() {
 
 
     title("Top Contributors");
+    if(project.gitAnalysis.contributors.length){
+      for(const contributor of project.gitAnalysis.contributors){
+        console.log(`${contributor.name} (${contributor.commits})`);
+      }
+    }
 
 
 
