@@ -88,6 +88,21 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         projectPath
     );
 
+
+    const status = run (
+        "git rev-list --left-right --count @{upstream}...HEAD",
+        projectPath
+    );
+
+    let ahead = 0;
+    let behind = 0;
+
+    if(status){
+        const parts = status.split(/\s+/);
+        behind = Number(parts[0]);
+        ahead=Number(parts[1]);
+    }
+
     return{
         available: branch!==""||remote!=="",
         branch: currentBranch,
