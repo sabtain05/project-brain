@@ -28,12 +28,13 @@ export interface GitAnalysis {
         name: string;
         commits: number;
     }[];
-    
+
     recentTags: string[];
     gitignore:{
         exists: boolean;
         rules: number;
     };
+    
     recommendations: string[];
 }
 
