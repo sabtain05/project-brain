@@ -400,6 +400,8 @@ export function scanCommand() {
       for(const contributor of project.gitAnalysis.contributors){
         console.log(`${contributor.name} (${contributor.commits})`);
       }
+    }else{
+      console.log("No contributors.");
     }
 
 
