@@ -372,6 +372,9 @@ export function scanCommand() {
     console.log(`Last Commit        :${project.gitAnalysis.lastCommit || "None"}`);
 
 
+    title("Working Tree");
+
+
     title("Documentation");
     console.log(`README             : ${project.documentation.readme ? "Yes":"No"}`);
     console.log(`CHANGELOG          : ${project.documentation.changelog ? "Yes":"No"}`);
