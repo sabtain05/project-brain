@@ -27,6 +27,10 @@ export interface GitAnalysis {
         commits: number;
     }[];
     recentTags: string[];
+    gitignore:{
+        exists: boolean;
+        rules: number;
+    };
 }
 
 
