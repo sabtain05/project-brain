@@ -178,7 +178,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
     );
 
     const contributors = run(
-        "git shortlog -sn --all",
+        'git log --format="%an"',
         projectPath
     );
 
