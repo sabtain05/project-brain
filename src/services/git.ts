@@ -34,7 +34,7 @@ export interface GitAnalysis {
         exists: boolean;
         rules: number;
     };
-    
+
     recommendations: string[];
 }
 
@@ -166,6 +166,14 @@ export function analyzeGit(projectPath: string): GitAnalysis{
 
     if(score<50)
         rating = "Poor"
+
+
+    const commits = run(
+        "git log --pretty=format:%H|%s -5",
+        projectPath
+    );
+
+    
 
 
     return{
