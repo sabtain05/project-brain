@@ -225,5 +225,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
             score,
             rating
         },
+        recentCommits: recentCommitList,
+        contributors: contributorList,
     };
 }
