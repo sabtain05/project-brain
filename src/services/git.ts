@@ -26,37 +26,27 @@ function run(command: string, path: string){
 
 
 export function analyzeGit(projectPath: string): GitAnalysis{
-    const branch=
-
-    run(
+    const branch=run(
         "git branch --show-content",
         projectPath
     );
 
-    const branches= 
-
-    run(
+    const branches= run(
         "git branch",
         projectPath
     );
 
-    const remote= 
-
-    run(
+    const remote= run(
         "git remote get-url origin",
         projectPath
     );
 
-    const lastCommit=
-
-    run(
+    const lastCommit= run(
         "git log -1 --pretty=%s",
         projectPath
     );
 
-    const tags=
-
-    run(
+    const tags= run(
         "git tag",
         projectPath
     );
