@@ -213,6 +213,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
 
     
 
+
     return{
         available: branch!==""||remote!=="",
         branch: currentBranch,
@@ -229,7 +230,6 @@ export function analyzeGit(projectPath: string): GitAnalysis{
             score,
             rating
         },
-        const status = countLines(modified) === 0 && countLines(staged) === 0 && countLines(untracked) === 0 ? "Clean" : "Dirty",
         status,
         recentCommits: recentCommitList,
         contributors: contributorList,
