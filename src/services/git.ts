@@ -34,6 +34,17 @@ function run(command: string, path: string){
 }
 
 
+function countLines(text: string){
+    if (!text)
+        return 0;
+
+    return text
+       .split("\n")
+       .filter(Boolean)
+       .length;
+}
+
+
 export function analyzeGit(projectPath: string): GitAnalysis{
     const branch = run(
         "git rev-parse --abbrev-ref HEAD",
