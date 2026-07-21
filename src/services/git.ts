@@ -203,14 +203,15 @@ export function analyzeGit(projectPath: string): GitAnalysis{
     }):[];
 
 
-    const contributorList = contributors ? contributors.split("\n").map(line=>{
-        const parts = line.trim().split(/\s+/);
+    const contributorMap = new Map<string, number>();
+    if (contributors) {
+        for (const name of contributors.split("\n")) {
+            const author = name.trim();
+            if (!author) continue;
 
-        return{
-            commits: Number(parts[0]),
-            name: parts.slice(1).join("")
-        };
-    }):[];
+            contributorMap.set(author, (contributorMap.get(author) ?? 0) + 1);
+        }
+    }
 
 
     return{
