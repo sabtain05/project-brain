@@ -46,7 +46,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         projectPath
     );
 
-    const tags= run(
+    const tags = run(
         "git tag",
         projectPath
     );
