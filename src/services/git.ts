@@ -107,6 +107,15 @@ export function analyzeGit(projectPath: string): GitAnalysis{
     let score = 100;
     score-=countLines(modified);
     score-=countLines(staged);
+    score-=countLines(untracked);
+
+    if(score<0)
+        score = 0;
+
+    let rating = "Excellent";
+    
+    if(score<90)
+        rating = "Good";
 
 
     return{
