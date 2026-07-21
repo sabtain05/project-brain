@@ -31,6 +31,7 @@ export interface GitAnalysis {
         exists: boolean;
         rules: number;
     };
+    recommendations: string[];
 }
 
 
