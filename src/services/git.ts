@@ -64,7 +64,14 @@ function buildRecommendations(
     staged: number,
     untracked: number,
     remote: boolean,
-)
+){
+    const recommendations: string[]=[];
+    
+    if(modified>0)
+        recommendations.push("Commit modified files.");
+
+
+}
 
 
 export function analyzeGit(projectPath: string): GitAnalysis{
