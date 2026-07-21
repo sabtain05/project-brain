@@ -48,7 +48,8 @@ function run(command: string, path: string){
             cwd: path,
             encoding: "utf-8"
         }).trim();
-    }catch{
+    }catch (error) {
+        console.error(`Git command failed: ${command}`);
         return "";
     }
 }
