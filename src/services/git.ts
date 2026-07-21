@@ -78,7 +78,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         projectPath
     );
 
-    const stagged = run(
+    const staged = run(
         "git diff --cached --name-only",
         projectPath
     );
@@ -102,6 +102,12 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         behind = Number(parts[0]);
         ahead=Number(parts[1]);
     }
+
+    
+    let score = 100;
+    score-=countLines(modified);
+    score-=countLines(staged);
+
 
     return{
         available: branch!==""||remote!=="",
