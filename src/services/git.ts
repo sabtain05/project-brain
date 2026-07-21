@@ -173,6 +173,16 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         projectPath
     );
 
+    const contributors = run(
+        "git shorting -sn HEAD",
+        projectPath
+    );
+
+    const recentTags = run(
+        "git tag --sort=-creatordate",
+        projectPath
+    );
+
     
 
 
