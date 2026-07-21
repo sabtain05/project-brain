@@ -368,7 +368,7 @@ export function scanCommand() {
     console.log(`Current Branch     : ${project.gitAnalysis.branch || "None"}`);
     console.log(`Local Branches     : ${project.gitAnalysis.localBranches}`);
     console.log(`Tags               : ${project.gitAnalysis.tags}`);
-    console.log(`Remote             :${project.gitAnalysis.remote || "None"}`);
+    console.log(`Remote             : ${project.gitAnalysis.remote || "None"}`);
     console.log(`Last Commit        :${project.gitAnalysis.lastCommit || "None"}`);
 
 
