@@ -377,7 +377,7 @@ export function scanCommand() {
     console.log(`Staged Files       : ${project.gitAnalysis.stagedFiles}`);
     console.log(`Untracked Files    : ${project.gitAnalysis.untrackedFiles}`);
     console.log(`Ahead              : ${project.gitAnalysis.ahead}`);
-    console.log(`Behind             :${project.gitAnalysis.behind}`);
+    console.log(`Behind             : ${project.gitAnalysis.behind}`);
 
 
     title("Repository Health");
