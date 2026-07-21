@@ -18,6 +18,15 @@ export interface GitAnalysis {
         score: number;
         rating: string;
     };
+    recentCommits:{
+        hash: string;
+        message: string;
+    }[];
+    contributors:{
+        name: string;
+        commits: number;
+    }[];
+    
 }
 
 
