@@ -120,7 +120,8 @@ export function analyzeGit(projectPath: string): GitAnalysis{
     if(score<75)
         rating = "Fair";
 
-    
+    if(score<50)
+        rating = "Poor"
 
 
     return{
