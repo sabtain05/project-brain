@@ -411,7 +411,7 @@ export function scanCommand() {
         console.log(tag);
       }
     }else{
-      
+      console.log("No tags.");
     }
 
 
