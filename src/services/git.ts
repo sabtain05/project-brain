@@ -244,6 +244,5 @@ export function analyzeGit(projectPath: string): GitAnalysis{
             countLines(untracked),
             remote!==""
         )
-
     };
 }
