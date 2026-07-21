@@ -20,6 +20,53 @@ function run(command: string, path: string){
             encoding: "utf-8"
         }).trim();
     }catch{
-        return " ";
+        return "";
     }
+}
+
+
+export function analyzeGit(projectPath: string): GitAnalysis{
+    const branch=
+
+    run(
+        "git branch --show-content",
+        projectPath
+    );
+
+    const branches= 
+
+    run(
+        "git branch",
+        projectPath
+    );
+
+    const remote= 
+
+    run(
+        "git remote get-url origin",
+        projectPath
+    );
+
+    const lastCommit=
+
+    run(
+        "git log -1 --pretty=%s",
+        projectPath
+    );
+
+    const tags=
+
+    run(
+        "git tag",
+        projectPath
+    );
+
+    return{
+        available: branch!==""||remote!=="",
+        branch,
+        remote,
+        lastCommit,
+        localBranches: branches? branches.split("\n").length:0,
+        tags: tags? tags.split("\n").length:0
+    };
 }
