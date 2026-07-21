@@ -26,7 +26,7 @@ function run(command: string, path: string){
 
 
 export function analyzeGit(projectPath: string): GitAnalysis{
-    const branch= run(
+    const branch = run(
         "git branch --show-content",
         projectPath
     );
