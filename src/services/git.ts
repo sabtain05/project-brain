@@ -31,6 +31,8 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         projectPath
     );
 
+    const currentBranch = branch === "HEAD" ? "Detached HEAD": branch;
+
     const branches = run(
         "git branch",
         projectPath
