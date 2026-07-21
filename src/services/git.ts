@@ -86,7 +86,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
     const untracked = run(
         "git ls-files --others --exclude-standard",
         projectPath
-    )
+    );
 
     return{
         available: branch!==""||remote!=="",
