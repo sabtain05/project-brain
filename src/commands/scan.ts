@@ -381,7 +381,7 @@ export function scanCommand() {
 
 
     title("Repository Health");
-    console.log(`Score              :${project.gitAnalysis.health.score}/100`);
+    console.log(`Score              : ${project.gitAnalysis.health.score}/100`);
     console.log(`Rating             :${project.gitAnalysis.health.rating}`);
 
 
