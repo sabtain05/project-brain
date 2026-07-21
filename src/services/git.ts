@@ -36,7 +36,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         projectPath
     );
 
-    const remote= run(
+    const remote = run(
         "git remote get-url origin",
         projectPath
     );
