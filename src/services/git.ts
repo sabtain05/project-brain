@@ -238,7 +238,10 @@ export function analyzeGit(projectPath: string): GitAnalysis{
             :0
         },
 
-        
+        recommendations: buildRecommendations(
+            countLines(modified),
+            
+        )
 
     };
 }
