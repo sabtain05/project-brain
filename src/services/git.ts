@@ -189,6 +189,16 @@ export function analyzeGit(projectPath: string): GitAnalysis{
     );
 
 
+    const recentCommitList = commits ? commits.split("\n").map(line=>{
+        const [hash, message] = line.split("|");
+
+        return{
+            hash: hash.slice(0,7),
+            message
+        };
+    }):[];
+
+
     return{
         available: branch!==""||remote!=="",
         branch: currentBranch,
