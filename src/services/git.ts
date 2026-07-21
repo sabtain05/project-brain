@@ -59,6 +59,14 @@ function countLines(text: string){
 }
 
 
+function buildRecommendations(
+    modified: number,
+    staged: number,
+    untracked: number,
+    remote: boolean,
+)
+
+
 export function analyzeGit(projectPath: string): GitAnalysis{
     const branch = run(
         "git rev-parse --abbrev-ref HEAD",
