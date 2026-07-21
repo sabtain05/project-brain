@@ -73,6 +73,18 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         projectPath
     );
 
+    const modified = run(
+        "git diff --name-only",
+        projectPath
+    );
+
+    const stagged = run(
+        "git diff --cached --name-only",
+        projectPath
+    );
+
+    
+
     return{
         available: branch!==""||remote!=="",
         branch: currentBranch,
