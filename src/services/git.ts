@@ -113,9 +113,14 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         score = 0;
 
     let rating = "Excellent";
-    
+
     if(score<90)
         rating = "Good";
+
+    if(score<75)
+        rating = "Fair";
+
+    
 
 
     return{
