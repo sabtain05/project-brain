@@ -420,6 +420,10 @@ export function scanCommand() {
     console.log(`Rules              :${project.gitAnalysis.gitignore.rules}`);
 
 
+    title("Git Recommendations");
+    
+
+
 
     title("Documentation");
     console.log(`README             : ${project.documentation.readme ? "Yes":"No"}`);
