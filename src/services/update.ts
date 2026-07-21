@@ -1,3 +1,6 @@
+import { CURRENT_VERSION } from "../utils/version.js";
+
+
 export interface UpdateInfo {
     current: string;
     latest: string;
@@ -8,9 +11,8 @@ export function checkForUpdates(): UpdateInfo {
 
     return {
 
-        current: "0.1.0",
-
-        latest: "0.1.0",
+        current: CURRENT_VERSION,
+        latest: CURRENT_VERSION,
 
         updateAvailable: false
 
