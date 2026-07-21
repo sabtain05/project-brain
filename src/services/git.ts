@@ -173,7 +173,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
 
 
     const commits = run(
-        "git log --pretty=format:%H|%s -5",
+        "git log --pretty=format:%H%x09%s -5",
         projectPath
     );
 
