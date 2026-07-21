@@ -228,6 +228,17 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         recentCommits: recentCommitList,
         contributors: contributorList,
         recentTags: recentTags ? recentTags.split("\n").slice(0,5):[],
+        gitignore:{
+            exists: gitignore!=="",
+            rules:gitignore ? countLines(run(
+                "Cat .gitignore",
+                projectPath
+                )
+            )
+            :0
+        },
+
+        
 
     };
 }
