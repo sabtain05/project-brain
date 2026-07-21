@@ -133,6 +133,12 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         tags: tags? tags.split("\n").length:0,
         modifiedFiles: countLines(modified),
         stagedFiles: countLines(staged),
-
+        untrackedFiles: countLines(untracked),
+        ahead,
+        behind,
+        health: {
+            score,
+            rating
+        },
     };
 }
