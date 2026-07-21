@@ -199,6 +199,16 @@ export function analyzeGit(projectPath: string): GitAnalysis{
     }):[];
 
 
+    const contributorList = contributors ? contributors.split("\n").map(line=>{
+        const parts = line.trim().split(/\s+/);
+
+        return{
+            commits: Number(parts[0]),
+            name: parts.slice(1).join("")
+        };
+    }):[];
+
+
     return{
         available: branch!==""||remote!=="",
         branch: currentBranch,
