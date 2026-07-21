@@ -373,6 +373,8 @@ export function scanCommand() {
 
 
     title("Working Tree");
+    console.log(`Modified Files     :${project.gitAnalysis.modifiedFiles}`);
+    
 
 
     title("Documentation");
