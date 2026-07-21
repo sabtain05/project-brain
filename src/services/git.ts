@@ -211,8 +211,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
     }):[];
 
 
-    const stauts = countLines(modified) === 0 && countLines(staged) === 0 && countLines(untracked) === 0 ? "Clean" : "Dirty";
-
+    
 
     return{
         available: branch!==""||remote!=="",
@@ -230,6 +229,8 @@ export function analyzeGit(projectPath: string): GitAnalysis{
             score,
             rating
         },
+        const status = countLines(modified) === 0 && countLines(staged) === 0 && countLines(untracked) === 0 ? "Clean" : "Dirty",
+        status,
         recentCommits: recentCommitList,
         contributors: contributorList,
         recentTags: recentTags ? recentTags.split("\n").slice(0,5):[],
