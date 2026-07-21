@@ -76,7 +76,7 @@ function buildRecommendations(
     if(untracked>0)
         recommendations.push("Configure a remote repository.");
 
-    
+    return recommendations;
 
 
 }
