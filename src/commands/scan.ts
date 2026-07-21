@@ -376,7 +376,8 @@ export function scanCommand() {
     console.log(`Modified Files     :${project.gitAnalysis.modifiedFiles}`);
     console.log(`Staged Files       :${project.gitAnalysis.stagedFiles}`);
     console.log(`Untracked Files    :${project.gitAnalysis.untrackedFiles}`);
-    
+    console.log(`Ahead              :${project.gitAnalysis.ahead}`);
+    console.log(`Behind             :${project.gitAnalysis.behind}`);
 
 
     title("Documentation");
