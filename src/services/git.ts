@@ -135,7 +135,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
     );
 
 
-    const status = run (
+    const upstreamStatus = run(
         "git rev-list --left-right --count @{upstream}...HEAD",
         projectPath
     );
@@ -143,13 +143,15 @@ export function analyzeGit(projectPath: string): GitAnalysis{
     let ahead = 0;
     let behind = 0;
 
-    if(status){
-        const parts = status.split(/\s+/);
+    if(upstreamStatus){
+        const parts = upstreamStatus.split(/\s+/);
         behind = Number(parts[0]);
-        ahead=Number(parts[1]);
+        ahead = Number(parts[1]);
     }
-
     
+    const status = countLines(modified) === 0 && countLines(staged) === 0 && countLines(untracked) === 0 ? "Clean" : "Dirty";
+
+
     let score = 100;
     score-=countLines(modified);
     score-=countLines(staged);
@@ -209,9 +211,6 @@ export function analyzeGit(projectPath: string): GitAnalysis{
             name: parts.slice(1).join("")
         };
     }):[];
-
-
-    const status = countLines(modified) === 0 && countLines(staged) === 0 && countLines(untracked) === 0 ? "Clean" : "Dirty";
 
 
     return{
