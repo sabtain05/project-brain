@@ -27,7 +27,7 @@ function run(command: string, path: string){
 
 export function analyzeGit(projectPath: string): GitAnalysis{
     const branch = run(
-        "git branch --show-content",
+        "git rev-parse --abbrev-ref HEAD",
         projectPath
     );
 
