@@ -31,7 +31,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         projectPath
     );
 
-    const branches= run(
+    const branches = run(
         "git branch",
         projectPath
     );
