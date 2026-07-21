@@ -421,7 +421,11 @@ export function scanCommand() {
 
 
     title("Git Recommendations");
-    
+    if(project.gitAnalysis.recommendations.length){
+      for(const recommendation of project.gitAnalysis.recommendations){
+        console.log(`• ${recommendation}`);
+      }
+    }
 
 
 
