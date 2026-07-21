@@ -373,6 +373,8 @@ export function scanCommand() {
 
 
     title("Working Tree");
+    const status = project.gitAnalysis.status === "Clean" ? "Clean" : "Dirty";
+    console.log(`Status             :${status}`);
     console.log(`Modified Files     : ${project.gitAnalysis.modifiedFiles}`);
     console.log(`Staged Files       : ${project.gitAnalysis.stagedFiles}`);
     console.log(`Untracked Files    : ${project.gitAnalysis.untrackedFiles}`);
