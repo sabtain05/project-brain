@@ -227,5 +227,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         },
         recentCommits: recentCommitList,
         contributors: contributorList,
+        recentTags: recentTags ? recentTags.split("\n").slice(0,5):[];
+        
     };
 }
