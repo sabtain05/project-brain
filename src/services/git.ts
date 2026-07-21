@@ -10,7 +10,7 @@ export interface GitAnalysis {
     localBranches: number;
     tags: number;
     modifiedFiles: number;
-    staggedFiles: number;
+    stagedFiles: number;
     untrackedFiles: number;
     ahead: number;
     behind: number;
@@ -133,6 +133,6 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         tags: tags? tags.split("\n").length:0,
         modifiedFiles: countLines(modified),
         staggedFiles: countLines(staged),
-        
+
     };
 }
