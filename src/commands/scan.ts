@@ -406,7 +406,13 @@ export function scanCommand() {
 
 
     title("Recent Tags");
-    
+    if(project.gitAnalysis.recentTags.length){
+      for(const tag of project.gitAnalysis.recentTags){
+        console.log(tag);
+      }
+    }else{
+      
+    }
 
 
 
