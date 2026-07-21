@@ -56,6 +56,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
     return{
         available: branch!==""||remote!=="",
         branch,
+        branch: currentBranch,
         remote,
         lastCommit,
         localBranches: branches? branches.split("\n").length:0,
