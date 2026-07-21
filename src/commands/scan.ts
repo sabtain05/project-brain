@@ -385,6 +385,9 @@ export function scanCommand() {
     console.log(`Rating             : ${project.gitAnalysis.health.rating}`);
 
 
+    title("Recent Commits");
+
+
     title("Documentation");
     console.log(`README             : ${project.documentation.readme ? "Yes":"No"}`);
     console.log(`CHANGELOG          : ${project.documentation.changelog ? "Yes":"No"}`);
