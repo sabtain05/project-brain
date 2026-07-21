@@ -9,6 +9,15 @@ export interface GitAnalysis {
     lastCommit: string;
     localBranches: number;
     tags: number;
+    modifiedFiles: number;
+    staggedFiles: number;
+    untrackedFiles: number;
+    ahead: number;
+    behind: number;
+    health: {
+        score: number;
+        rating: string;
+    };
 }
 
 
