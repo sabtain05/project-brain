@@ -213,6 +213,11 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         }
     }
 
+    
+    const contributorList = [...contributorMap.entries()].map(([name, commits]) => ({
+        name, commits
+    })).sort((a,b) => b.commits - a.commits);
+
 
     return{
         available: branch!==""||remote!=="",
