@@ -211,7 +211,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
     }):[];
 
 
-    
+    const status = countLines(modified) === 0 && countLines(staged) === 0 && countLines(untracked) === 0 ? "Clean" : "Dirty";
 
 
     return{
