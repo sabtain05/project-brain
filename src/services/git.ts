@@ -178,7 +178,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
     );
 
     const contributors = run(
-        "git shorting -sn HEAD",
+        "git shorting -sn --all",
         projectPath
     );
 
