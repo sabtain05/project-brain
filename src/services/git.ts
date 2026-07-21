@@ -194,7 +194,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
 
 
     const recentCommitList = commits ? commits.split("\n").map(line=>{
-        const [hash, message] = line.split("|");
+        const [hash, message] = line.split("\t");
 
         return{
             hash: hash.slice(0,7),
