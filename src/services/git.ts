@@ -74,7 +74,7 @@ function buildRecommendations(
         recommendations.push("Create a commit for staged changes.");
 
     if(untracked>0)
-        recommendations.push("Configure a remote repository.");
+        recommendations.push("Review untracked files.");
 
     return recommendations;
 
