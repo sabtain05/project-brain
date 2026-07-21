@@ -242,6 +242,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
             countLines(modified),
             countLines(staged),
             countLines(untracked),
+            remote!==""
         )
 
     };
