@@ -22,6 +22,7 @@ export interface GitAnalysis {
         hash: string;
         message: string;
     }[];
+    
     contributors:{
         name: string;
         commits: number;
@@ -75,6 +76,9 @@ function buildRecommendations(
 
     if(untracked>0)
         recommendations.push("Review untracked files.");
+
+    if(!remote)
+        recommendations.push("Configure a remote repository.");
 
     return recommendations;
 
