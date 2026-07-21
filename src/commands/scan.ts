@@ -425,6 +425,8 @@ export function scanCommand() {
       for(const recommendation of project.gitAnalysis.recommendations){
         console.log(`• ${recommendation}`);
       }
+    }else{
+      console.log("Repository looks healthy.");
     }
 
 
