@@ -390,6 +390,8 @@ export function scanCommand() {
       for(const commit of project.gitAnalysis.recentCommits){
         console.log(`${commit.hash} ${commit.message}`);
       }
+    }else{
+      console.log("No commits found.");
     }
 
 
