@@ -388,7 +388,8 @@ export function scanCommand() {
     title("Recent Commits");
     if(project.gitAnalysis.recentCommits.length){
       for(const commit of project.gitAnalysis.recentCommits){
-        console.log(`${commit.hash} ${commit.message}`);}
+        console.log(`${commit.hash} ${commit.message}`);
+      }
     }
 
 
