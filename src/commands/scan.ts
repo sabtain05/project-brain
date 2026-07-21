@@ -405,6 +405,10 @@ export function scanCommand() {
     }
 
 
+    title("Recent Tags");
+    
+
+
 
     title("Documentation");
     console.log(`README             : ${project.documentation.readme ? "Yes":"No"}`);
