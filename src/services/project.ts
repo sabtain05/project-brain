@@ -143,6 +143,14 @@ dependencyAnalysis: {
 
     licenseType: string;
   };
+  gitAnalysis:{
+    available: boolean;
+    branch: string;
+    remote: string;
+    lastCommit: String;
+    localBranches: number;
+    tags: number;
+  };
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
