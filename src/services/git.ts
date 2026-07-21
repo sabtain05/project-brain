@@ -18,6 +18,8 @@ export interface GitAnalysis {
         score: number;
         rating: string;
     };
+    
+    status: "Clean"|"Dirty";
 
     recentCommits:{
         hash: string;
@@ -207,6 +209,9 @@ export function analyzeGit(projectPath: string): GitAnalysis{
             name: parts.slice(1).join("")
         };
     }):[];
+
+
+    const stauts = countLines(modified) === 0 && countLines(staged) === 0 && countLines(untracked) === 0 ? "Clean" : "Dirty";
 
 
     return{
