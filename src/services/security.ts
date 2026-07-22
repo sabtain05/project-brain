@@ -79,6 +79,10 @@ export function analyzeSecurity(projectPath: string): SecurityAnalysis{
             envFiles.push(file);
 
         if (DANGEROUS_FILES.includes(name))
-            
+            dangerousFiles.push(file);
+
+        try{
+            const content = readFileSync(file, "utf8");
+        }
     }
 }
