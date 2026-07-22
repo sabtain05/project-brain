@@ -418,8 +418,8 @@ export function scanCommand() {
 
 
     title(".gitignore");
-    console.log(`Exists             :${project.gitAnalysis.gitignore.exists ? "Yes" : "No"}`);
-    console.log(`Rules              :${project.gitAnalysis.gitignore.rules}`);
+    console.log(`Exists             : ${project.gitAnalysis.gitignore.exists ? "Yes" : "No"}`);
+    console.log(`Rules              : ${project.gitAnalysis.gitignore.rules}`);
 
 
     title("Git Recommendations");
