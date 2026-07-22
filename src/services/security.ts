@@ -44,3 +44,13 @@ function scanDirectory(dir: string, result: string[]){
         result.push(full);
     }
 }
+
+
+function detectSecrets(content: string){
+    const findings: string[] = [];
+    
+    const patterns = [
+        /AKIA[0-9A-Z]{16}/g,
+        
+    ]
+}
