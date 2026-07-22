@@ -251,14 +251,9 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         contributors: contributorList,
         recentTags: recentTags ? recentTags.split("\n").slice(0,5):[],
         gitignore:{
-            exists: gitignore!=="",
-            rules:gitignore ? countLines(run(
-                "Cat .gitignore",
-                projectPath
-                )
-            )
-            :0
-        },
+            exists: gitignoreExists,
+            rules: gitignoreRules
+        }
 
         recommendations: buildRecommendations(
             countLines(modified),
@@ -267,8 +262,4 @@ export function analyzeGit(projectPath: string): GitAnalysis{
             remote!==""
         )
     };
-}
-
-function existsSync(gitignorePath: string) {
-    throw new Error("Function not implemented.");
 }
