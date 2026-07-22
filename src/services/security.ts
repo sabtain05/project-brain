@@ -83,6 +83,7 @@ export function analyzeSecurity(projectPath: string): SecurityAnalysis{
 
         try{
             const content = readFileSync(file, "utf8");
+            detectSecrets.push(...detectSecrets(content));
         }
     }
 }
