@@ -246,4 +246,4 @@ MIT
 
 ---
 
-Made with ❤️ by **Sabtain Ali**
+**Sabtain Ali**
