@@ -62,3 +62,6 @@ function detectSecrets(content: string){
 
     return findings;
 }
+
+
+
