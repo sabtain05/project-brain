@@ -51,6 +51,7 @@ function detectSecrets(content: string){
     
     const patterns = [
         /AKIA[0-9A-Z]{16}/g,
+        /AIza[0-9A-Za-z\-_]{35}/g,
         
     ]
 }
