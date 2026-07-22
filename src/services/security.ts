@@ -70,5 +70,5 @@ export function analyzeSecurity(projectPath: string): SecurityAnalysis{
     scanDirectory(projectPath, files);
     const envFiles: string[] = [];
     const dangerousFiles: string[] = [];
-    
+    const screts: string[] = [];
 }
