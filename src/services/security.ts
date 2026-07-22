@@ -14,5 +14,5 @@ const ENV_FILES = [
     ".env.local",
     ".env.development",
     ".env.production",
-    
-]
+    ".env.test"
+];
