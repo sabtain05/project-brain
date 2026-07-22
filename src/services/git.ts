@@ -200,6 +200,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         gitignoreRules = content 
             .split("\n")
             .map(line => line.trim())
+            .filter(line => line && !line.startsWith("#")).length;
     }
 
 
