@@ -1,4 +1,5 @@
 import { execSync } from "child_process";
+import { readFileSync } from "fs";
 import { join } from "path";
 
 
@@ -189,7 +190,17 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         projectPath
     );
 
-    
+    const gitignorePath = join(projectPath, ".gitignore");
+    const gitignoreExists = existsSync(gitignorePath);
+    let gitignoreRules = 0;
+
+    if (gitignoreExists) {
+        const content = readFileSync(gitignorePath, "utf-8");
+
+        gitignoreRules = content 
+            .split("\n")
+            .map(line => line.trim())
+    }
 
 
     const recentCommitList = commits ? commits.split("\n").map(line=>{
