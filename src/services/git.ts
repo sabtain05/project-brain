@@ -268,3 +268,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         )
     };
 }
+
+function existsSync(gitignorePath: string) {
+    throw new Error("Function not implemented.");
+}
