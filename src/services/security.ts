@@ -7,3 +7,12 @@ export interface SecurityAnalysis {
     dangerousFiles: string[];
     secrets: string[];
 }
+
+
+const ENV_FILES = [
+    ".env",
+    ".env.local",
+    ".env.development",
+    ".env.production",
+    
+]
