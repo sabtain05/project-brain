@@ -1,131 +1,8 @@
-# Quicklyzer v0.2.0 — Documentation Intelligence
+# 🚀 Quicklyzer
 
-Quicklyzer **v0.2.0** introduces comprehensive documentation analysis, helping developers evaluate the quality, completeness, and health of a project's documentation.
+Quicklyzer is an intelligent CLI that analyzes software projects in seconds.
 
----
-
-## What's New
-
-### Documentation Detection
-
-Quicklyzer now detects the presence of essential project documentation:
-
-*  README.md
-*  CHANGELOG.md
-*  CONTRIBUTING.md
-*  CODE_OF_CONDUCT.md
-*  SECURITY.md
-*  LICENSE
-
----
-
-### README Intelligence
-
-Analyze your README with detailed metrics:
-
-* Detect common sections
-
-  * Installation
-  * Usage
-  * Features
-  * Configuration
-  * API
-  * License
-  * Contributing
-* Word count
-* Heading count
-* Code block count
-* Markdown link count
-* Badge count
-
----
-
-### License Detection
-
-Automatically detects common license types:
-
-* MIT
-* Apache-2.0
-* GPL
-* BSD
-* MPL
-* Unknown
-
----
-
-### Documentation Score
-
-Every project now receives a documentation quality score based on:
-
-* Documentation files
-* README completeness
-* README sections
-* License presence
-
-Example:
-
-```text
-Documentation Score
-────────────────────────────
-Score  : 86/100
-Rating : Good
-```
-
----
-
-### Documentation Recommendations
-
-Quicklyzer suggests missing documentation files, for example:
-
-```text
-• Create CHANGELOG.md
-• Add CONTRIBUTING.md
-• Add SECURITY.md
-```
-
----
-
-### Documentation Health
-
-A final documentation summary includes:
-
-* Documentation files present
-* README sections detected
-* Documentation score
-* Overall documentation rating
-
-Example:
-
-```text
-Documentation Health
-────────────────────────────
-Documents Present : 4/6
-README Sections   : 6
-Health Score      : 88/100
-Rating            : Good
-```
-
----
-
-## Example
-
-```bash
-quicklyzer scan
-```
-
-Quicklyzer will now generate:
-
-* Project Information
-* Environment Analysis
-* Dependency Intelligence
-* Code Analysis
-* Repository Information
-* Package Health
-* Documentation Analysis
-* Documentation Score
-* README Intelligence
-* Documentation Health
-* Project Summary
+It scans your project structure, dependencies, Git repository, documentation, source code, configuration files, package health, and much more to provide actionable insights.
 
 ---
 
@@ -143,18 +20,230 @@ npx quicklyzer scan
 
 ---
 
-## GitHub
+## Commands
 
-⭐ If you find Quicklyzer useful, consider starring the repository.
+### Analyze Current Project
 
-https://github.com/sabtain05/quicklyzer
+```bash
+quicklyzer scan
+```
+
+### Verbose Output
+
+```bash
+quicklyzer scan --verbose
+```
+
+### Quiet Mode
+
+```bash
+quicklyzer scan --quiet
+```
+
+### Ignore Directories
+
+```bash
+quicklyzer scan --ignore dist
+```
+
+```bash
+quicklyzer scan --ignore coverage
+```
+
+```bash
+quicklyzer scan --ignore uploads
+```
+
+Multiple directories:
+
+```bash
+quicklyzer scan --ignore dist --ignore coverage
+```
 
 ---
 
-## npm
+### Export Reports
 
-https://www.npmjs.com/package/quicklyzer
+JSON
+
+```bash
+quicklyzer export
+```
+
+Markdown
+
+```bash
+quicklyzer export --format md
+```
+
+HTML
+
+```bash
+quicklyzer export --format html
+```
+
+Export all formats
+
+```bash
+quicklyzer export --all
+```
+
+Custom output
+
+```bash
+quicklyzer export --all --output reports
+```
+
+Custom filename
+
+```bash
+quicklyzer export --all --output reports --name project-report
+```
 
 ---
 
-**A Sabtain Ali production**
+# Features
+
+## Project Intelligence
+
+- Project information
+- Framework detection
+- Framework version detection
+- Build tool detection
+- Build tool version detection
+- Programming language detection
+- Node.js version detection
+- Technology stack detection
+- Entry point detection
+- Configuration file detection
+
+---
+
+## Environment Intelligence
+
+- Docker detection
+- CI/CD detection
+- ESLint detection
+- Prettier detection
+- Monorepo detection
+
+---
+
+## Dependency Intelligence
+
+- Production dependencies
+- Development dependencies
+- Installed packages
+- Installed package size
+- Largest packages
+- Unused dependency detection
+- Missing dependency detection
+- Duplicate version detection
+- Dependency risk score
+- Package manager insights
+
+---
+
+## Code Intelligence
+
+- Source file analysis
+- Extension statistics
+- Largest files
+- Largest directories
+- Empty source files
+- Hidden files
+- TODO detection
+- FIXME detection
+- HACK detection
+- NOTE detection
+- Duplicate filenames
+- Recent file activity
+
+---
+
+## Documentation Intelligence
+
+- README detection
+- CHANGELOG detection
+- CONTRIBUTING detection
+- CODE_OF_CONDUCT detection
+- SECURITY detection
+- LICENSE detection
+- README section analysis
+- README statistics
+- Badge detection
+- Link detection
+- License type detection
+- Documentation health score
+- Documentation recommendations
+
+---
+
+## Git Intelligence
+
+- Repository detection
+- Current branch
+- Local branch count
+- Remote repository
+- Last commit
+- Recent commits
+- Contributors
+- Recent tags
+- Modified files
+- Staged files
+- Untracked files
+- Ahead/Behind status
+- .gitignore analysis
+- Repository health score
+- Git recommendations
+
+---
+
+## Export Engine
+
+- JSON reports
+- Markdown reports
+- HTML reports
+- Export all formats
+- Timestamped reports
+- Custom filenames
+- Export manifest
+
+---
+
+## Developer Experience
+
+- Colored terminal output
+- Progress spinner
+- Verbose mode
+- Quiet mode
+- Performance timing
+- Scan duration
+- Custom ignore directories
+- Professional CLI output
+- Friendly error handling
+
+---
+
+## Example
+
+```bash
+quicklyzer scan
+```
+
+---
+
+## Requirements
+
+- Node.js 20+
+- npm
+
+---
+
+## License
+
+MIT
+
+---
+
+Made with ❤️ by **Sabtain Ali**
