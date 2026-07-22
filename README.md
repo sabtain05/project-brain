@@ -1,4 +1,4 @@
-# 🚀 Quicklyzer
+# Quicklyzer
 
 Quicklyzer is an intelligent CLI that analyzes software projects in seconds.
 
