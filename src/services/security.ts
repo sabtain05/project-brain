@@ -70,7 +70,7 @@ export function analyzeSecurity(projectPath: string): SecurityAnalysis{
     scanDirectory(projectPath, files);
     const envFiles: string[] = [];
     const dangerousFiles: string[] = [];
-    const screts: string[] = [];
+    const secrets: string[] = [];
 
     for (const file of files) {
         const nmae = files.split(/[\\/]/).pop()!;
@@ -84,6 +84,12 @@ export function analyzeSecurity(projectPath: string): SecurityAnalysis{
         try{
             const content = readFileSync(file, "utf8");
             detectSecrets.push(...detectSecrets(content));
-        }
+        }catch{}
     }
+
+    return{
+        envFiles,
+        dangerousFiles,
+        secrets
+    };
 }
