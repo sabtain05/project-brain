@@ -68,4 +68,6 @@ function detectSecrets(content: string){
 export function analyzeSecurity(projectPath: string): SecurityAnalysis{
     const files: string[] = [];
     scanDirectory(projectPath, files);
+    const envFiles: string[] = [];
+    
 }
