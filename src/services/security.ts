@@ -21,5 +21,5 @@ const ENV_FILES = [
 const DANGEROUS_FILES = [
     "id_rsa",
     "id_dsa",
-    
+    ".npmrc",
 ]
