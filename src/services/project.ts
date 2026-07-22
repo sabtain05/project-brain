@@ -535,6 +535,7 @@ export function analyzeProject(
     dependencyAnalysis: dependencyAnalysis,
     documentation: documentation,
     gitAnalysis,
+    security,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,
