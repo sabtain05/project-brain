@@ -145,6 +145,11 @@ dependencyAnalysis: {
     licenseType: string;
   };
   gitAnalysis:GitAnalysis;
+  security: {
+    envFiles: string[];
+    dangerousFiles: string[];
+    secrets: string[];
+  };
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
