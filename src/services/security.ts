@@ -78,6 +78,7 @@ export function analyzeSecurity(projectPath: string): SecurityAnalysis{
         if (ENV_FILES.includes(name))
             envFiles.push(file);
 
-        if ()
+        if (DANGEROUS_FILES.includes(name))
+            
     }
 }
