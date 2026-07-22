@@ -373,6 +373,7 @@ export function scanCommand() {
 
 
     title("Security");
+    console.log(`Environment Files  : ${project.security.envFiles.length}`);
 
 
     title("Working Tree");
