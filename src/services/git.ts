@@ -189,10 +189,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         projectPath
     );
 
-    const gitignore = run(
-        "git check-ignore .gitignore",
-        projectPath
-    );
+    
 
 
     const recentCommitList = commits ? commits.split("\n").map(line=>{
