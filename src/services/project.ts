@@ -15,6 +15,7 @@ import { analyzeCode } from "./code.js";
 import { analyzeDependencies } from "./dependencies.js";
 import { analyzeDocumentation } from "./documentation.js";
 import { analyzeGit, GitAnalysis } from "./git.js";
+import { analyzeSecurity } from "./security.js";
 
 
 export interface ProjectInfo {
