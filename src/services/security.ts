@@ -31,5 +31,6 @@ function scanDirectory(dir: string, result: string[]){
         if(["node_modules", "git", "dist"].includes(entry))
             continue;
         
+        const full = join (dir, entry);
     }
 }
