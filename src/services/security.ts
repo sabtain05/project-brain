@@ -16,3 +16,10 @@ const ENV_FILES = [
     ".env.production",
     ".env.test"
 ];
+
+
+const DANGEROUS_FILES = [
+    "id_rsa",
+    "id_dsa",
+    
+]
