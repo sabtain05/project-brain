@@ -24,3 +24,12 @@ const DANGEROUS_FILES = [
     ".npmrc",
     ".htpasswd"
 ];
+
+
+function scanDirectory(dir: string, result: string[]){
+    for(const entry of readdirSync(dir)){
+        if(["node_modules", "git", "dist"].includes(entry))
+            continue;
+        
+    }
+}
