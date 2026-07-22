@@ -34,5 +34,10 @@ function scanDirectory(dir: string, result: string[]){
         const full = join (dir, entry);
 
         const stats = statSync(full);
+
+        if(stats.isDirectory()){
+            scanDirectory(full, result);
+            
+        }
     }
 }
