@@ -5,4 +5,5 @@ import { join } from "path";
 export interface SecurityAnalysis {
     envFiles: string[];
     dangerousFiles: string[];
+    secrets: string[];
 }
