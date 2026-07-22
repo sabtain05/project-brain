@@ -372,6 +372,9 @@ export function scanCommand() {
     console.log(`Last Commit        : ${project.gitAnalysis.lastCommit || "None"}`);
 
 
+    title("Security");
+
+
     title("Working Tree");
     const status = project.gitAnalysis.status === "Clean" ? "Clean" : "Dirty";
     console.log(`Status             : ${status}`);
