@@ -56,6 +56,9 @@ function detectSecrets(content: string){
     ];
 
     for(const pattern of patterns){
-        
+        if(pattern.test(content))
+            findings.push(pattern.source);
     }
+
+    
 }
