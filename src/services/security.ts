@@ -37,7 +37,10 @@ function scanDirectory(dir: string, result: string[]){
 
         if(stats.isDirectory()){
             scanDirectory(full, result);
-            
+
+            continue;
         }
+
+        result.push(full);
     }
 }
