@@ -73,7 +73,7 @@ export function analyzeSecurity(projectPath: string): SecurityAnalysis{
     const secrets: string[] = [];
 
     for (const file of files) {
-        const name = files.split(/[\\/]/).pop()!;
+        const name = file.split(/[\\/]/).pop()!;
 
         if (ENV_FILES.includes(name))
             envFiles.push(file);
