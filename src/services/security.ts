@@ -60,5 +60,5 @@ function detectSecrets(content: string){
             findings.push(pattern.source);
     }
 
-    
+    return findings;
 }
