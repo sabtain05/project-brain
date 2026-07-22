@@ -374,6 +374,7 @@ export function scanCommand() {
 
     title("Security");
     console.log(`Environment Files  : ${project.security.envFiles.length}`);
+    console.log(`Dangerous Files    : ${project.}`)
 
 
     title("Working Tree");
