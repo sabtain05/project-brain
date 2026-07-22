@@ -22,4 +22,5 @@ const DANGEROUS_FILES = [
     "id_rsa",
     "id_dsa",
     ".npmrc",
+    ".htpasswd"
 ]
