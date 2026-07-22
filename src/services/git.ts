@@ -253,7 +253,7 @@ export function analyzeGit(projectPath: string): GitAnalysis{
         gitignore:{
             exists: gitignoreExists,
             rules: gitignoreRules
-        }
+        },
 
         recommendations: buildRecommendations(
             countLines(modified),
