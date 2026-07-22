@@ -65,3 +65,6 @@ function detectSecrets(content: string){
 
 
 
+export function analyzeSecurity(projectPath: string): SecurityAnalysis{
+    
+}
