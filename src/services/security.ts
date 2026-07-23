@@ -88,6 +88,9 @@ function calculateSecurityScore(
         score=0;
 
     let rating = "Excellent";
+
+    if(score<90)
+        rating = "Good";
 }
 
 
