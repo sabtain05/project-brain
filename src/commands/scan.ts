@@ -379,6 +379,7 @@ export function scanCommand() {
 
 
     title("Security Score");
+    console.log(`Score              : ${project.security.score.score}/100`);
     
 
 
