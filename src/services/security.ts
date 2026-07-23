@@ -80,6 +80,7 @@ function calculateSecurityScore(
     let score = 100;
 
     score-=envFiles*5;
+    score-=dangerousFiles*10;
 }
 
 
