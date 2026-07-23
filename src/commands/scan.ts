@@ -378,6 +378,7 @@ export function scanCommand() {
     console.log(`Possible Secrets   : ${project.security.secrets.length}`);
 
 
+    title("Security Score");
     
 
 
