@@ -11,6 +11,8 @@ export interface SecurityAnalysis {
         score: number;
         rating: string;
     };
+
+    recommendation: string;
 }
 
 
