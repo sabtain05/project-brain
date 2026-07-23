@@ -389,7 +389,7 @@ export function scanCommand() {
         console.log(`• ${file}`);
       }
     }else{
-      
+      console.log("None");
     }
 
 
