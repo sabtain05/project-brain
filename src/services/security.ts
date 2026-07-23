@@ -166,9 +166,24 @@ export function analyzeSecurity(projectPath: string): SecurityAnalysis{
         }catch{}
     }
 
+    const score = calculateSecurityScore(
+        envFiles.length,
+        dangerousFiles.length,
+        secrets.length,
+        sensitiveFiles.length
+    );
+
     return{
         envFiles,
         dangerousFiles,
-        secrets
+        secrets,
+        sensitiveFiles,
+        score,
+        recommendations: buildRecommendations({
+            envFiles: envFiles.length,
+            dangerousFiles: dangerousFiles.length,
+            secrets: secrets.length,
+            sensitiveFiles: sensitiveFiles.length
+        })
     };
 }
