@@ -383,6 +383,7 @@ export function scanCommand() {
     console.log(`Rating             : ${project.security.score.rating}`);
 
 
+    title("Sensitive Files");
     
 
 
