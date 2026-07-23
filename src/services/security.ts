@@ -106,6 +106,9 @@ function calculateSecurityScore(
 
 
 
+
+
+
 export function analyzeSecurity(projectPath: string): SecurityAnalysis{
     const files: string[] = [];
     scanDirectory(projectPath, files);
