@@ -126,6 +126,9 @@ function buildRecommendations(
 
     if(analysis.sensitiveFiles>0)
         recommendations.push("Review sensitive files before publishing.");
+
+
+    return recommendations;
 }
 
 
