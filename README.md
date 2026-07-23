@@ -262,5 +262,5 @@ MIT License
 
 ---
 
-Made with ❤️ by **Sabtain Ali**
+**A Sabtain Ali production**
 
