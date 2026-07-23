@@ -97,6 +97,11 @@ function calculateSecurityScore(
 
     if(score<50)
         rating = "Poor";
+
+    return{
+        score,
+        rating
+    };
 }
 
 
