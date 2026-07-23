@@ -150,6 +150,16 @@ export function analyzeSecurity(projectPath: string): SecurityAnalysis{
         if (DANGEROUS_FILES.includes(name))
             dangerousFiles.push(file);
 
+        if([
+            ".env",
+            ".env.local",
+            ".npmrc",
+            "id_rsa",
+            "id_dsa"
+        ].includes(name)){
+            sensitiveFiles.push(file);
+        }
+
         try{
             const content = readFileSync(file, "utf8");
             secrets.push(...detectSecrets(content));
