@@ -114,6 +114,11 @@ function buildRecommendations(
     }
 ){
     const recommendations: string[] = [];
+
+    if(analysis.envFiles>0)
+        recommendations.push("Ensure environment files are excluded from version control.");
+
+    
 }
 
 
