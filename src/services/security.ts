@@ -92,7 +92,8 @@ function calculateSecurityScore(
     if(score<90)
         rating = "Good";
 
-    
+    if(score<75)
+        rating = "Fair";
 }
 
 
