@@ -122,7 +122,7 @@ function buildRecommendations(
         recommendations.push("Remove sensitive credential files from the project.");
 
     if(analysis.secrets>0)
-        
+        recommendations.push("Rotate exposed secrets immediately.");
 }
 
 
