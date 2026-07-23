@@ -380,7 +380,7 @@ export function scanCommand() {
 
     title("Security Score");
     console.log(`Score              : ${project.security.score.score}/100`);
-    
+    console.log(`Rating             : ${project.security.score.rating}`);
 
 
     title("Working Tree");
