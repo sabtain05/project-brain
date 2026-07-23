@@ -398,6 +398,8 @@ export function scanCommand() {
       for(const recommendation of project.security.recommendations){
         console.log(`• ${recommendation}`);
       }
+    }else{
+      console.log("No security recommendations.");
     }
 
 
