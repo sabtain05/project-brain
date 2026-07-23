@@ -109,6 +109,7 @@ function buildRecommendations(
     analysis:{
         envFiles: number;
         dangerousFiles: number;
+        secrets: number;
     }
 )
 
