@@ -405,7 +405,7 @@ export function scanCommand() {
 
     title("Security Health");
     console.log(`Environment Files  : ${project.security.envFiles.length}`);
-    console.log(`Sensitive Files    : ${project.security.sensitveFiles.length}`);
+    console.log(`Sensitive Files    : ${project.security.sensitiveFiles.length}`);
     console.log(`Secrets Found      : ${project.security.secrets.length}`);
     console.log(`Health Score       : ${project.security.score.score}/100`);
     console.log(`Rating             : ${project.security.score.rating}`);
