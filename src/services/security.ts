@@ -123,6 +123,9 @@ function buildRecommendations(
 
     if(analysis.secrets>0)
         recommendations.push("Rotate exposed secrets immediately.");
+
+    if(analysis.sensitiveFiles>0)
+        
 }
 
 
