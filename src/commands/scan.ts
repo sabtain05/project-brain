@@ -403,6 +403,8 @@ export function scanCommand() {
     }
 
 
+    title("Security Health");
+    console.log(`Environment Files  : ${project.security.envFiles.length}`);
     
 
 
