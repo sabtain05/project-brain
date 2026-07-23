@@ -119,7 +119,7 @@ function buildRecommendations(
         recommendations.push("Ensure environment files are excluded from version control.");
 
     if(analysis.dangerousFiles>0)
-        
+        recommendations.push("Remove sensitive credential files fron=m the project.");
 }
 
 
