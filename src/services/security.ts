@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, readFileSync, statSync } from "fs";
+import { readdirSync, readFileSync, statSync } from "fs";
 import { join } from "path";
 
 
@@ -12,7 +12,7 @@ export interface SecurityAnalysis {
         rating: string;
     };
 
-    recommendations: string;
+    recommendations: string[];
 }
 
 
