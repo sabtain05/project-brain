@@ -149,6 +149,12 @@ dependencyAnalysis: {
     envFiles: string[];
     dangerousFiles: string[];
     secrets: string[];
+    sensitiveFiles: string[];
+    score: {
+      score: number;
+      rating: string;
+    };
+    recommendations: string[];
   };
   scripts: string[];
   nodeVersion: string;
