@@ -1,18 +1,20 @@
-# Quicklyzer
+# 🚀 Quicklyzer
 
 Quicklyzer is an intelligent CLI that analyzes software projects in seconds.
 
-It scans your project structure, dependencies, Git repository, documentation, source code, configuration files, package health, and much more to provide actionable insights.
+It inspects your project's architecture, dependencies, documentation, Git repository, source code, exports professional reports, and performs security analysis to help developers better understand and maintain their projects.
 
 ---
 
-## Installation
+# Installation
+
+## Global
 
 ```bash
 npm install -g quicklyzer
 ```
 
-or
+## Using npx
 
 ```bash
 npx quicklyzer scan
@@ -20,27 +22,27 @@ npx quicklyzer scan
 
 ---
 
-## Commands
+# Commands
 
-### Analyze Current Project
+## Scan Project
 
 ```bash
 quicklyzer scan
 ```
 
-### Verbose Output
+## Verbose Mode
 
 ```bash
 quicklyzer scan --verbose
 ```
 
-### Quiet Mode
+## Quiet Mode
 
 ```bash
 quicklyzer scan --quiet
 ```
 
-### Ignore Directories
+## Ignore Directories
 
 ```bash
 quicklyzer scan --ignore dist
@@ -54,7 +56,7 @@ quicklyzer scan --ignore coverage
 quicklyzer scan --ignore uploads
 ```
 
-Multiple directories:
+Multiple ignores:
 
 ```bash
 quicklyzer scan --ignore dist --ignore coverage
@@ -62,7 +64,7 @@ quicklyzer scan --ignore dist --ignore coverage
 
 ---
 
-### Export Reports
+## Export Reports
 
 JSON
 
@@ -88,7 +90,7 @@ Export all formats
 quicklyzer export --all
 ```
 
-Custom output
+Custom directory
 
 ```bash
 quicklyzer export --all --output reports
@@ -112,9 +114,9 @@ quicklyzer export --all --output reports --name project-report
 - Build tool detection
 - Build tool version detection
 - Programming language detection
-- Node.js version detection
 - Technology stack detection
 - Entry point detection
+- Node.js requirement detection
 - Configuration file detection
 
 ---
@@ -133,80 +135,91 @@ quicklyzer export --all --output reports --name project-report
 
 - Production dependencies
 - Development dependencies
-- Installed packages
-- Installed package size
+- Dependency statistics
+- Installed package count
 - Largest packages
-- Unused dependency detection
-- Missing dependency detection
-- Duplicate version detection
-- Dependency risk score
-- Package manager insights
+- Dependency health insights
+- Package manager detection
 
 ---
 
 ## Code Intelligence
 
+- Project statistics
 - Source file analysis
-- Extension statistics
+- Lines of code
 - Largest files
 - Largest directories
-- Empty source files
 - Hidden files
+- Empty directories
+- Project size
 - TODO detection
 - FIXME detection
-- HACK detection
 - NOTE detection
-- Duplicate filenames
-- Recent file activity
+- HACK detection
 
 ---
 
 ## Documentation Intelligence
 
 - README detection
+- README section analysis
+- README statistics
+- Badge detection
+- External link detection
 - CHANGELOG detection
 - CONTRIBUTING detection
 - CODE_OF_CONDUCT detection
 - SECURITY detection
 - LICENSE detection
-- README section analysis
-- README statistics
-- Badge detection
-- Link detection
 - License type detection
-- Documentation health score
+- Documentation score
 - Documentation recommendations
+- Documentation health summary
 
 ---
 
 ## Git Intelligence
 
-- Repository detection
+- Git repository detection
 - Current branch
 - Local branch count
 - Remote repository
 - Last commit
 - Recent commits
-- Contributors
+- Top contributors
 - Recent tags
 - Modified files
 - Staged files
 - Untracked files
-- Ahead/Behind status
-- .gitignore analysis
+- Ahead / Behind status
 - Repository health score
+- .gitignore analysis
 - Git recommendations
 
 ---
 
-## Export Engine
+## Security Intelligence
+
+- Environment file detection
+- Dangerous file detection
+- Sensitive file detection
+- Secret pattern detection
+- Security score
+- Security rating
+- Security recommendations
+- Security health summary
+
+---
+
+## Report Export
 
 - JSON reports
 - Markdown reports
 - HTML reports
 - Export all formats
-- Timestamped reports
 - Custom filenames
+- Custom output directory
 - Export manifest
 
 ---
@@ -219,31 +232,35 @@ quicklyzer export --all --output reports --name project-report
 - Quiet mode
 - Performance timing
 - Scan duration
-- Custom ignore directories
-- Professional CLI output
+- Custom ignored directories
 - Friendly error handling
+- Professional CLI output
 
 ---
 
-## Example
-
-```bash
-quicklyzer scan
-```
-
----
-
-## Requirements
+# Requirements
 
 - Node.js 20+
 - npm
 
 ---
 
-## License
+# Roadmap
 
-MIT
+- Project architecture visualization
+- Dependency graph generation
+- Plugin system
+- AI-powered project insights
+- Performance profiling
+- Cloud project reports
 
 ---
 
-**A Sabtain Ali production**
+# License
+
+MIT License
+
+---
+
+Made with ❤️ by **Sabtain Ali**
+
