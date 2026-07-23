@@ -120,6 +120,9 @@ function buildRecommendations(
 
     if(analysis.dangerousFiles>0)
         recommendations.push("Remove sensitive credential files from the project.");
+
+    if(analysis.secrets>0)
+        
 }
 
 
