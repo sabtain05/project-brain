@@ -71,7 +71,16 @@ function detectSecrets(content: string){
 }
 
 
+function calculateSecurityScore(
+    envFiles: number,
+    dangerousFiles: number,
+    secrets: number,
+    sensitiveFiles: number,
+){
+    let score = 100;
 
+    score-=envFiles*5;
+}
 
 
 
