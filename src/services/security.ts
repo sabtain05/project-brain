@@ -12,7 +12,7 @@ export interface SecurityAnalysis {
         rating: string;
     };
 
-    recommendation: string;
+    recommendations: string;
 }
 
 
