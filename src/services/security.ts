@@ -108,6 +108,7 @@ function calculateSecurityScore(
 function buildRecommendations(
     analysis:{
         envFiles: number;
+        dangerousFiles: number;
     }
 )
 
