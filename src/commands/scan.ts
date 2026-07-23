@@ -405,7 +405,7 @@ export function scanCommand() {
 
     title("Security Health");
     console.log(`Environment Files  : ${project.security.envFiles.length}`);
-    
+    console.log(`Sensitive Files    : ${project.security.sensitveFiles.length}`);
 
 
     title("Working Tree");
