@@ -393,6 +393,9 @@ export function scanCommand() {
     }
 
 
+    title("Security Recommendations");
+
+
     title("Working Tree");
     const status = project.gitAnalysis.status === "Clean" ? "Clean" : "Dirty";
     console.log(`Status             : ${status}`);
