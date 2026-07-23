@@ -86,6 +86,8 @@ function calculateSecurityScore(
 
     if(score<0)
         score=0;
+
+    let rating = "Excellent";
 }
 
 
