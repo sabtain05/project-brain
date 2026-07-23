@@ -125,7 +125,7 @@ function buildRecommendations(
         recommendations.push("Rotate exposed secrets immediately.");
 
     if(analysis.sensitiveFiles>0)
-        
+        recommendations.push("Review sensitive files before publishing.");
 }
 
 
