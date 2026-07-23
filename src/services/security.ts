@@ -82,7 +82,10 @@ function calculateSecurityScore(
     score-=envFiles*5;
     score-=dangerousFiles*10;
     score-=secrets*20;
-    
+    score-=sensitiveFiles*10;
+
+    if(score<0)
+        score=0;
 }
 
 
