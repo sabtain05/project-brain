@@ -384,7 +384,13 @@ export function scanCommand() {
 
 
     title("Sensitive Files");
-    
+    if(project.security.sensitiveFiles.length){
+      for(const file of project.security.sensitiveFiles){
+        console.log(`• ${file}`);
+      }
+    }else{
+      
+    }
 
 
     title("Working Tree");
