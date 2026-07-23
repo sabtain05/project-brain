@@ -6,6 +6,11 @@ export interface SecurityAnalysis {
     envFiles: string[];
     dangerousFiles: string[];
     secrets: string[];
+    sensitiveFiles: string[];
+    score: {
+        score: number;
+        rating: string;
+    };
 }
 
 
