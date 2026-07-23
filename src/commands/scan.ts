@@ -408,6 +408,7 @@ export function scanCommand() {
     console.log(`Sensitive Files    : ${project.security.sensitveFiles.length}`);
     console.log(`Secrets Found      : ${project.security.secrets.length}`);
     console.log(`Health Score       : ${project.security.score.score}/100`);
+    console.log(`Rating             : ${project.security.score.rating}`);
 
 
     title("Working Tree");
