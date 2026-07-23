@@ -110,6 +110,7 @@ function buildRecommendations(
         envFiles: number;
         dangerousFiles: number;
         secrets: number;
+        sensitiveFiles: number;
     }
 )
 
