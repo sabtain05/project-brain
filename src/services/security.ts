@@ -118,7 +118,8 @@ function buildRecommendations(
     if(analysis.envFiles>0)
         recommendations.push("Ensure environment files are excluded from version control.");
 
-    
+    if(analysis.dangerousFiles>0)
+        
 }
 
 
