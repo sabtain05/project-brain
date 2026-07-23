@@ -394,6 +394,11 @@ export function scanCommand() {
 
 
     title("Security Recommendations");
+    if(project.security.recommendations.length){
+      for(const recommendation of project.security.recommendations){
+        console.log(`• ${recommendation}`);
+      }
+    }
 
 
     title("Working Tree");
