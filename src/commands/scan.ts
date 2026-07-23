@@ -378,6 +378,9 @@ export function scanCommand() {
     console.log(`Possible Secrets   : ${project.security.secrets.length}`);
 
 
+    
+
+
     title("Working Tree");
     const status = project.gitAnalysis.status === "Clean" ? "Clean" : "Dirty";
     console.log(`Status             : ${status}`);
