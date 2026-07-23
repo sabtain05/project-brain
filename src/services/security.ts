@@ -112,7 +112,9 @@ function buildRecommendations(
         secrets: number;
         sensitiveFiles: number;
     }
-)
+){
+    const recommendations: string[] = [];
+}
 
 
 
