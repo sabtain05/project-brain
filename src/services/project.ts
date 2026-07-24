@@ -160,7 +160,7 @@ dependencyAnalysis: {
   architecture:{
     modules:{
       file: string;
-      import: string[];
+      imports: string[];
     }[];
     totalModules: number;
     totalImports: number;
