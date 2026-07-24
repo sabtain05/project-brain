@@ -54,3 +54,9 @@ function extractImports(content: string){
 
     return imports;
 }
+
+
+
+export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
+    
+}
