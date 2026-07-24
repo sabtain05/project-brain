@@ -72,6 +72,9 @@ export function scanCommand() {
       project.projectTree.files.forEach(file => console.log(`📄 ${file}`));
     }
 
+
+    
+
     // ============================================================
     // Configuration Files
     // ============================================================
