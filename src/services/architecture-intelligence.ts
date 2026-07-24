@@ -91,7 +91,7 @@ function detectLayers(modules: ModuleInfo[]){
 function countCircularDependencies(modules: ModuleInfo[]){
     let count = 0;
     for(const module of modules){
-        for(const imported of module.import){
+        for(const imported of module.imports){
             const target = modules.find(m=>m.file.includes(imported));
         }
     }
@@ -112,7 +112,7 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
 
         modules.push({
             file,
-            import: imports
+         imports
         });
     }
 
