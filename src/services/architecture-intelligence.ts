@@ -35,7 +35,9 @@ export interface ArchitectureAnalysis {
         import: number;
     }[];
 
-    
+    layerSummary:{
+        name: string;
+    }
 }
 
 
