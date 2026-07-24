@@ -120,7 +120,11 @@ function detectDeadModules(modules: ModuleInfo[]){
 
 function estimateDepth(modules:ModuleInfo[]){
     let depth = 0;
-    
+    for(const module of modules){
+        if(module.imports.length>depth){
+            
+        }
+    }
 }
 
 
