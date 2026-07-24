@@ -161,7 +161,10 @@ function buildImportHotspots(
 
     .sort((a,b)=>b.imports.length-a.imports.length)
     .slice(0,5)
-    
+    .map(module=>({
+        file: module.file,
+        imports: module.imports.length
+    }));
 }
 
 
