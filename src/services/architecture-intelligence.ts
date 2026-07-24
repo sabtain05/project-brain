@@ -29,6 +29,8 @@ export interface ArchitectureAnalysis {
         score: number;
         rating: string;
     };
+
+    
 }
 
 
