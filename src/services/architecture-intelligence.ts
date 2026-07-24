@@ -1,4 +1,5 @@
 import { readdirSync, readFileSync, statSync } from "fs";
+import Module from "module";
 import { join, extname } from "path"; 
 
 
@@ -104,6 +105,11 @@ function countCircularDependencies(modules: ModuleInfo[]){
     }
 
     return count;
+}
+
+
+function detectPublicModules(modules: ModuleInfo[]){
+    
 }
 
 
