@@ -148,6 +148,9 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
         });
     }
 
+    const circularDependencies= countCircularDependencies(modules);
+    
+
     return{
         modules,
         totalModules: modules.length,
