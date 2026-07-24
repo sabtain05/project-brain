@@ -90,8 +90,8 @@ export function scanCommand() {
 
 
     title("Import Hotspots");
-    for(const layer of project.architecture.layerSummary){
-      console.log
+    for(const hotspot of project.architecture.importHotspots){
+      console.log(``)
     }
 
 
