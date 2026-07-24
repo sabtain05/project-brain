@@ -96,7 +96,9 @@ export function scanCommand() {
 
 
     title("Layer Summary");
-    
+    for(const layer of project.architecture.layerSummary){
+      console.log(`${layer.name} (${layer.modules} modules)`);
+    }
 
 
 
