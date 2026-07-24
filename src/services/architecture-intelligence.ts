@@ -169,6 +169,9 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
 
     let rating = "Excellent";
 
+    if(architectureScore<90)
+        rating = "Good";
+
     
 
     return{
