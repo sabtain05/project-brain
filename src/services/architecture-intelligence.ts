@@ -167,6 +167,8 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
         architectureScore=0;
     }
 
+    let rating = "Excellent";
+
     
 
     return{
