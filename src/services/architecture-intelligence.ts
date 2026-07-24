@@ -163,6 +163,11 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
     architectureScore-=circularDependencies*10;
     architectureScore-=deadModules*2;
     
+    if(architectureScore<0){
+        architectureScore=0;
+    }
+
+    
 
     return{
         modules,
