@@ -178,11 +178,20 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
     if(architectureScore<60)
         rating = "Poor";
 
-    
+
 
     return{
         modules,
         totalModules: modules.length,
-        totalImports
+        totalImports,
+        circularDependencies,
+        dependencyDepth,
+        publicModules,
+        deadModules,
+        layers,
+        score:{
+            score: architectureScore,
+            rating
+        }
     };
 }
