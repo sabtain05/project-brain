@@ -172,7 +172,8 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
     if(architectureScore<90)
         rating = "Good";
 
-    
+    if(architectureScore<75)
+        rating = "Fair";
 
     return{
         modules,
