@@ -71,7 +71,7 @@ function extractImports(content: string){
 }
 
 
-
+function detectLayers(modules: ModuleInfo[]){}
 
 
 export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
