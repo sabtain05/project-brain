@@ -95,6 +95,10 @@ export function scanCommand() {
     }
 
 
+    title("Layer Summary");
+    
+
+
 
 
     // ============================================================
