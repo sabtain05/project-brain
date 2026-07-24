@@ -35,5 +35,9 @@ function walk(
             walk(full,files);
             continue;
         }
+
+        if(extname(full)===".ts"){
+            files.push(full);
+        }
     }
 }
