@@ -28,6 +28,7 @@ function walk(
             "dist"
         ].includes(entry))continue;
 
+        const full = join(dir,entry);
         
     }
 }
