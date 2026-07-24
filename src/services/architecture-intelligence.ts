@@ -158,6 +158,10 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
 
     const layers = detectLayers(modules);
 
+
+    let architectureScore = 100;
+    
+
     return{
         modules,
         totalModules: modules.length,
