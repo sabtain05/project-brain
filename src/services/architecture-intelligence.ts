@@ -160,6 +160,7 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
 
 
     let architectureScore = 100;
+    architectureScore-=circularDependencies*10;
     
 
     return{
