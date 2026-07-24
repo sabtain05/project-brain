@@ -141,7 +141,17 @@ function estimateDepth(modules:ModuleInfo[]){
 }
 
 
+function buildLayerSummary(modules: ModuleInfo[]){
+    const map = new Map<string,number>();
+    for(const module of modules){
+        const normalized = module.file.replace(/\\/g,"/");
+        const layer = normalized.split("/").at(-2) ?? "root";
 
+        map.set(layer,(map.get(layer) ?? 0)+1);
+    }
+
+    return [...map.entries()].map(([name,modules])=>({name, modules})).sort((a,b)=>b.modules-a.modules);
+}
 
 
 
