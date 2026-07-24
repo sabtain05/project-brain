@@ -17,3 +17,9 @@ export interface ArchitectureAnalysis {
 }
 
 
+function walk(
+    dir: string,
+    files: string[]
+){
+    
+}
