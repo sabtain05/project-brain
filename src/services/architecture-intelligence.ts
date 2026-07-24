@@ -80,7 +80,7 @@ function detectLayers(modules: ModuleInfo[]){
         const parts = normalized.split("/");
 
         if(parts.length>=2){
-            
+            layers.add(parts[parts.length-2]);
         }
     }
 }
