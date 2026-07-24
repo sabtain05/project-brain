@@ -90,6 +90,9 @@ export function scanCommand() {
 
 
     title("Import Hotspots");
+    for(const layer of project.architecture.layerSummary){
+      console.log
+    }
 
 
 
