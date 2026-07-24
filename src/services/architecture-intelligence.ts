@@ -65,6 +65,7 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
 
     let totalImports = 0;
     for(const file of files){
+        const imports =  extractImports(readFileSync(file,"utf8"));
         
     }
 }
