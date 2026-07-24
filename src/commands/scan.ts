@@ -75,6 +75,7 @@ export function scanCommand() {
 
     title("Architecture");
     console.log(`Modules           : ${project.architecture.totalModules}`);
+    
 
     // ============================================================
     // Configuration Files
