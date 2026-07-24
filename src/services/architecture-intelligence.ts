@@ -29,6 +29,11 @@ function walk(
         ].includes(entry))continue;
 
         const full = join(dir,entry);
-        
+        const stats = statSync(full);
+
+        if(stats.isDirectory()){
+            walk(full,files);
+            continue;
+        }
     }
 }
