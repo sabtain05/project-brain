@@ -164,6 +164,11 @@ dependencyAnalysis: {
     }[];
     totalModules: number;
     totalImports: number;
+    circularDependencies: number;
+    dependencyDepth: number;
+    publicModules: number;
+    deadModules: number;
+    
   };
   scripts: string[];
   nodeVersion: string;
