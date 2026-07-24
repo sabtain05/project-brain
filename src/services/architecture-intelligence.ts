@@ -6,3 +6,8 @@ export interface ModuleInfo {
     file: string;
     import: string[];
 }
+
+
+export interface ArchitectureAnalysis {
+    modules: ModuleInfo[];
+}
