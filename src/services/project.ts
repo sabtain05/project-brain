@@ -555,6 +555,7 @@ export function analyzeProject(
       ...security,
       recommendations: security.recommendations ?? []
     },
+    architecture,
     scripts: scripts,
     nodeVersion: nodeVersion,
     docker: docker,
