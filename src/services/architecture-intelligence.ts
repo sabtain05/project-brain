@@ -175,6 +175,11 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
     if(architectureScore<75)
         rating = "Fair";
 
+    if(architectureScore<60)
+        rating = "Poor";
+
+    
+
     return{
         modules,
         totalModules: modules.length,
