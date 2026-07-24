@@ -102,6 +102,8 @@ function countCircularDependencies(modules: ModuleInfo[]){
             }
         }
     }
+
+    return count;
 }
 
 
