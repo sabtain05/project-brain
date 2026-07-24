@@ -188,6 +188,8 @@ function buildRecommendations(
             "Architecture looks healthy."
         );
     }
+
+    return recommendations;
 }
 
 
