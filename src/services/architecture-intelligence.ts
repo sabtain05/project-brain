@@ -109,7 +109,7 @@ function countCircularDependencies(modules: ModuleInfo[]){
 
 
 function detectPublicModules(modules: ModuleInfo[]){
-    
+    return modules.filter(m=>m.file.endsWith("index.ts")).length;
 }
 
 
