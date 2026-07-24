@@ -14,6 +14,8 @@ export interface ArchitectureAnalysis {
     totalModules: number;
 
     totalImports: number;
+
+    circularDependencies: number;
 }
 
 
