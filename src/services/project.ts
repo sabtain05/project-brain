@@ -181,7 +181,7 @@ dependencyAnalysis: {
       file: string;
       imports: string;
     }[];
-    
+    recommendations: string[];
   };
   scripts: string[];
   nodeVersion: string;
