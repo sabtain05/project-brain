@@ -4,7 +4,7 @@ import { join, extname } from "path";
 
 export interface ModuleInfo {
     file: string;
-    import: string[];
+    imports: string[];
 }
 
 
@@ -91,7 +91,7 @@ function detectLayers(modules: ModuleInfo[]){
 function countCircularDependencies(modules: ModuleInfo[]){
     let count = 0;
     for(const module of modules){
-        for(const imported of module.imports){
+        for(const imported of module.import){
             const target = modules.find(m=>m.file.includes(imported));
         }
     }
