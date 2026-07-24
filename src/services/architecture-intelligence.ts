@@ -71,7 +71,13 @@ function extractImports(content: string){
 }
 
 
-function detectLayers(modules: ModuleInfo[]){}
+function detectLayers(modules: ModuleInfo[]){
+    const layers = new Set<string>();
+
+    for(const module of modules){
+        const normalized = module.file.replace(/\\/g,"/");
+    }
+}
 
 
 export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
