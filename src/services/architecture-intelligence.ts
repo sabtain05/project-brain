@@ -227,6 +227,8 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
 
     const importHotspots = buildImportHotspots(modules);
 
+    const layerSummary = buildLayerSummary(modules);
+
 
     let architectureScore = 100;
     architectureScore-=circularDependencies*10;
