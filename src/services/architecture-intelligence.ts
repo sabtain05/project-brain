@@ -69,8 +69,8 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
         totalImports+=imports.length;
 
         modules.push({
-            files,
-            imports
+            file,
+            import: imports
         });
     }
 }
