@@ -16,7 +16,7 @@ import { analyzeDependencies } from "./dependencies.js";
 import { analyzeDocumentation } from "./documentation.js";
 import { analyzeGit, GitAnalysis } from "./git.js";
 import { analyzeSecurity } from "./security.js";
-import { analyzeArchitecture } from "./architecture-intelligence.js";
+import { analyzeArchitecture, ArchitectureAnalysis } from "./architecture-intelligence.js";
 
 
 export interface ProjectInfo {
@@ -157,32 +157,8 @@ dependencyAnalysis: {
     };
     recommendations: string[];
   };
-  architecture:{
-    modules:{
-      file: string;
-      imports: string[];
-    }[];
-    totalModules: number;
-    totalImports: number;
-    circularDependencies: number;
-    dependencyDepth: number;
-    publicModules: number;
-    deadModules: number;
-    layers: string[];
-    score:{
-      score: number;
-      rating: string;
-    }[];
-    layerSummary: {
-      name: string;
-      modules: number;
-    }[];
-    importHotspots: {
-      file: string;
-      imports: string;
-    }[];
-    recommendations: string[];
-  };
+  architecture: ArchitectureAnalysis;
+
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
