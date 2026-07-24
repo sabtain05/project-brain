@@ -1,5 +1,4 @@
 import { readdirSync, readFileSync, statSync } from "fs";
-import Module from "module";
 import { join, extname } from "path"; 
 
 
