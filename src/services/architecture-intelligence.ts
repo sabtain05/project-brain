@@ -93,6 +93,11 @@ function countCircularDependencies(modules: ModuleInfo[]){
     for(const module of modules){
         for(const imported of module.imports){
             const target = modules.find(m=>m.file.includes(imported));
+
+            if(!target)
+                continue;
+
+            
         }
     }
 }
