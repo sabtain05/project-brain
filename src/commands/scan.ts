@@ -74,7 +74,7 @@ export function scanCommand() {
 
 
     title("Architecture");
-    console.log(`Modules           : ${project.architecture.totalModules}`);
+    console.log(`Modules                  : ${project.architecture.totalModules}`);
     console.log(`Imports                  : ${project.architecture.totalImports}`);
     console.log(`layers                   : ${project.architecture.layers.length}`);
     console.log(`Dependency Depth         : ${project.architecture.dependencyDepth}`);
