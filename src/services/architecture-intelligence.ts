@@ -90,7 +90,9 @@ function detectLayers(modules: ModuleInfo[]){
 
 function countCircularDependencies(modules: ModuleInfo[]){
     let count = 0;
-    
+    for(const module of modules){
+        
+    }
 }
 
 
