@@ -85,6 +85,7 @@ export function scanCommand() {
 
 
     title("Architecture Score");
+    console.log(`Score                    : ${project.architecture.score.score}/100`);
     
 
 
