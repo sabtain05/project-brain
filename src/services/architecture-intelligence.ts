@@ -152,6 +152,8 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
 
     const dependencyDepth = estimateDepth(modules);
 
+    const publicModules = detectPublicModules(modules);
+
     return{
         modules,
         totalModules: modules.length,
