@@ -32,7 +32,7 @@ export interface ArchitectureAnalysis {
 
     importHotspots:{
         file: string;
-        import: number;
+        imports: number;
     }[];
 
     layerSummary:{
