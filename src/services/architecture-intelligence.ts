@@ -83,6 +83,8 @@ function detectLayers(modules: ModuleInfo[]){
             layers.add(parts[parts.length-2]);
         }
     }
+
+    return [...layers];
 }
 
 
