@@ -18,6 +18,10 @@ export interface ArchitectureAnalysis {
     circularDependencies: number;
 
     dependencyDepth: number;
+
+    publicModules: number;
+
+    
 }
 
 
