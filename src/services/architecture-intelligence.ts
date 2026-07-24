@@ -30,7 +30,7 @@ export interface ArchitectureAnalysis {
         rating: string;
     };
 
-    importHotspot:{
+    importHotspots:{
         file: string;
         import: number;
     }[];
@@ -265,6 +265,6 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
         score:{
             score: architectureScore,
             rating
-        }
+        },
     };
 }
