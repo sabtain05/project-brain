@@ -33,7 +33,9 @@ export interface ArchitectureAnalysis {
     importHotspot:{
         file: string;
         import: number;
-    }
+    }[];
+
+    
 }
 
 
