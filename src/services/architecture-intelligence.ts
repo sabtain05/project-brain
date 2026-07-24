@@ -73,4 +73,10 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
             import: imports
         });
     }
+
+    return{
+        modules,
+        totalModules: modules.length,
+        totalImports
+    };
 }
