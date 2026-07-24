@@ -266,5 +266,8 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
             score: architectureScore,
             rating
         },
+        importHotspots,
+        layerSummary,
+        recommendations
     };
 }
