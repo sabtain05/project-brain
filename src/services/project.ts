@@ -168,7 +168,7 @@ dependencyAnalysis: {
     dependencyDepth: number;
     publicModules: number;
     deadModules: number;
-    layers: number;
+    layers: string[];
     score:{
       score: number;
       rating: string;
