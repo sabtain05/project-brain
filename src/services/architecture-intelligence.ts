@@ -28,6 +28,6 @@ function walk(
             "dist"
         ].includes(entry))continue;
 
-
+        
     }
 }
