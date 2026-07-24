@@ -76,6 +76,8 @@ function detectLayers(modules: ModuleInfo[]){
 
     for(const module of modules){
         const normalized = module.file.replace(/\\/g,"/");
+
+        const parts = normalized.split("/");
     }
 }
 
