@@ -41,3 +41,8 @@ function walk(
         }
     }
 }
+
+
+function extractImports(content: string){
+    
+}
