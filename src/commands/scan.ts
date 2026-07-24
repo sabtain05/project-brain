@@ -101,6 +101,9 @@ export function scanCommand() {
     }
 
 
+    title("Architecture Recommendations");
+
+
 
 
     // ============================================================
