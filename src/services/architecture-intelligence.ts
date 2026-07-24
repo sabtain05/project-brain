@@ -97,7 +97,9 @@ function countCircularDependencies(modules: ModuleInfo[]){
             if(!target)
                 continue;
 
-            
+            if(target.imports.some(i=>module.file.includes(i))){
+                count++;
+            }
         }
     }
 }
