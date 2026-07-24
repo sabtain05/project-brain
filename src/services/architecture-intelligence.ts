@@ -24,6 +24,10 @@ export interface ArchitectureAnalysis {
     deadModules: number;
 
     layers: string[];
+
+    score:{
+        score: number;
+    }
 }
 
 
