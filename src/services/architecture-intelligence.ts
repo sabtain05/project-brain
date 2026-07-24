@@ -30,7 +30,10 @@ export interface ArchitectureAnalysis {
         rating: string;
     };
 
-    
+    importHotspot:{
+        file: string;
+        import: number;
+    }
 }
 
 
