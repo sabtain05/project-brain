@@ -178,6 +178,10 @@ function buildRecommendations(
     if(circular>0){
         recommendations.push("Remove unused modules.");
     }
+
+    if(depth>10){
+        recommendations.push("Reduce dependency depth.");
+    }
 }
 
 
