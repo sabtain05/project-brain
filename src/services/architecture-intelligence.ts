@@ -22,6 +22,8 @@ export interface ArchitectureAnalysis {
     publicModules: number;
 
     deadModules: number;
+
+    layers: string[];
 }
 
 
