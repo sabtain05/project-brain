@@ -154,7 +154,13 @@ function buildLayerSummary(modules: ModuleInfo[]){
 }
 
 
+function buildImportHotspots(
+    modules: ModuleInfo[]
+){
+    return [...modules]
 
+    
+}
 
 
 
