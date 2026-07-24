@@ -49,6 +49,8 @@ function extractImports(content: string){
 
     let match;
     while((match=regex.exec(content))){
-        
+        imports.push(match[1]);
     }
+
+    return imports;
 }
