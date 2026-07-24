@@ -77,6 +77,8 @@ export function scanCommand() {
     console.log(`Modules           : ${project.architecture.totalModules}`);
     console.log(`Imports           : ${project.architecture.totalImports}`);
 
+    
+
     // ============================================================
     // Configuration Files
     // ============================================================
