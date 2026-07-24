@@ -44,5 +44,6 @@ function walk(
 
 
 function extractImports(content: string){
+    const imports: string[] = [];
     
 }
