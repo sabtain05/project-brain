@@ -79,6 +79,8 @@ export function scanCommand() {
     console.log(`layers            : ${project.architecture.layers.length}`);
     console.log(`Dependency Depth  : ${project.architecture.dependencyDepth}`);
     console.log(`Public Modules    : ${project.architecture.publicModules}`);
+    console.log(`Dead Modules      : ${project.architecture.deadModules}`);
+    
 
 
 
