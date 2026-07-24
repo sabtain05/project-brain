@@ -169,8 +169,12 @@ function buildImportHotspots(
 
 
 function buildRecommendations(
+    circular : number,
+    dead : number,
+    depth: number
+){
     
-)
+}
 
 
 
