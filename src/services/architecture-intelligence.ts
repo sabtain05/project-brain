@@ -37,7 +37,10 @@ export interface ArchitectureAnalysis {
 
     layerSummary:{
         name: string;
-    }
+        modules: number;
+    }[];
+
+    recommendations: string[];
 }
 
 
