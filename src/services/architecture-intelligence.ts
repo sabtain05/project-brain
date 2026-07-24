@@ -156,6 +156,8 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
 
     const deadModules = detectDeadModules(modules);
 
+    const layers = detectLayers(modules);
+
     return{
         modules,
         totalModules: modules.length,
