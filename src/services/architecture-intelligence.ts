@@ -45,5 +45,5 @@ function walk(
 
 function extractImports(content: string){
     const imports: string[] = [];
-    
+    const regex= /imports\s+.*?from\s+["'](.+?)["']/g;
 }
