@@ -102,6 +102,9 @@ export function scanCommand() {
 
 
     title("Architecture Recommendations");
+    for(const recommendation of project.architecture.recommendations){
+      
+    }
 
 
 
