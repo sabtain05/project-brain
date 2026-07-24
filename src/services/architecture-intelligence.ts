@@ -114,7 +114,7 @@ function detectPublicModules(modules: ModuleInfo[]){
 
 
 function detectDeadModules(modules: ModuleInfo[]){
-    return modules.filter(module=> modules.imports.length===0&&!module.file.endsWith("index.ts")).length;
+    return modules.filter(module=> module.imports.length===0&&!module.file.endsWith("index.ts")).length;
 }
 
 
