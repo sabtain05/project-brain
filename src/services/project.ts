@@ -157,6 +157,12 @@ dependencyAnalysis: {
     };
     recommendations: string[];
   };
+  architecture:{
+    modules:{
+      file: string;
+      import: string[];
+    }
+  }
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
