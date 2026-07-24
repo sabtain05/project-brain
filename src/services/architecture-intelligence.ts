@@ -173,7 +173,11 @@ function buildRecommendations(
     dead : number,
     depth: number
 ){
-    
+    const recommendations : string[] = [];
+
+    if(circular>0){
+        recommendations.push()
+    }
 }
 
 
