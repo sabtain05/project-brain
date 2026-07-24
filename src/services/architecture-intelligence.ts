@@ -168,6 +168,11 @@ function buildImportHotspots(
 }
 
 
+function buildRecommendations(
+    
+)
+
+
 
 export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
     const files: string[] = [];
