@@ -26,8 +26,8 @@ function walk(
             "node_modules",
             ".git",
             "dist"
-        ].includes(entry))continues;
+        ].includes(entry))continue;
 
-        
+
     }
 }
