@@ -176,7 +176,7 @@ function buildRecommendations(
     const recommendations : string[] = [];
 
     if(circular>0){
-        recommendations.push()
+        recommendations.push("Remove unused modules.");
     }
 }
 
