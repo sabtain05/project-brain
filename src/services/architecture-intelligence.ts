@@ -119,6 +119,7 @@ function detectDeadModules(modules: ModuleInfo[]){
 
 
 function estimateDepth(modules:ModuleInfo[]){
+    let depth = 0;
     
 }
 
