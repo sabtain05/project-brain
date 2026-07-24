@@ -118,6 +118,11 @@ function detectDeadModules(modules: ModuleInfo[]){
 }
 
 
+function estimateDepth(modules:ModuleInfo[]){
+    
+}
+
+
 
 export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
     const files: string[] = [];
