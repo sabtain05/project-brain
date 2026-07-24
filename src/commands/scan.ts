@@ -91,7 +91,7 @@ export function scanCommand() {
 
     title("Import Hotspots");
     for(const hotspot of project.architecture.importHotspots){
-      console.log(``)
+      console.log(`${basename(hotspot.file)} (${hotspot.imports} imports)`);
     }
 
 
