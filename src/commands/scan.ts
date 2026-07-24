@@ -95,6 +95,10 @@ export function scanCommand() {
     }
 
 
+    title("Architecture Health");
+    
+
+
     title("Import Hotspots");
     for(const hotspot of project.architecture.importHotspots){
       console.log(`${basename(hotspot.file)} (${hotspot.imports} imports)`);
@@ -106,7 +110,7 @@ export function scanCommand() {
       console.log(`${layer.name} (${layer.modules} modules)`);
     }
 
-    
+
 
     // ============================================================
     // Configuration Files
