@@ -154,6 +154,8 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
 
     const publicModules = detectPublicModules(modules);
 
+    const deadModules = detectDeadModules(modules);
+
     return{
         modules,
         totalModules: modules.length,
