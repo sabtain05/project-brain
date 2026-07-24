@@ -182,6 +182,12 @@ function buildRecommendations(
     if(depth>10){
         recommendations.push("Reduce dependency depth.");
     }
+
+    if(recommendations.length===0){
+        recommendations.push(
+            "Architecture looks healthy."
+        );
+    }
 }
 
 
