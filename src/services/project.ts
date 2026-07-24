@@ -164,7 +164,7 @@ dependencyAnalysis: {
     }[];
     totalModules: number;
     totalImports: number;
-  }
+  };
   scripts: string[];
   nodeVersion: string;
   docker: boolean;
