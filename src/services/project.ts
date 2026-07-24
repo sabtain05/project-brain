@@ -177,6 +177,10 @@ dependencyAnalysis: {
       name: string;
       modules: number;
     }[];
+    importHotspots: {
+      file: string;
+      imports: string;
+    }[];
     
   };
   scripts: string[];
