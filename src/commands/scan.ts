@@ -103,7 +103,7 @@ export function scanCommand() {
 
     title("Architecture Recommendations");
     for(const recommendation of project.architecture.recommendations){
-      console.log(``)
+      console.log(`• ${recommendation}`);
     }
 
 
