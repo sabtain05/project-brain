@@ -64,5 +64,7 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
     const modules: ModuleInfo[] = [];
 
     let totalImports = 0;
-    
+    for(const file of files){
+        
+    }
 }
