@@ -161,7 +161,9 @@ dependencyAnalysis: {
     modules:{
       file: string;
       import: string[];
-    }
+    }[];
+    totalModules: number;
+    totalImports: number;
   }
   scripts: string[];
   nodeVersion: string;
