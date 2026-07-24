@@ -88,7 +88,9 @@ function detectLayers(modules: ModuleInfo[]){
 }
 
 
-
+function countCircularDependencies(modules: ModuleInfo[]){
+    
+}
 
 
 
