@@ -77,7 +77,7 @@ export function scanCommand() {
     console.log(`Modules           : ${project.architecture.totalModules}`);
     console.log(`Imports           : ${project.architecture.totalImports}`);
     console.log(`layers            : ${project.architecture.layers.length}`);
-    console.log(`Dependency Depth  : ${project.architecture.dependencyDepth}`);
+    console.log(`Dependency Depth         : ${project.architecture.dependencyDepth}`);
     console.log(`Public Modules           : ${project.architecture.publicModules}`);
     console.log(`Dead Modules             : ${project.architecture.deadModules}`);
     console.log(`Circular Dependencies    : ${project.architecture.circularDependencies}`);
