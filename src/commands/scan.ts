@@ -84,6 +84,11 @@ export function scanCommand() {
 
 
 
+    title("Architecture Score");
+    
+
+
+
 
     // ============================================================
     // Configuration Files
