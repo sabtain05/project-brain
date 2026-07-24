@@ -48,4 +48,7 @@ function extractImports(content: string){
     const regex= /imports\s+.*?from\s+["'](.+?)["']/g;
 
     let match;
+    while((match=regex.exec(content))){
+        
+    }
 }
