@@ -60,4 +60,7 @@ function extractImports(content: string){
 export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
     const files: string[] = [];
     walk(projectPath, files);
+
+    const modules: ModuleInfo[] = [];
+    
 }
