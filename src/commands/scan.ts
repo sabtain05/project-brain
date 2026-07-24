@@ -89,6 +89,9 @@ export function scanCommand() {
     console.log(`Rating                   : ${project.architecture.score.rating}`);
 
 
+    title("Import Hotspots");
+
+
 
 
     // ============================================================
