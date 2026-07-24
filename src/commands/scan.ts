@@ -89,6 +89,12 @@ export function scanCommand() {
     console.log(`Rating                   : ${project.architecture.score.rating}`);
 
 
+    title("Architecture Recommendations");
+    for(const recommendation of project.architecture.recommendations){
+      console.log(`• ${recommendation}`);
+    }
+
+
     title("Import Hotspots");
     for(const hotspot of project.architecture.importHotspots){
       console.log(`${basename(hotspot.file)} (${hotspot.imports} imports)`);
@@ -100,14 +106,7 @@ export function scanCommand() {
       console.log(`${layer.name} (${layer.modules} modules)`);
     }
 
-
-    title("Architecture Recommendations");
-    for(const recommendation of project.architecture.recommendations){
-      console.log(`• ${recommendation}`);
-    }
-
-
-
+    
 
     // ============================================================
     // Configuration Files
