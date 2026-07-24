@@ -12,6 +12,8 @@ export interface ArchitectureAnalysis {
     modules: ModuleInfo[];
 
     totalModules: number;
-    
+
     totalImports: number;
 }
+
+
