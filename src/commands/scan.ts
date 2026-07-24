@@ -73,6 +73,7 @@ export function scanCommand() {
     }
 
 
+    title("Architecture");
     
 
     // ============================================================
