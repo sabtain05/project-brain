@@ -229,6 +229,8 @@ export function analyzeArchitecture(projectPath: string): ArchitectureAnalysis{
 
     const layerSummary = buildLayerSummary(modules);
 
+    const recommendations = buildRecommendations(circularDependencies, deadModules, dependencyDepth);
+
 
     let architectureScore = 100;
     architectureScore-=circularDependencies*10;
